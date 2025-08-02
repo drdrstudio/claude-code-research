@@ -1,0 +1,30 @@
+timestamp,tool,query,angle,results_count,status,notes
+# Search log for Pharos Capital Group Deep-Dive Analysis
+# This file tracks all search queries, tools used, and results obtained
+# Format: timestamp,tool,query,inquiry_angle,results_count,status,notes2025-08-02 03:01,Tavily-MCP,Pharos Capital Group executives leadership founding history,Professional History,10,SUCCESS,Found company website with key founder profiles
+2025-08-02 03:02,Perplexity-MCP,Pharos Capital Group investment track record portfolio companies returns exits,Professional History,5,PARTIAL,Found different Pharos Energy company data - need to clarify healthcare vs energy focus
+2025-08-02 03:03,Tavily-MCP,pharosfunds.com healthcare private equity investment portfolio track record,Professional History,8,SUCCESS,Found detailed portfolio and investment information with track record details
+2025-08-02 03:04,Tavily-MCP,Pharos Capital Group interviews press releases media mentions,Media Presence,10,SUCCESS,Found relevant media coverage and press releases from 2024-2025
+2025-08-02 03:05,Tavily-MCP,Kneeland Youngblood Forbes BLK50 Power100 recognition interviews statements,Media Presence,8,SUCCESS,Found Wikipedia profile and Milken Institute panel participation
+2025-08-02 03:06,Tavily-MCP,Pharos Capital Group board members advisors partnerships co-investors,Network Associations,10,SUCCESS,Found detailed board membership and investment partnerships information
+2025-08-02 03:07,Reddit-MCP,Pharos Capital Group healthcare private equity,Public Sentiment,10,PARTIAL,Found general PE healthcare sentiment but no specific Pharos mentions
+2025-08-02 03:08,Reddit-MCP,pharosfunds.com Kneeland Youngblood nephrology renal care,Public Sentiment,1,CONCERNING,Found conspiracy theory post about vaccine damage from 2019
+2025-08-02 03:09,Tavily-MCP,Pharos Capital Group lawsuit litigation legal controversy SEC,Legal Issues,10,SUCCESS,Found mention in fraud search results and recent acquisition activity but no major controversies
+2025-08-02 03:10,Perplexity-MCP,Pharos Capital Group Kneeland Youngblood SEC filing regulatory issues complaints fraud,Legal Issues,5,SUCCESS,No SEC regulatory issues or fraud allegations found - clean regulatory record
+2025-08-02 03:11,Firecrawl-MCP,https://www.pharosfunds.com/,Content Extraction,1,SUCCESS,Primary company homepage - founding details and mission
+2025-08-02 03:12,Firecrawl-MCP,https://www.pharosfunds.com/kneeland-youngblood.php,Content Extraction,1,SUCCESS,CEO profile - government roles and board positions
+2025-08-02 03:13,Firecrawl-MCP,https://www.pharosfunds.com/bob-crants.php,Content Extraction,1,SUCCESS,CIO profile - Goldman Sachs background and experience
+2025-08-02 03:13,Firecrawl-MCP,https://www.pharosfunds.com/our-team.php,Content Extraction,1,SUCCESS,Complete team structure - 16 professionals total
+2025-08-02 03:14,Firecrawl-MCP,https://www.pharosfunds.com/portfolio.php,Content Extraction,1,SUCCESS,Portfolio companies - 9 current healthcare investments
+2025-08-02 03:14,Firecrawl-MCP,https://www.pharosfunds.com/philosophy.php,Content Extraction,1,SUCCESS,Investment philosophy - underserved markets focus
+2025-08-02 03:15,Firecrawl-MCP,https://en.wikipedia.org/wiki/Kneeland_Youngblood,Content Extraction,1,SUCCESS,Wikipedia profile - comprehensive biography and political history
+2025-08-02 03:15,Firecrawl-MCP,https://www.linkedin.com/company/pharos-capital-group,Content Extraction,1,BLOCKED,LinkedIn company page blocked by Firecrawl platform restrictions
+2025-08-02 03:15,Firecrawl-MCP,https://www.cbinsights.com/investor/pharos-capital,Content Extraction,1,SUCCESS,Investment tracking data - 25 investments 12 exits 6 funds
+2025-08-02 03:16,Firecrawl-MCP,https://www.legistorm.com/organization/summary/39928/Pharos_Capital_Group_LLC.html,Content Extraction,1,SUCCESS,Government relations data - active federal lobbying registration
+2025-08-02 03:16,Firecrawl-MCP,https://www.prnewswire.com/news-releases/pharos-capital-invests-in-renal-care-360-capitalizes-new-chronic-kidney-care-management-platform-301621650.html,Content Extraction,1,SUCCESS,2022 Renal Care 360 investment press release
+2025-08-02 03:17,Firecrawl-MCP,https://www.paragonventures.com/market-pulse-posts/pharos-capital-makes-majority-investment-in-rhythmedix/,Content Extraction,1,SUCCESS,2024 RhythMedix acquisition transaction details
+2025-08-02 03:18,Firecrawl-MCP,https://milkeninstitute.org/content-hub/newsletters/future-aging-newsletter/future-aging-june-2025,Content Extraction,1,SUCCESS,Milken Institute panel participation - private equity healthcare ethics
+2025-08-02 03:18,Firecrawl-MCP,https://www.ontra.ai/resource/customer-story/pharos-capital-group/,Content Extraction,1,SUCCESS,SEC compliance case study - 40 hours saved during examination
+2025-08-02 03:18,Firecrawl-MCP,https://reddit.com/r/DrainTheSwamp/comments/b9lht6/if_vaccine_damage_is_real_who_would_benefit_meet/,Content Extraction,1,BLOCKED,Reddit post blocked by Firecrawl platform restrictions
+2025-08-02 03:18,Firecrawl-MCP,https://reports.adviserinfo.sec.gov/reports/ADV/316789/PDF/316789.pdf,Content Extraction,1,ERROR,SEC Form ADV too large - exceeded 25000 token limit
+2025-08-02 03:19,Firecrawl-MCP,https://www.forbes.com/sites/jabariyoung/2024/12/19/forbes-blk-50-2024/,Content Extraction,1,SUCCESS,Forbes BLK50 2024 recognition - #50 most powerful Black Americans

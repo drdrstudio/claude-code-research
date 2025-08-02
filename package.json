@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-research",
+  "version": "1.0.0",
+  "description": "A streamlined research automation framework for conducting systematic research using Claude Code in Cursor. This framework leverages all available tools including MCP (Model Context Protocol) integrations when available in Cursor, with WebSearch and WebFetch as reliable fallbacks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

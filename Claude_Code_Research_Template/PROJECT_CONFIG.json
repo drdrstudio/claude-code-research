@@ -1,0 +1,38 @@
+{
+  "project": {
+    "name": "Research_[TOPIC]_[DATE]",
+    "topic": "[TOPIC]",
+    "created": "[TIMESTAMP]",
+    "type": "comprehensive",
+    "status": "active"
+  },
+  "scope": {
+    "search_queries": [
+      "[TOPIC]",
+      "[TOPIC] latest news 2024 2025",
+      "[TOPIC] research papers",
+      "[TOPIC] market analysis",
+      "[TOPIC] expert opinions"
+    ],
+    "fetch_limit": 15,
+    "depth": "comprehensive"
+  },
+  "tools": {
+    "primary_search": "WebSearch",
+    "content_fetcher": "WebFetch",
+    "file_manager": "native",
+    "task_tracker": "TodoWrite"
+  },
+  "cost_tracking": {
+    "estimated_searches": 7,
+    "estimated_fetches": 15,
+    "estimated_cost": "$0.10",
+    "actual_cost": "$0.00"
+  },
+  "output_preferences": {
+    "file_format": "markdown",
+    "include_timestamps": true,
+    "save_raw_responses": true,
+    "generate_summary": true
+  }
+}

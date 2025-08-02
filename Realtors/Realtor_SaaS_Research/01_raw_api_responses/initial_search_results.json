@@ -1,0 +1,69 @@
+{
+  "search_timestamp": "2025-01-27",
+  "search_sources": [
+    "firecrawl_search",
+    "perplexity_search"
+  ],
+  "key_findings": {
+    "industry_challenges_2025": [
+      "Political uncertainty and regulatory changes",
+      "High financing costs and interest rates",
+      "Commercial loan maturities ($1.8T by 2026)",
+      "Geopolitical risks and supply chain disruptions",
+      "Rising insurance costs from natural disasters",
+      "Housing affordability crisis",
+      "AI adoption and integration challenges",
+      "Sustainability and climate resilience requirements",
+      "Office vacancy and conversion needs",
+      "Buyer-seller price expectation gaps"
+    ],
+    "agent_specific_pain_points": [
+      "Low housing inventory",
+      "Technology disruption and adaptation",
+      "Skyrocketing marketing costs",
+      "Changing client expectations (24/7 availability)",
+      "Regulatory compliance complexity",
+      "Lead generation and qualification challenges",
+      "Time management and work-life balance",
+      "Poor collaboration among teams",
+      "Difficulty tracking sales progress",
+      "Ineffective marketing campaigns"
+    ],
+    "technology_workflow_challenges": [
+      "Fragmented and non-integrated systems",
+      "Data quality and accessibility issues",
+      "Complex AI adoption and trust concerns",
+      "Regulatory and compliance technology requirements",
+      "Vendor fragmentation and technical debt",
+      "System integration difficulties",
+      "Manual data entry across multiple platforms"
+    ],
+    "saas_opportunities": [
+      "Predictive analytics and market forecasting",
+      "Automated property valuation (AVMs)",
+      "24/7 customer service automation",
+      "Content marketing automation",
+      "Document processing and e-signature automation",
+      "Property management simplification",
+      "Investment analytics platforms",
+      "Real estate-specific CRM systems"
+    ]
+  },
+  "market_statistics": {
+    "global_proptech_market": "$12.8B in 2025, projected to $28B+ by 2033",
+    "ai_adoption": "58% of agents use AI daily, mainly for marketing",
+    "referral_impact": "82% of new sales driven by referrals",
+    "appraisal_delays": "18% of transaction delays caused by appraisal issues",
+    "cost_burdened_renters": "54% spend >30% of income on housing"
+  },
+  "urls_researched": [
+    "https://www.nar.realtor/magazine/real-estate-news/top-10-issues-that-will-impact-real-estate-in-2025",
+    "https://cre.org/top-ten-issues/2024-25-top-ten-issues-affecting-real-estate/",
+    "https://www.netsuite.com/portal/resource/articles/erp/real-estate-industry-challenges.shtml",
+    "https://www.linkedin.com/pulse/top-5-challenges-real-estate-agents-face-2025-bobby-bryant-m-ed--xh7ic",
+    "https://www.salesmate.io/blog/problems-of-being-in-real-estate-industry/",
+    "https://insights.haeberlee.com/top-7-realtor-pain-points-in-2025-and-how-to-fix-them/",
+    "https://www.naiop.org/research-and-publications/magazine/2024/Winter-2024-2025/business-trends/ten-challenges-facing-commercial-real-estate-in-2025/",
+    "https://nowbam.com/biggest-challenges-for-real-estate-brokers-in-2024/"
+  ]
+} 

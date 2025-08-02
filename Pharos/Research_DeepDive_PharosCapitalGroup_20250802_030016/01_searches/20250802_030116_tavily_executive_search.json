@@ -1,0 +1,64 @@
+{
+  "timestamp": "2025-08-02T03:01:16Z",
+  "tool": "Tavily-MCP", 
+  "query": "Pharos Capital Group executives leadership founding history",
+  "inquiry_angle": "Professional History & Achievements",
+  "results_count": 10,
+  "status": "SUCCESS",
+  "key_findings": {
+    "founding_partners": [
+      {
+        "name": "Kneeland Youngblood",
+        "title": "Founding Partner, Chairman & CEO",
+        "background": "Princeton University A.B. Politics/Science 1978, University of Texas MD 1982",
+        "previous_roles": [
+          "Goldman Sachs",
+          "US Enrichment Corporation Board (Clinton appointee)",
+          "President's Intelligence Advisory Board (Biden appointee)",
+          "Teacher Retirement System of Texas Board",
+          "Starwood Hotels Board",
+          "Burger King Board",
+          "The Gap Board"
+        ],
+        "current_boards": [
+          "California Institute of Technology (Caltech)",
+          "The Milken Institute", 
+          "Black Economic Alliance",
+          "Light & Wonder, Inc. (lead director)"
+        ]
+      },
+      {
+        "name": "Bob Crants", 
+        "title": "Founding Partner & Chief Investment Officer",
+        "background": "Princeton University A.B. Economics, summa cum laude, Phi Beta Kappa",
+        "previous_roles": [
+          "Goldman Sachs Equity Capital Markets",
+          "Prison Realty Trust President and Board of Trustees (1997-2000, NYSE REIT)"
+        ],
+        "current_responsibilities": "Investment strategy, risk management, transaction structuring, fundraising"
+      }
+    ],
+    "company_details": {
+      "founded": "1998",
+      "headquarters": ["Dallas, Texas", "Nashville, Tennessee"],
+      "description": "Physician-founded private equity firm",
+      "focus": "Healthcare companies that improve patient outcomes, increase access to care, lower cost of healthcare",
+      "target_communities": "Underserved areas, rural and urban communities",
+      "assets_under_management": "Over $1 billion as of March 31, 2023",
+      "investment_range": "$25-50 million",
+      "total_investments": "58 companies since inception"
+    },
+    "recent_recognition": [
+      "Kneeland Youngblood included in inaugural Forbes BLK50 List",
+      "Kneeland Youngblood recognized on 2025 Power100 Asset Managers List"
+    ]
+  },
+  "source_urls": [
+    "https://www.pharosfunds.com/kneeland-youngblood.php",
+    "https://www.pharosfunds.com/bob-crants.php", 
+    "https://www.pharosfunds.com/",
+    "https://www.linkedin.com/company/pharos-capital-group",
+    "https://www.cbinsights.com/investor/pharos-capital",
+    "https://www.legistorm.com/organization/summary/39928/Pharos_Capital_Group_LLC.html"
+  ]
+}

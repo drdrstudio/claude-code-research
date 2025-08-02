@@ -1,0 +1,38 @@
+{
+  "project": {
+    "name": "Research__20250731_012522",
+    "topic": "",
+    "created": "2025-07-31T08:25:22Z",
+    "type": "comprehensive",
+    "status": "active"
+  },
+  "scope": {
+    "search_queries": [
+      "",
+      " latest news 2024 2025",
+      " research papers",
+      " market analysis",
+      " expert opinions"
+    ],
+    "fetch_limit": 15,
+    "depth": "comprehensive"
+  },
+  "tools": {
+    "primary_search": "WebSearch",
+    "content_fetcher": "WebFetch",
+    "file_manager": "native",
+    "task_tracker": "TodoWrite"
+  },
+  "cost_tracking": {
+    "estimated_searches": 7,
+    "estimated_fetches": 15,
+    "estimated_cost": "$0.10",
+    "actual_cost": "$0.00"
+  },
+  "output_preferences": {
+    "file_format": "markdown",
+    "include_timestamps": true,
+    "save_raw_responses": true,
+    "generate_summary": true
+  }
+}
