@@ -6,6 +6,110 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 I am NOT a developer and need careful, tested solutions. You MUST follow these rules:
 
+### IMPORTANT REPORT REQUIREMENTS
+When creating ANY reports or research documents:
+- **NEVER include strategic recommendations** - I don't provide advisory services
+- **NEVER include forward-looking statements** - Only factual, historical information
+- **REMOVE all AI-generated advice sections** - Reports should be purely factual research
+- **EXCLUDE suggestions, recommendations, or "what to do" content**
+- Focus ONLY on: Facts, data, history, current status, and verified information
+
+### Report Writing Style
+When generating the final report in the Synthesis Phase, you must adopt the following persona:
+
+- **Write like an analyst from *The Economist* or *Axios***
+- **Use clear, concise, and direct language**
+- **Structure information logically with strong topic sentences**
+- **Maintain an objective, authoritative, and fact-driven tone**
+- **Use active voice and avoid jargon where possible**
+- **Employ "Smart Brevity":** Keep paragraphs short and focused on a single idea
+
+## Presentation Design & Synthesis
+
+Beyond factual accuracy, the final output for a presentation must be visually engaging and professional. A plain wall of text is not acceptable. This design pass should be the final step of the **Synthesis Phase** when generating a presentation.
+
+**Guiding Principle**: Identify opportunities to transform plain data points into visually interesting "design moments." Look for key statistics, impactful figures, or short quotes that can be pulled out and highlighted.
+
+### Design Heuristics: Identifying "Callout" Opportunities
+
+Look for standalone facts that include:
+- **Currency amounts** (e.g., "$1 Billion AUM")
+- **Percentages** (e.g., "15% market share")
+- **Large numbers** (e.g., "58 companies")
+- **Timeframes** (e.g., "26-year track record")
+- **Rankings** (e.g., "Ranked #50")
+
+### The Design Playbook
+
+When creating a Marp presentation from a research report, apply these plays to make the slides more dynamic.
+
+#### Play 1: Key Statistic Callouts
+Instead of listing a key number in a bullet point, transform it into a `stat-box`.
+
+**BEFORE (Boring):**
+` - **AUM**: $1 billion.`
+
+**AFTER (Dynamic):**
+```html
+<div class="stat-box">
+  <p class="number">$1B</p>
+  <p>Assets Under Management</p>
+</div>
+```
+
+#### Play 2: Multi-Column Layouts
+Use a two-column split to avoid a monolithic wall of text. This is ideal for showing text next to a list of stats, an image, or another block of text. Use the `split` class for the slide.
+
+**STRUCTURE:**
+```markdown
+<!-- _class: split -->
+
+<div>
+
+**Left column content goes here.**
+- Bullet points
+- Paragraphs
+
+</div>
+
+<div>
+
+**Right column content goes here.**
+- `stat-box` elements
+- Images: `![alt text](url)`
+
+</div>
+```
+
+#### Play 3: Use Icons for Emphasis
+For lists of features or benefits, consider replacing standard bullets with simple, clean icons (e.g., from an SVG library or even relevant emojis) to add visual flair.
+
+**EXAMPLE:**
+📈 **Performance**: Consistent growth year-over-year.  
+🛡️ **Security**: Flawless 26-year compliance record.
+
+#### Play 4: Dynamic Project-Specific Logos
+Do **not** hard-code logos into the main theme file. Branding must be applied on a per-project basis.
+
+**Process:**
+1.  At the beginning of a presentation synthesis task, identify the client/subject of the report.
+2.  Perform a web search to find a high-quality, transparent background logo URL for that specific entity.
+3.  Inject an inline `<style>` block at the top of the generated Markdown file (after the frontmatter) to apply the correct logo to the footer.
+
+**Inline Style Template:**
+```html
+<style>
+footer {
+  background-image: url('URL_OF_THE_CLIENT_LOGO_GOES_HERE');
+  background-repeat: no-repeat;
+  background-position: 50px center;
+  background-size: auto 25px;
+}
+</style>
+```
+
+You MUST follow these additional rules:
+
 1. **VERIFY EVERYTHING WORKS** before saying "done" or "complete"
 2. Test ALL functionality locally AND in production
 3. Actually visit URLs and test login/features yourself
@@ -74,6 +178,16 @@ $ curl http://localhost:3000/api/chat -X POST -d '{"message":"test"}'
 ---
 It's critical that you start every response by confirming you've done each step and have followed these requirements by saying "Ten-Four good buddy".
 
+### Final Deliverable Checklist
+Before you state that a task is complete, you must perform a final self-review of the deliverable against this checklist:
+
+- **[ ] Factual Accuracy**: Is all information sourced from the provided materials?
+- **[ ] Rule Adherence**: Does the report contain ANY prohibited strategic advice, suggestions, or forward-looking statements?
+- **[ ] Design Consistency**: If a presentation, does it fully adhere to the `Presentation Design & Synthesis` playbook?
+- **[ ] Completeness**: Does the final output fully address all aspects of the original request?
+
+Confirm you have completed this checklist in your final response.
+
 ## CLI Access Requirements
 
 I am always (or should always be) logged in to the following CLIs:
@@ -87,6 +201,7 @@ I am always (or should always be) logged in to the following CLIs:
 - **Playwright** - For browser automation and testing
 - **ngrok** - For secure tunnels and webhook testing
 - **Inngest CLI** - For event-driven workflows and background jobs
+- **NotebookLM CLI (nlm)** - For uploading research to Google's NotebookLM AI assistant
 
 **IMPORTANT**: Do EVERYTHING you can via these CLIs. I need you to work in the background with minimal manual intervention.
 
@@ -163,6 +278,13 @@ inngest --version       # Check version
 inngest whoami          # Verify login
 inngest dev             # Start dev server
 inngest deploy          # Deploy functions
+
+# NotebookLM (nlm)
+nlm --version           # Check version
+nlm whoami              # Verify login status
+nlm list notebooks      # List available notebooks
+nlm create notebook     # Create new notebook
+nlm upload              # Upload documents to notebook
 ```
 
 ### CLI Verification Checklist (Run at Start of Chat)
@@ -178,6 +300,7 @@ redis-cli ping
 playwright --version
 ngrok version
 inngest whoami
+nlm whoami
 ```
 
 If any CLI command fails with authentication errors, immediately ask: "Can you verify you're logged into [CLI name]? Try running `[cli] whoami` and let me know what it shows."
@@ -221,6 +344,8 @@ When users type these exact phrases, execute the corresponding research protocol
 3. **RESUME RESEARCH [NAME]** - Continue existing research without repeating searches
 4. **DEEP DIVE on [TOPIC]** - In-depth analysis with extensive fetching (~$0.25)
 5. **NEWS SCAN on [TOPIC]** - Latest developments and current events (~$0.05)
+6. **CREATE PRESENTATION FROM [Research_Folder_Name]** - Generates a Marp presentation from a completed research project
+7. **FINISH AND UPLOAD [Research_Folder_Name]** - Complete research with final deliverables and upload to NotebookLM
 
 ## Available Tools
 
@@ -303,6 +428,12 @@ Example: `20250119_143025_websearch_quantum_computing.md`
    - List actionable insights
    - Save to `05_synthesis/`
 
+6. **Presentation Generation Phase**
+   - Synthesize the final report into Marp-compatible Markdown
+   - Apply the `Presentation Design & Synthesis` playbook (callouts, layouts)
+   - Dynamically add the project-specific logo
+   - Save the final `.md` file to `05_synthesis/`
+
 ### QUICK RESEARCH Protocol:
 
 1. **Setup** - Create project folder and TodoWrite list
@@ -319,12 +450,62 @@ Example: `20250119_143025_websearch_quantum_computing.md`
 5. **Academic Search** - Find and analyze research papers
 6. **Synthesis** - Create detailed technical report
 
+7. **Presentation Generation Phase**
+   - Synthesize the final report into Marp-compatible Markdown
+   - Apply the `Presentation Design & Synthesis` playbook (callouts, layouts)
+   - Dynamically add the project-specific logo
+   - Save the final `.md` file to `05_synthesis/`
+
 ### NEWS SCAN Protocol:
 
 1. **Setup** - Create lightweight project folder
 2. **Time-bound Search** - Focus on last 30 days
 3. **Quick Fetch** - Fetch 5-10 latest news articles
 4. **Trend Analysis** - Create timeline and trend report
+
+### FINISH AND UPLOAD Protocol:
+
+When a user says **"FINISH AND UPLOAD [Research_Folder_Name]"**, execute this comprehensive finalization protocol:
+
+1. **Verification Phase**
+   - Verify the research folder exists and contains completed research
+   - Check for required deliverables in `05_synthesis/`
+   - Ensure RESEARCH_LOG.md shows completion status
+
+2. **Document Generation Phase**
+   - Generate executive summary if missing
+   - Create comprehensive report using Pandoc/LaTeX (`create-document.sh`)
+   - Generate Marp presentation using (`create-presentation.sh`)
+   - Ensure both PDF documents are created successfully
+
+3. **Quality Assurance Phase**
+   - Verify all documents render correctly
+   - Check for broken links or formatting issues
+   - Ensure documents follow brand guidelines and style requirements
+   - Confirm no strategic recommendations are included (as per CLAUDE.md requirements)
+
+4. **NotebookLM Upload Phase**
+   - Execute `./upload-to-notebooklm.sh [Research_Folder_Name]`
+   - Upload all final deliverables to NotebookLM
+   - Verify successful upload and get shareable notebook link
+   - Add NotebookLM link to RESEARCH_LOG.md
+
+5. **Final Deliverable Package**
+   - Create `FINAL_DELIVERABLES/` folder in project root
+   - Copy all final documents:
+     - Executive summary (markdown + PDF)
+     - Comprehensive report (PDF)
+     - Presentation slides (markdown + PDF if generated)
+     - Research log with NotebookLM link
+   - Generate final project summary with all deliverable links
+
+6. **Completion Notification**
+   - Update RESEARCH_LOG.md with completion timestamp
+   - Display final user message with:
+     - Links to all deliverables
+     - NotebookLM notebook URL for AI-powered analysis
+     - Summary of what was accomplished
+     - Total cost estimate
 
 ## Search Tracking
 
