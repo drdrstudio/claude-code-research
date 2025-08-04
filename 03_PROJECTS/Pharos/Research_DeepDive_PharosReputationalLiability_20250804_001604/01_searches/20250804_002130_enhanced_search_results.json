@@ -1,0 +1,76 @@
+{
+  "timestamp": "2025-08-04T02:21:30Z",
+  "search_phase": "ENHANCED_PHASE_2",
+  "protocol": "MRP_v4.0",
+  "tools_used": ["Sequential-Thinking", "Perplexity-MCP", "Tavily-MCP", "Reddit-MCP"],
+  "proxy_status": "unavailable_fallback_direct",
+  "
+  "perplexity_findings": {
+    "pharos_recent_developments": {
+      "pharos_energy_confusion": "Search results conflated Pharos Energy (oil company) with Pharos Capital Group",
+      "no_new_controversies": "No recent 2024-2025 developments found for Bob Crants or Kneeland Youngblood",
+      "pharos_capital_activity": "Pharos Capital filed for $250M Fund IV-A in late 2024, showing continued operations"
+    },
+    "robert_crants_bankruptcy_verification": {
+      "corecivic_status": "CoreCivic (CCA) remains active public company, no bankruptcy",
+      "personal_bankruptcy_confirmed": "Multiple sources confirm Robert Crants personal 2023 bankruptcy",
+      "belle_meade_estate": "Lost $7M Belle Meade estate in bankruptcy proceedings",
+      "confusion_noted": "Some sources conflated corporate vs personal financial issues"
+    },
+    "youngblood_lawsuit_status": {
+      "no_public_updates": "No recent public information on $900M ConocoPhillips lawsuit",
+      "case_likely_ongoing": "Lack of resolution news suggests litigation continues"
+    }
+  },
+  "tavily_findings": {
+    "bob_crants_recent": {
+      "basic_info_only": "Only found standard biographical info on Pharos website",
+      "new_investments": "Pharos continues healthcare investments (Sanderling Renal Services, RhythMedix)",
+      "fund_raising": "Active Fund IV-A raising targeting $250M healthcare investments"
+    },
+    "robert_crants_bankruptcy_details": {
+      "nashville_scene_article": "Confirmed October 2023 Nashville Scene article on bankruptcy",
+      "facebook_discussion": "Public social media discussion of bankruptcy proceedings",
+      "financial_ruin_court_language": "Court filings used language 'financial ruin'",
+      "attorney_fees": "Over $200,000 in attorney fees mentioned"
+    },
+    "charter_healthcare_confirmation": {
+      "chapter_7_confirmed": "Multiple sources confirm Chapter 7 bankruptcy filing",
+      "patient_impact_verified": "13,000 patients across 8 states affected",
+      "hospice_news_coverage": "Industry publications covered bankruptcy extensively",
+      "private_equity_pattern": "Charter bankruptcy part of broader PE healthcare failure trend"
+    }
+  },
+  "reddit_sentiment_analysis": {
+    "private_equity_healthcare": {
+      "overwhelmingly_negative": "Strong negative sentiment toward PE in healthcare",
+      "patient_deaths_focus": "High engagement on studies showing increased patient deaths",
+      "regulatory_response": "Discussion of state laws restricting PE healthcare involvement",
+      "trump_policy_concerns": "Discussion of policies potentially favoring private prisons"
+    },
+    "private_prison_industry": {
+      "corecivic_growth_expectations": "Reddit discussions of CoreCivic expecting 'significant growth'",
+      "human_rights_concerns": "Continued focus on detention conditions and human rights",
+      "political_opposition": "Bipartisan criticism of private prison expansion",
+      "concentration_camp_comparisons": "Extreme negative language used ('modern-day concentration camps')"
+    },
+    "charter_healthcare_specific": {
+      "limited_direct_discussion": "Few specific Reddit discussions of Charter Healthcare bankruptcy",
+      "broader_pe_healthcare_pattern": "Charter mentioned as part of broader PE healthcare failures",
+      "patient_impact_concern": "General concern about patients affected by PE healthcare bankruptcies"
+    }
+  },
+  "key_confirmations": {
+    "robert_crants_bankruptcy": "CONFIRMED - Multiple independent sources verify 2023 personal bankruptcy",
+    "bob_crants_prison_connection": "CONFIRMED - Historical involvement verified",
+    "charter_healthcare_bankruptcy": "CONFIRMED - Chapter 7 bankruptcy with 13,000 patient impact",
+    "ongoing_operations": "CONFIRMED - Pharos continues active healthcare investments",
+    "no_new_major_controversies": "No significant new controversies found in 2024-2025"
+  },
+  "reputational_risk_assessment": {
+    "private_prison_association": "CRITICAL - Extremely negative sentiment continues",
+    "healthcare_pe_reputation": "HIGH - Growing regulatory and public opposition",
+    "patient_care_failures": "HIGH - Charter bankruptcy reinforces negative PE healthcare narrative",
+    "family_financial_distress": "MEDIUM - Continues to be reputational liability"
+  }
+}

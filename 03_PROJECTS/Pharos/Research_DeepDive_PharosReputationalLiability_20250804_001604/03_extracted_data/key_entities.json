@@ -1,0 +1,41 @@
+{
+  "people": [
+    {"name": "Bob Crants III", "role": "Chief Investment Officer - Pharos Capital"},
+    {"name": "Robert Crants", "role": "Co-founder & Former CEO - CCA/CoreCivic"},
+    {"name": "Kneeland Youngblood", "role": "Founder & Managing Partner - Pharos Capital"},
+    {"name": "Kimberly Futrell", "role": "CFO/CCO - Pharos Capital"},
+    {"name": "Jim Phillips", "role": "Partner - Pharos Capital"},
+    {"name": "Joel Goldberg", "role": "Partner - Pharos Capital"},
+    {"name": "Cheryl Lovell", "role": "Former CEO - Charter Healthcare"},
+    {"name": "Michael Devlin", "role": "Business Partner - Bob Crants III"}
+  ],
+  "companies": [
+    {"name": "Pharos Capital Group", "industry": "Private Equity - Healthcare"},
+    {"name": "Corrections Corporation of America", "industry": "Private Prisons"},
+    {"name": "CoreCivic", "industry": "Private Prisons"},
+    {"name": "Prison Realty Trust", "industry": "Prison Real Estate REIT"},
+    {"name": "Charter Healthcare", "industry": "Healthcare Services"},
+    {"name": "Complete Healthcare Partners", "industry": "Healthcare"},
+    {"name": "Family Treatment Network", "industry": "Healthcare"},
+    {"name": "FasPsych", "industry": "Healthcare"},
+    {"name": "Sanderling Renal Services", "industry": "Healthcare - Dialysis"},
+    {"name": "Seaside Healthcare", "industry": "Healthcare"},
+    {"name": "Vantage Surgical Solutions", "industry": "Healthcare"},
+    {"name": "ConocoPhillips", "industry": "Oil & Gas"},
+    {"name": "Goldman Sachs", "industry": "Investment Banking"},
+    {"name": "Princeton University", "industry": "Education"},
+    {"name": "UT Southwestern Medical School", "industry": "Education - Medical"},
+    {"name": "DC Investment Partners", "industry": "Investment"},
+    {"name": "Crants-Devlin LLC", "industry": "Investment"},
+    {"name": "Lynview Partners LLC", "industry": "Investment"},
+    {"name": "Nutmeg Insurance Company", "industry": "Insurance"},
+    {"name": "RhythMedix", "industry": "Healthcare Technology"}
+  ],
+  "legal_entities": [
+    {"name": "U.S. District Court Northern District of Texas", "type": "Court"},
+    {"name": "Federal District Court of Delaware", "type": "Court"},
+    {"name": "FBI", "type": "Federal Agency"},
+    {"name": "SEC", "type": "Federal Agency"},
+    {"name": "ACLU", "type": "Civil Rights Organization"}
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "relationships": [
+    {"source": "Bob Crants III", "target": "Pharos Capital Group", "type": "chief_investment_officer"},
+    {"source": "Bob Crants III", "target": "Robert Crants", "type": "son_of"},
+    {"source": "Bob Crants III", "target": "Prison Realty Trust", "type": "former_president"},
+    {"source": "Bob Crants III", "target": "Michael Devlin", "type": "business_partner"},
+    {"source": "Bob Crants III", "target": "DC Investment Partners", "type": "owner"},
+    {"source": "Bob Crants III", "target": "Crants-Devlin LLC", "type": "co_owner"},
+    {"source": "Bob Crants III", "target": "Complete Healthcare Partners", "type": "board_member"},
+    {"source": "Bob Crants III", "target": "Family Treatment Network", "type": "board_member"},
+    {"source": "Bob Crants III", "target": "FasPsych", "type": "board_member"},
+    {"source": "Bob Crants III", "target": "Sanderling Renal Services", "type": "board_member"},
+    {"source": "Bob Crants III", "target": "Seaside Healthcare", "type": "board_member"},
+    {"source": "Bob Crants III", "target": "Vantage Surgical Solutions", "type": "board_member"},
+    {"source": "Bob Crants III", "target": "Goldman Sachs", "type": "former_employee"},
+    {"source": "Bob Crants III", "target": "Princeton University", "type": "alumnus"},
+    
+    {"source": "Robert Crants", "target": "Corrections Corporation of America", "type": "co_founder"},
+    {"source": "Robert Crants", "target": "Corrections Corporation of America", "type": "former_ceo"},
+    {"source": "Robert Crants", "target": "Prison Realty Trust", "type": "former_ceo"},
+    {"source": "Corrections Corporation of America", "target": "CoreCivic", "type": "renamed_to"},
+    {"source": "Robert Crants", "target": "FBI", "type": "under_investigation"},
+    {"source": "Corrections Corporation of America", "target": "FBI", "type": "under_investigation"},
+    {"source": "Corrections Corporation of America", "target": "ACLU", "type": "sued_by"},
+    
+    {"source": "Kneeland Youngblood", "target": "Pharos Capital Group", "type": "founder"},
+    {"source": "Kneeland Youngblood", "target": "ConocoPhillips", "type": "suing"},
+    {"source": "Kneeland Youngblood", "target": "Princeton University", "type": "alumnus"},
+    {"source": "Kneeland Youngblood", "target": "UT Southwestern Medical School", "type": "alumnus"},
+    
+    {"source": "Kimberly Futrell", "target": "Pharos Capital Group", "type": "cfo_cco"},
+    {"source": "Jim Phillips", "target": "Pharos Capital Group", "type": "partner"},
+    {"source": "Joel Goldberg", "target": "Pharos Capital Group", "type": "partner"},
+    
+    {"source": "Pharos Capital Group", "target": "Charter Healthcare", "type": "portfolio_company"},
+    {"source": "Charter Healthcare", "target": "Federal District Court of Delaware", "type": "filed_bankruptcy"},
+    {"source": "Cheryl Lovell", "target": "Charter Healthcare", "type": "former_ceo"},
+    {"source": "Pharos Capital Group", "target": "Sanderling Renal Services", "type": "invested_in"},
+    {"source": "Pharos Capital Group", "target": "RhythMedix", "type": "acquired"},
+    
+    {"source": "Pharos Capital Group", "target": "Nutmeg Insurance Company", "type": "plaintiff_against"},
+    {"source": "DC Investment Partners", "target": "Nutmeg Insurance Company", "type": "plaintiff_against"},
+    {"source": "Crants-Devlin LLC", "target": "Lynview Partners LLC", "type": "doing_business_as"},
+    
+    {"source": "Prison Realty Trust", "target": "Corrections Corporation of America", "type": "owned_facilities_for"},
+    {"source": "Pharos Capital Group", "target": "SEC", "type": "registered_with"}
+  ]
+}

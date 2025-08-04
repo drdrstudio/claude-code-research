@@ -15,11 +15,11 @@ DATE=$(date +%Y%m%d_%H%M%S)
 PROJECT_NAME="Research_${FOLDER_NAME}_${DATE}"
 
 # Create project directory
-PROJECT_DIR="$HOME/Documents/cursor/Claude-Code-Research/$PROJECT_NAME"
+PROJECT_DIR="$HOME/Documents/cursor/Claude-Code-Research/03_PROJECTS/Duarte/$PROJECT_NAME"
 mkdir -p "$PROJECT_DIR"
 
 # Copy template
-cp -r "$HOME/Documents/cursor/Claude-Code-Research/Claude_Code_Research_Template/"* "$PROJECT_DIR/"
+cp -r "$HOME/Documents/cursor/Claude-Code-Research/01_TEMPLATES/Claude_Code_Research_Template/"* "$PROJECT_DIR/"
 
 # Update PROJECT_CONFIG.json
 sed -i '' "s/\[TOPIC\]/$TOPIC/g" "$PROJECT_DIR/PROJECT_CONFIG.json"

@@ -1,0 +1,62 @@
+{
+  "timestamp": "2025-08-04T12:30:00Z",
+  "search_type": "LEGAL_ISSUES_SEARCH",
+  "target": "Bob Crants III and Pharos Capital Group",
+  "legal_findings": {
+    "litigation_involving_bob_crants": {
+      "case_name": "Pharos Capital Group, LLC et al v. Nutmeg Insurance Company",
+      "court": "U.S. District Court, Northern District of Texas, Dallas Division",
+      "case_number": "Civil Action No. 3:13–CV–2603–B",
+      "date": "February 26, 2014",
+      "parties": [
+        "Pharos Capital Group, LLC",
+        "Pharos Capital Partners, L.P.",
+        "D.C. Investment Partners, LLC", 
+        "Crants–Devlin, LLC (d/b/a Lynview Partners, LLC)",
+        "D. Robert Crants, III",
+        "Michael Devlin"
+      ],
+      "status": "Motion to Remand GRANTED",
+      "case_type": "Insurance dispute/breach of contract"
+    },
+    "portfolio_company_bankruptcy": {
+      "company": "Charter Healthcare",
+      "bankruptcy_type": "Chapter 7 (liquidation)",
+      "filing_date": "January 2024",
+      "filing_location": "Federal District Court of Delaware",
+      "service_scope": "Hospice, home health, complex care management, palliative care",
+      "patient_impact": "Nearly 13,000 patients in at least 8 states",
+      "acquisition_date": "2018",
+      "ceo_departure": "Cheryl Lovell left January 2024 (same time as bankruptcy)"
+    },
+    "related_litigation_history": {
+      "lefebvre_lawsuit": {
+        "involvement": "Pharos executives gave testimony",
+        "issue": "Alleged misrepresentation about relationship with former executive",
+        "witnesses": "Bob Crants, Kneeland Youngblood, Michael Devlin",
+        "court_finding": "Testimony allegedly misrepresented nature of relationship"
+      }
+    },
+    "business_structure_complexity": {
+      "entities": [
+        "Pharos Capital Group, LLC",
+        "Pharos Capital Partners, L.P.",
+        "D.C. Investment Partners, LLC",
+        "Crants-Devlin, LLC",
+        "Lynview Partners, LLC"
+      ],
+      "partnership": "Bob Crants and Michael Devlin appear to be business partners across multiple entities"
+    }
+  },
+  "reputational_concerns": {
+    "portfolio_performance": "Charter Healthcare bankruptcy affected 13,000 patients",
+    "litigation_pattern": "Multiple lawsuits involving Pharos entities and executives",
+    "testimony_credibility": "Court documents suggest misrepresentation in sworn testimony"
+  },
+  "source_urls": [
+    "https://case-law.vlex.com/vid/pharos-capital-grp-llc-888161802",
+    "https://law.justia.com/cases/federal/district-courts/texas/txndce/3:2013cv02603/234638/35/",
+    "https://hospicenews.com/2024/04/02/hospice-home-health-provider-charter-healthcare-files-for-chapter-7-bankruptcy/",
+    "https://pestakeholder.org/news/private-equity-healthcare-bankruptcies-show-no-signs-of-slowing/"
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "metadata": {
+    "extraction_date": "2025-08-04",
+    "research_topic": "ICP for Enterprise Marketing Leaders",
+    "source_count": 8,
+    "confidence_level": "high",
+    "validation_method": "cross-referenced_statistics"
+  },
+  "entities": {
+    "pain_points": [
+      {
+        "id": "organizational_alignment_crisis",
+        "name": "Organizational Alignment Crisis",
+        "severity": "critical",
+        "statistics": {
+          "rate_as_critical": "89%",
+          "satisfaction_level": "1%",
+          "need_software_solution": "87%",
+          "organizational_silos_impact": "77%"
+        },
+        "description": "Disconnect between marketing strategy and execution visibility",
+        "source": "opal_cmo_pain_points_study",
+        "confidence": 0.95
+      },
+      {
+        "id": "roi_visibility_responsibility_gap",
+        "name": "ROI Visibility-Responsibility Gap", 
+        "severity": "critical",
+        "statistics": {
+          "revenue_responsibility": "88%",
+          "roi_visibility": "25%",
+          "multiple_data_sources": "73%",
+          "data_duplication": "81%"
+        },
+        "description": "Revenue accountability without proportional visibility tools",
+        "source": "airtable_marketing_management",
+        "confidence": 0.92
+      },
+      {
+        "id": "budget_pressure_justification",
+        "name": "Budget Pressure & Justification Crisis",
+        "severity": "high",
+        "statistics": {
+          "insufficient_budget": "71%",
+          "roi_inspection_pressure": "severe",
+          "cfo_relationship_tension": "high"
+        },
+        "description": "Suppressed budgets with increasing ROI scrutiny",
+        "source": "codesm_cmo_challenges",
+        "confidence": 0.90
+      },
+      {
+        "id": "martech_stack_chaos",
+        "name": "MarTech Stack Chaos & Underutilization",
+        "severity": "high", 
+        "statistics": {
+          "buy_10plus_tools": "40%",
+          "use_5_or_fewer": "73%",
+          "data_duplication": "43%",
+          "marketer_burnout": "55%"
+        },
+        "description": "Tool proliferation with massive underutilization",
+        "source": "tenon_martech_consolidation", 
+        "confidence": 0.88
+      },
+      {
+        "id": "complex_b2b_buying_process",
+        "name": "Complex B2B Buying Process Barriers",
+        "severity": "medium",
+        "statistics": {
+          "find_process_complex": "77%",
+          "decision_makers": "6-10",
+          "sales_rep_time": "5%",
+          "sales_contact_barrier": "40%"
+        },
+        "description": "Multi-stakeholder complexity with limited sales interaction time",
+        "source": "storylane_b2b_buying_process",
+        "confidence": 0.85
+      }
+    ],
+    "roles": [
+      {
+        "id": "cmo",
+        "name": "Chief Marketing Officer",
+        "responsibilities": [
+          "revenue_accountability",
+          "budget_justification",
+          "organizational_alignment",
+          "technology_decisions"
+        ],
+        "key_pressures": [
+          "cfo_scrutiny",
+          "board_revenue_accountability", 
+          "strategy_execution_alignment"
+        ],
+        "statistics": {
+          "revenue_responsibility": "88%",
+          "budget_insufficiency": "71%"
+        }
+      },
+      {
+        "id": "vp_marketing", 
+        "name": "VP Marketing",
+        "responsibilities": [
+          "operational_efficiency",
+          "team_management",
+          "campaign_performance",
+          "cross_functional_coordination"
+        ],
+        "key_pressures": [
+          "do_more_with_less",
+          "workflow_efficiency",
+          "team_productivity"
+        ],
+        "statistics": {
+          "efficiency_impact": "2x_revenue_goals"
+        }
+      },
+      {
+        "id": "marketing_director",
+        "name": "Marketing Director", 
+        "responsibilities": [
+          "execution_management",
+          "tool_utilization",
+          "data_analysis",
+          "vendor_management"
+        ],
+        "key_pressures": [
+          "tool_sprawl_management",
+          "data_consolidation",
+          "team_training"
+        ]
+      }
+    ],
+    "technologies": [
+      {
+        "id": "martech_stack",
+        "name": "Marketing Technology Stack",
+        "average_tools": 19,
+        "utilization_gap": {
+          "purchased_10plus": "40%",
+          "use_5_or_fewer": "73%"
+        },
+        "cost_impact": "$1,040_per_employee_annually",
+        "integration_challenges": "51%"
+      },
+      {
+        "id": "crm_systems",
+        "name": "CRM Systems",
+        "role": "customer_relationship_management",
+        "integration_importance": "high",
+        "reference_standard": "salesforce_for_sales"
+      },
+      {
+        "id": "marketing_automation",
+        "name": "Marketing Automation",
+        "benefits": [
+          "workflow_efficiency",
+          "personalization_at_scale", 
+          "roi_improvement"
+        ],
+        "success_case": {
+          "roi_improvement": "2,101%",
+          "source": "optasy_case_study"
+        }
+      }
+    ],
+    "companies": [
+      {
+        "id": "loreal",
+        "name": "L'Oréal",
+        "case_study": {
+          "engagement_growth": "48x",
+          "cpa_reduction": "-56%",
+          "strategy": "ai_powered_geolocation_dco"
+        },
+        "source": "codesm_cmo_challenges"
+      },
+      {
+        "id": "travelodge", 
+        "name": "Travelodge",
+        "results": {
+          "signup_target_achievement": "122%",
+          "platform": "marketo_integration"
+        },
+        "source": "optasy_martech_consolidation"
+      },
+      {
+        "id": "tmf_group",
+        "name": "TMF Group", 
+        "results": {
+          "roi": "2,101%",
+          "strategy": "end_to_end_lead_generation"
+        },
+        "source": "optasy_martech_consolidation"
+      }
+    ],
+    "statistics": [
+      {
+        "id": "alignment_crisis_stat",
+        "value": "89% critical, 1% satisfied",
+        "context": "organizational_alignment_importance_vs_satisfaction",
+        "source": "opal_cmo_pain_points_study",
+        "significance": "primary_pain_point"
+      },
+      {
+        "id": "roi_responsibility_gap",
+        "value": "88% revenue responsibility, 25% ROI visibility", 
+        "context": "responsibility_visibility_misalignment",
+        "source": "airtable_marketing_management",
+        "significance": "critical_urgency"
+      },
+      {
+        "id": "budget_insufficiency",
+        "value": "71% lack sufficient budget",
+        "context": "digital_marketing_strategy_execution",
+        "source": "codesm_cmo_challenges", 
+        "significance": "widespread_constraint"
+      },
+      {
+        "id": "tool_underutilization",
+        "value": "40% buy 10+ tools, 73% use 5 or fewer",
+        "context": "martech_stack_efficiency_gap",
+        "source": "tenon_martech_consolidation",
+        "significance": "resource_waste"
+      },
+      {
+        "id": "buying_complexity", 
+        "value": "77% find buying process complex",
+        "context": "b2b_purchase_decision_difficulty",
+        "source": "storylane_b2b_buying_process",
+        "significance": "sales_process_barrier"
+      }
+    ],
+    "processes": [
+      {
+        "id": "b2b_buying_process",
+        "name": "B2B Buying Process",
+        "stages": [
+          "problem_identification",
+          "solution_exploration", 
+          "requirements_building",
+          "supplier_selection",
+          "validation",
+          "consensus_creation"
+        ],
+        "complexity_factors": {
+          "decision_makers": "6-10",
+          "sales_time_available": "5%",
+          "information_sources": "27%_online_research"
+        }
+      },
+      {
+        "id": "budget_approval_process",
+        "name": "Budget Approval Process",
+        "stakeholders": ["cmo", "cfo", "board"],
+        "challenges": [
+          "roi_justification_pressure",
+          "cost_center_perception",
+          "attribution_complexity"
+        ]
+      }
+    ],
+    "solutions": [
+      {
+        "id": "martech_consolidation",
+        "name": "MarTech Stack Consolidation", 
+        "benefits": [
+          "cost_reduction",
+          "operational_efficiency",
+          "data_unification",
+          "roi_improvement"
+        ],
+        "success_metrics": {
+          "roi_potential": "2,101%",
+          "retention_improvement": "85% vs 71% average"
+        }
+      },
+      {
+        "id": "unified_marketing_platform",
+        "name": "Unified Marketing Platform",
+        "market_gap": "no_universal_solution_exists",
+        "comparison": "salesforce_for_sales_github_for_developers",
+        "demand_indicators": {
+          "need_software_solution": "87%",
+          "purchase_intent": "85%"
+        }
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "from": "organizational_alignment_crisis",
+      "to": "roi_visibility_responsibility_gap", 
+      "type": "causes",
+      "strength": 0.8,
+      "description": "Alignment problems prevent clear ROI visibility"
+    },
+    {
+      "from": "budget_pressure_justification",
+      "to": "roi_visibility_responsibility_gap",
+      "type": "amplifies", 
+      "strength": 0.9,
+      "description": "Budget scrutiny increases need for ROI visibility"
+    },
+    {
+      "from": "martech_stack_chaos",
+      "to": "organizational_alignment_crisis",
+      "type": "contributes_to",
+      "strength": 0.7,
+      "description": "Tool sprawl creates data silos affecting alignment"
+    },
+    {
+      "from": "complex_b2b_buying_process",
+      "to": "martech_stack_chaos", 
+      "type": "perpetuates",
+      "strength": 0.6,
+      "description": "Complex buying leads to fragmented tool purchases"
+    },
+    {
+      "from": "cmo",
+      "to": "organizational_alignment_crisis",
+      "type": "experiences",
+      "strength": 0.95,
+      "description": "CMOs primarily affected by alignment visibility gaps"
+    },
+    {
+      "from": "martech_consolidation",
+      "to": "roi_visibility_responsibility_gap",
+      "type": "solves",
+      "strength": 0.85, 
+      "description": "Unified platforms provide better ROI visibility"
+    }
+  ],
+  "insights": {
+    "primary_buying_triggers": [
+      "economic_pressure_budget_scrutiny",
+      "revenue_accountability_without_visibility",
+      "tool_sprawl_operational_inefficiency",
+      "organizational_strategy_execution_disconnect"
+    ],
+    "solution_preferences": [
+      "consolidation_over_point_solutions",
+      "self_service_evaluation_options",
+      "unified_data_platforms",
+      "roi_attribution_capabilities"
+    ],
+    "competitive_advantages": [
+      "unified_vs_fragmented_approach",
+      "real_time_vs_manual_reporting",
+      "cross_team_vs_siloed_operations",
+      "proven_roi_vs_uncertain_returns"
+    ]
+  }
+}

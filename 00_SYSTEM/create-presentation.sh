@@ -24,15 +24,18 @@ if [[ ! "$INPUT_FILE" =~ \.md$ ]]; then
     exit 1
 fi
 
+# Get the directory of this script to find other system files
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Check if preprocess.sh exists and is executable
-if [ ! -f "./preprocess.sh" ]; then
-    echo "Error: preprocess.sh not found in current directory"
+if [ ! -f "$SCRIPT_DIR/preprocess.sh" ]; then
+    echo "Error: preprocess.sh not found in system directory"
     exit 1
 fi
 
-if [ ! -x "./preprocess.sh" ]; then
+if [ ! -x "$SCRIPT_DIR/preprocess.sh" ]; then
     echo "Error: preprocess.sh is not executable"
-    echo "Run: chmod +x preprocess.sh"
+    echo "Run: chmod +x $SCRIPT_DIR/preprocess.sh"
     exit 1
 fi
 
@@ -44,8 +47,8 @@ if ! command -v marp &> /dev/null; then
 fi
 
 # Check if theme file exists
-if [ ! -f "./waterloo-light-theme.css" ]; then
-    echo "Error: waterloo-light-theme.css not found in current directory"
+if [ ! -f "$SCRIPT_DIR/themes/waterloo-light-theme.css" ]; then
+    echo "Error: waterloo-light-theme.css not found in themes directory"
     exit 1
 fi
 
@@ -58,14 +61,14 @@ OUTPUT_FILE="$DIRNAME/${BASENAME}.pdf"
 
 # Step 1: Run preprocessor
 echo "📝 Pre-processing markdown file..."
-if ! ./preprocess.sh "$INPUT_FILE" > "$TEMP_FILE"; then
+if ! "$SCRIPT_DIR/preprocess.sh" "$INPUT_FILE" > "$TEMP_FILE"; then
     echo "Error: Failed to pre-process file"
     exit 1
 fi
 
 # Step 2: Generate PDF with Marp
 echo "🎨 Converting to PDF with Marp..."
-if ! marp "$TEMP_FILE" --pdf --theme-set waterloo-light-theme.css --allow-local-files -o "$OUTPUT_FILE"; then
+if ! marp "$TEMP_FILE" --pdf --theme-set "$SCRIPT_DIR/themes/waterloo-light-theme.css" --allow-local-files -o "$OUTPUT_FILE"; then
     echo "Error: Failed to generate PDF"
     # Clean up temp file even on failure
     rm -f "$TEMP_FILE"

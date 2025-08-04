@@ -1,0 +1,34 @@
+Analyze the provided research documents and extract ALL entities and relationships to create a comprehensive knowledge graph. Generate TWO JSON files:
+
+1. key_entities.json with this EXACT structure:
+{
+  "people": [
+    {"name": "Full Name", "role": "Their role or title"}
+  ],
+  "companies": [
+    {"name": "Company Name", "industry": "Industry sector"}
+  ],
+  "organizations": [
+    {"name": "Organization Name", "type": "Type of organization"}
+  ],
+  "legal_entities": [
+    {"name": "Entity Name", "type": "Court/Agency/Law Firm"}
+  ]
+}
+
+2. network_map.json with this EXACT structure:
+{
+  "relationships": [
+    {"source": "Person/Company A", "target": "Person/Company B", "type": "relationship_type"}
+  ]
+}
+
+EXTRACTION RULES:
+- Extract EVERY person, company, organization mentioned
+- Use consistent naming (e.g., always "Bob Crants III" not variations)
+- Relationship types should be lowercase with underscores: works_for, owns, sued_by, invested_in, former_ceo, board_member, alumnus_of, etc.
+- Include ALL relationships: employment, ownership, family, legal, business, educational
+- Capture both current and historical relationships (use former_, ex_ prefixes)
+- Include negative relationships (sued_by, investigating, bankrupt)
+
+Focus on completeness - better to include too much than miss important connections.

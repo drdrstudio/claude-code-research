@@ -1,0 +1,59 @@
+{
+  "timestamp": "2025-08-04T12:00:00Z",
+  "search_type": "DEEP_DIVE_REPUTATIONAL_SEARCH",
+  "target": "Bob Crants (D. Robert Crants III) - Pharos CIO",
+  "critical_findings": {
+    "family_connection": {
+      "father": "Robert Crants (born 1944)",
+      "father_aka": "Doctor Robert Crants",
+      "father_role": "Co-founder and former CEO of Corrections Corporation of America (CCA/CoreCivic)",
+      "father_tenure": "Chairman and CEO 1994-1999",
+      "company_size": "Largest private prison company in US by 2015",
+      "company_revenue_2015": "$1.79 billion"
+    },
+    "bob_crants_direct_involvement": {
+      "role_at_prison_company": "President and Board of Trustees member",
+      "company": "Prison Realty Trust (NYSE traded REIT)",
+      "tenure": "1997-2000",
+      "relationship": "Prison Realty Trust was the real estate arm that owned facilities operated by CCA"
+    },
+    "major_reputational_liabilities": {
+      "private_prison_industry_controversies": [
+        "Human rights abuses",
+        "Guard brutality", 
+        "Inmate violence",
+        "Inferior medical care",
+        "Understaffing",
+        "Chronic security lapses",
+        "Gang influence in prisons",
+        "Falsified staffing records",
+        "FBI investigations for fraud"
+      ],
+      "specific_cca_issues": [
+        "Idaho Correctional Center called 'Gladiator School'",
+        "ACLU lawsuits for understaffing and violence",
+        "FBI investigation for falsified records and fraud",
+        "Gang members used to manage prison (Aryan Knights, Severely Violent Criminals)",
+        "Multiple shareholder lawsuits",
+        "Lost contracts due to poor performance"
+      ],
+      "family_financial_issues": [
+        "Father Robert Crants lost Belle Meade estate in bankruptcy (2023)",
+        "Family described as 'in financial ruin'",
+        "Wife Shirley Crants initiated bankruptcy proceedings"
+      ]
+    },
+    "business_structure_concerns": [
+      "Conflicts of interest: Father was both CCA Chairman and Prison Realty Trust CEO",
+      "Shareholders filed suits alleging merger favored corporate officers over shareholders",
+      "Company structured to separate prison ownership (REIT) from operations (CCA)"
+    ]
+  },
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/Robert_Crants",
+    "https://www.pharosfunds.com/bob-crants.php", 
+    "https://www.nashvillescene.com/news/pithinthewind/prison-magnate-loses-house-in-bankruptcy-proceedings/",
+    "https://www.aclu.org/news/smart-justice/corrections-corporation-america-loses-four-prison-contracts",
+    "https://www.prisonlegalnews.org/news/2000/jul/15/prison-realtycca-verges-on-bankruptcy/"
+  ]
+}

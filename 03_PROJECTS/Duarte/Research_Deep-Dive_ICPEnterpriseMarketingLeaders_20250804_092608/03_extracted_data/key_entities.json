@@ -1,0 +1,37 @@
+{
+  "people": [
+    {"name": "Ewan McIntyre", "role": "Gartner Analyst"},
+    {"name": "CMO", "role": "Chief Marketing Officer"},
+    {"name": "CFO", "role": "Chief Financial Officer"},
+    {"name": "Marketing Director", "role": "Marketing Leadership"},
+    {"name": "VP Marketing", "role": "Vice President Marketing"}
+  ],
+  "companies": [
+    {"name": "TMF Group", "industry": "Business Services"},
+    {"name": "Travelodge", "industry": "Hospitality"},
+    {"name": "Gartner", "industry": "Research & Advisory"},
+    {"name": "Forrester", "industry": "Research & Advisory"},
+    {"name": "Salesforce", "industry": "Enterprise Software"},
+    {"name": "Really B2B", "industry": "Marketing Services"},
+    {"name": "Constant Contact", "industry": "Email Marketing"},
+    {"name": "Hootsuite", "industry": "Social Media Management"},
+    {"name": "Zoho", "industry": "Business Software"},
+    {"name": "Google Analytics", "industry": "Web Analytics"},
+    {"name": "Drupal", "industry": "Content Management"},
+    {"name": "Opal", "industry": "Marketing Technology"},
+    {"name": "CodeSM", "industry": "Marketing Services"},
+    {"name": "Optasy", "industry": "Marketing Technology"},
+    {"name": "Tenon", "industry": "Marketing Technology"},
+    {"name": "Storylane", "industry": "Sales Technology"},
+    {"name": "Airtable", "industry": "Productivity Software"},
+    {"name": "Shopify", "industry": "E-commerce Platform"}
+  ],
+  "organizations": [
+    {"name": "Enterprise Organizations", "type": "Business Category"},
+    {"name": "B2B Companies", "type": "Business Category"},
+    {"name": "Marketing Teams", "type": "Organizational Unit"},
+    {"name": "Sales Teams", "type": "Organizational Unit"},
+    {"name": "Customer Success Teams", "type": "Organizational Unit"}
+  ],
+  "legal_entities": []
+}

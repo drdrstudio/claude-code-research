@@ -1,0 +1,23 @@
+{
+  "primary_objective": "Identify and deeply analyze core challenges, key needs, and major pain points to inform GTM strategy and sales copywriting.",
+  "profile": "Deep-Dive",
+  "topic": "ICP for Enterprise Marketing Leaders (Director, VP, CMO)",
+  "use_dataforseo_mcp": false,
+  "perform_mega_analysis": false,
+  "default_deliverable": "document",
+  "custom_parameters": {
+    "target_roles": ["Marketing Director", "VP Marketing", "CMO"],
+    "enterprise_focus": true,
+    "include_technology_stack": true,
+    "include_decision_making_process": true,
+    "geographic_scope": "North America + Europe",
+    "company_size_range": "1000+ employees"
+  },
+  "mission_metadata": {
+    "protocol_version": "MRP_v5.1",
+    "project_id": "Research_Deep-Dive_ICPEnterpriseMarketingLeaders_20250804_092608",
+    "initiated": "2025-08-04T09:26:08Z",
+    "estimated_sources": "10-15",
+    "estimated_duration": "2-3 hours"
+  }
+}

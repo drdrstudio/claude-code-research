@@ -1,0 +1,32 @@
+{
+  "relationships": [
+    {"source": "Ewan McIntyre", "target": "Gartner", "type": "works_for"},
+    {"source": "TMF Group", "target": "Really B2B", "type": "client_of"},
+    {"source": "CMO", "target": "Marketing Teams", "type": "leads"},
+    {"source": "Marketing Director", "target": "Marketing Teams", "type": "manages"},
+    {"source": "VP Marketing", "target": "Marketing Teams", "type": "oversees"},
+    {"source": "CFO", "target": "CMO", "type": "evaluates_performance"},
+    {"source": "Marketing Teams", "target": "Sales Teams", "type": "collaborates_with"},
+    {"source": "Marketing Teams", "target": "Customer Success Teams", "type": "coordinates_with"},
+    {"source": "Enterprise Organizations", "target": "B2B Companies", "type": "category_of"},
+    {"source": "TMF Group", "target": "2101% ROI", "type": "achieved"},
+    {"source": "Travelodge", "target": "122% sign-up target", "type": "achieved"},
+    {"source": "Constant Contact", "target": "Email Marketing", "type": "provides"},
+    {"source": "Hootsuite", "target": "Social Media Management", "type": "provides"},
+    {"source": "Zoho", "target": "CRM", "type": "provides"},
+    {"source": "Google Analytics", "target": "Web Analytics", "type": "provides"},
+    {"source": "Drupal", "target": "Content Management", "type": "provides"},
+    {"source": "Gartner", "target": "Marketing Research", "type": "conducts"},
+    {"source": "Forrester", "target": "Marketing Research", "type": "conducts"},
+    {"source": "Salesforce", "target": "CRM Platform", "type": "market_leader"},
+    {"source": "Marketing Teams", "target": "Tool Sprawl Crisis", "type": "experiences"},
+    {"source": "Marketing Teams", "target": "Alignment-Visibility Crisis", "type": "suffers_from"},
+    {"source": "CMO", "target": "Revenue Responsibility", "type": "accountable_for"},
+    {"source": "CMO", "target": "Budget Constraints", "type": "constrained_by"},
+    {"source": "B2B Companies", "target": "Digital Transformation", "type": "undergoing"},
+    {"source": "Enterprise Organizations", "target": "Martech Consolidation", "type": "requires"},
+    {"source": "Marketing Teams", "target": "Burnout", "type": "experiences"},
+    {"source": "B2B Buyers", "target": "Self-Service Preference", "type": "demonstrates"},
+    {"source": "Millennial B2B Buyers", "target": "Sales Avoidance", "type": "prefers"}
+  ]
+}

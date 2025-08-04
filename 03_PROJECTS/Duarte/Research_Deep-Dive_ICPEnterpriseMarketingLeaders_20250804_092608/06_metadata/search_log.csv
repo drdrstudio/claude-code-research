@@ -1,0 +1,10 @@
+timestamp,tool,query,result_count,status
+2025-08-04T09:27:30,perplexity,enterprise marketing director VP CMO challenges pain points 2024-2025,structured_analysis,success
+2025-08-04T09:28:00,perplexity,enterprise marketing decision making process technology purchases,structured_analysis,success
+2025-08-04T09:28:30,perplexity,MarTech stack integration problems enterprise marketing leadership,structured_analysis,success
+2025-08-04T09:29:00,perplexity,KPIs success metrics pressure enterprise marketing leaders career challenges,structured_analysis,success
+2025-08-04T09:29:30,tavily,enterprise marketing director challenges pain points 2024 2025,8,success
+2025-08-04T09:30:00,tavily,enterprise marketing budget approval process CMO director challenges 2024,8,success
+2025-08-04T09:30:30,tavily,enterprise marketing team management challenges scaling marketing organization 2024,8,success
+2025-08-04T09:31:00,tavily,MarTech integration enterprise marketing technology stack consolidation 2024,8,success
+2025-08-04T09:31:30,reddit,marketing leadership challenges enterprise CMO VP marketing director,15,limited_relevance
