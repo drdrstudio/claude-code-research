@@ -1,0 +1,127 @@
+{
+  "professional_networks": {
+    "healthcare_industry": {
+      "milken_institute": {
+        "connection_type": "Panel Participant",
+        "event": "28th Annual Global Conference - Private Equity and Patient Care Panel",
+        "significance": "Healthcare policy and ethics thought leadership",
+        "network_peers": [
+          "Omar Lateef (Rush University Medical Center CEO)",
+          "Jesse Ehrenfeld (American Medical Association President)",
+          "Sandra Hernandez (California Health Care Foundation CEO)",
+          "Joseph Betancourt (Commonwealth Fund President)"
+        ]
+      },
+      "healthcare_systems": {
+        "rush_university_medical": "Panel collaboration",
+        "baylor_university_medical": "Former physician practice location",
+        "medical_center_plano": "Former physician practice location"
+      }
+    },
+    "private_equity_industry": {
+      "cb_insights_tracking": "Investment data and portfolio tracking",
+      "paragon_ventures": "Transaction reporting and market intelligence",
+      "industry_position": "Physician-founded PE firm specialization"
+    },
+    "regulatory_compliance": {
+      "sec_registration": "CRD 316789 - Active investment advisor registration",
+      "ontra_platform": "AI-powered compliance technology partnership",
+      "federal_lobbying": "Active government relations registration"
+    },
+    "technology_partnerships": {
+      "ontra_ai": {
+        "relationship": "Customer/Technology Partner",
+        "service": "SEC compliance and side letter management",
+        "impact": "40 hours saved in SEC examination response",
+        "efficiency_gain": "15 minutes vs 10 hours per fund for compliance requests"
+      }
+    }
+  },
+  "institutional_relationships": {
+    "educational_institutions": {
+      "princeton_university": "Youngblood alma mater - B.A. Politics",
+      "ut_southwestern_medical": "Youngblood alma mater - M.D."
+    },
+    "medical_associations": {
+      "american_medical_association": "Panel collaboration with AMA President",
+      "emergency_medicine": "Youngblood's former medical specialty"
+    },
+    "policy_organizations": {
+      "commonwealth_fund": "Healthcare policy research collaboration",
+      "california_health_care_foundation": "Healthcare access and policy networks"
+    }
+  },
+  "portfolio_company_networks": {
+    "current_investments": {
+      "renal_care_360": {
+        "investment_year": 2022,
+        "sector": "Chronic kidney care management",
+        "strategic_focus": "Underserved patient populations"
+      },
+      "rhythmedix": {
+        "investment_year": 2024,
+        "investment_type": "Majority investment",
+        "sector": "Healthcare technology"
+      }
+    },
+    "portfolio_characteristics": {
+      "total_companies": 58,
+      "current_active": 9,
+      "exits_completed": 12,
+      "geographic_focus": "Underserved markets",
+      "sector_focus": "Healthcare middle-market"
+    }
+  },
+  "recognition_networks": {
+    "forbes_blk50": {
+      "ranking": 50,
+      "peer_network": [
+        "Robert F. Smith (Vista Equity Partners - $10.8B)",
+        "David Steward (World Wide Technology - $11.4B)",
+        "Jay-Z ($2.5B)",
+        "Oprah Winfrey ($3B)"
+      ],
+      "selection_influence": [
+        "Goldman Sachs",
+        "Investment firm Revolution",
+        "Global Strategy Group",
+        "FDIC",
+        "Black Innovation Alliance",
+        "Atlanta Black Chambers"
+      ]
+    }
+  },
+  "geographic_presence": {
+    "headquarters": {
+      "dallas_tx": "Primary headquarters location",
+      "nashville_tn": "Secondary headquarters location"
+    },
+    "regional_focus": "Underserved healthcare markets across US",
+    "investment_geography": "Middle-market healthcare companies"
+  },
+  "government_relations": {
+    "federal_lobbying": {
+      "status": "Active registration",
+      "focus": "Healthcare policy and private equity regulation",
+      "source": "LegiStorm regulatory tracking"
+    },
+    "regulatory_engagement": {
+      "sec_compliance": "Active investment advisor registration",
+      "examination_history": "Recent successful SEC examination completion"
+    }
+  },
+  "media_relationships": {
+    "forbes": "BLK50 recognition and profile coverage",
+    "pr_newswire": "Investment announcement distribution",
+    "industry_publications": "Healthcare private equity coverage",
+    "milken_institute": "Thought leadership content publication"
+  },
+  "legal_relationships": {
+    "conocophillips_litigation": {
+      "case_type": "Property rights claim",
+      "amount": "$900 million",
+      "basis": "Family oil-rich land in Texas",
+      "status": "Ongoing legal action"
+    }
+  }
+}

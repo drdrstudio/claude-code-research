@@ -1,0 +1,185 @@
+{
+  "key_associations_map": {
+    "business_partners": [
+      {
+        "name": "Michael Devlin",
+        "relationship": "Co-founder of Pharos Capital Group",
+        "connection_strength": "High",
+        "timeframe": "1997-present",
+        "context": "Business partnership spanning 28 years"
+      },
+      {
+        "name": "Robert Crants", 
+        "relationship": "Co-founder of Pharos Capital Group",
+        "connection_strength": "High",
+        "timeframe": "1997-present",
+        "context": "Business partnership spanning 28 years"
+      }
+    ],
+    "political_mentors_allies": [
+      {
+        "name": "Bill Bradley",
+        "relationship": "Political mentor/fundraising connection",
+        "connection_strength": "Very High",
+        "timeframe": "1986-present",
+        "context": "Former U.S. Senator, presidential candidate, Princeton basketball star. Godfather to one of Youngblood's children",
+        "notable_details": "Rhodes Scholar, Olympic gold medalist, NBA champion"
+      },
+      {
+        "name": "Ann Richards",
+        "relationship": "Political patron/Texas Governor",
+        "connection_strength": "High",
+        "timeframe": "Late 1980s-1990s",
+        "context": "Recruited Youngblood for fundraising, appointed to tax committee and TRS board"
+      },
+      {
+        "name": "Hillary Clinton",
+        "relationship": "Task force colleague",
+        "connection_strength": "Medium",
+        "timeframe": "1993-1994",
+        "context": "Served on Hillary Clinton's Health Care Task Force"
+      }
+    ],
+    "presidential_connections": [
+      {
+        "name": "Bill Clinton",
+        "relationship": "Presidential appointee",
+        "connection_strength": "High",
+        "timeframe": "1993-1998",
+        "context": "Senate-confirmed appointment to U.S. Enrichment Corporation board"
+      },
+      {
+        "name": "Joe Biden",
+        "relationship": "Presidential appointee",
+        "connection_strength": "High", 
+        "timeframe": "2021-present",
+        "context": "Current appointment to President's Intelligence Advisory Board"
+      }
+    ],
+    "international_figures": [
+      {
+        "name": "Nelson Mandela",
+        "relationship": "Met during official delegation",
+        "connection_strength": "Medium",
+        "timeframe": "1990s",
+        "context": "Met during USEC board delegation to South Africa, inspired essay 'From Sit-in to Soweto'"
+      },
+      {
+        "name": "F.W. de Klerk",
+        "relationship": "Met during official delegation",
+        "connection_strength": "Low",
+        "timeframe": "1990s", 
+        "context": "Met during same South Africa delegation"
+      }
+    ],
+    "academic_institutional": [
+      {
+        "institution": "Princeton University",
+        "relationship": "Alumni leadership/volunteer",
+        "connection_strength": "High",
+        "timeframe": "1978-present",
+        "context": "Regional Alumni Schools Committee member, Career Services volunteer"
+      },
+      {
+        "institution": "California Institute of Technology",
+        "relationship": "Board of Trustees member",
+        "connection_strength": "High",
+        "timeframe": "2021-present",
+        "context": "Serves on Governance & Nominating, Investment committees"
+      }
+    ],
+    "think_tank_policy": [
+      {
+        "organization": "Milken Institute",
+        "relationship": "Board member",
+        "connection_strength": "High",
+        "timeframe": "Current",
+        "context": "Participates in healthcare and aging policy panels"
+      },
+      {
+        "organization": "Council on Foreign Relations",
+        "relationship": "Member",
+        "connection_strength": "Medium",
+        "timeframe": "Long-term membership",
+        "context": "Foreign policy and international affairs engagement"
+      },
+      {
+        "organization": "Black Economic Alliance", 
+        "relationship": "Board member",
+        "connection_strength": "High",
+        "timeframe": "Current",
+        "context": "Economic empowerment and business development focus"
+      }
+    ],
+    "corporate_board_network": [
+      {
+        "organization": "Light & Wonder, Inc.",
+        "relationship": "Lead Director",
+        "connection_strength": "Very High",
+        "timeframe": "Current",
+        "context": "NYSE gaming company, senior board leadership role"
+      },
+      {
+        "organization": "Starwood Hotels (Historical)",
+        "relationship": "Former Board Director",
+        "connection_strength": "Medium",
+        "timeframe": "Historical",
+        "context": "Major hospitality industry board service"
+      },
+      {
+        "organization": "Burger King (Historical)",
+        "relationship": "Former Board Director", 
+        "connection_strength": "Medium",
+        "timeframe": "Historical",
+        "context": "Major food service industry board experience"
+      },
+      {
+        "organization": "The Gap (Historical)",
+        "relationship": "Former Board Director",
+        "connection_strength": "Medium", 
+        "timeframe": "Historical",
+        "context": "Major retail industry board experience"
+      }
+    ],
+    "family_personal": [
+      {
+        "name": "Dr. Sharon Youngblood",
+        "relationship": "Spouse",
+        "connection_strength": "Very High",
+        "timeframe": "Long-term marriage",
+        "context": "Medical professional, mother of six children"
+      }
+    ],
+    "pension_fund_fiduciary": [
+      {
+        "organization": "Teacher Retirement System of Texas",
+        "relationship": "Former Board Trustee & Real Estate Committee Chair",
+        "connection_strength": "High",
+        "timeframe": "1993-1999",
+        "context": "Managed $1.4 billion portfolio, $85-100 billion pension fund"
+      },
+      {
+        "organization": "Dallas Police and Fire Pension System",
+        "relationship": "Board Member",
+        "connection_strength": "Medium",
+        "timeframe": "Mayoral appointment",
+        "context": "Municipal pension oversight"
+      }
+    ]
+  },
+  "network_analysis": {
+    "total_high_value_connections": 12,
+    "political_influence_score": "Very High",
+    "business_influence_score": "High", 
+    "academic_influence_score": "High",
+    "international_exposure": "Medium",
+    "succession_across_administrations": "Bipartisan",
+    "key_network_hubs": [
+      "Princeton University alumni network",
+      "Private equity/healthcare investment community", 
+      "Democratic Party fundraising network",
+      "Corporate board governance network",
+      "Texas political establishment"
+    ]
+  }
+}

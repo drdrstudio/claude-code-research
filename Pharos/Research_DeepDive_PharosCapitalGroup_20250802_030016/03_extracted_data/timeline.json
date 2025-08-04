@@ -1,0 +1,131 @@
+{
+  "company_timeline": [
+    {
+      "year": 1998,
+      "event": "Company Foundation",
+      "description": "Dr. Kneeland Youngblood founded Pharos Capital Group as physician-founded private equity firm",
+      "significance": "Establishment of healthcare-focused investment platform",
+      "source": "Company website"
+    },
+    {
+      "year": "1998-2022",
+      "event": "Portfolio Development Period",
+      "description": "Built portfolio of 58 total investments across healthcare sector with focus on underserved markets",
+      "significance": "Established track record in healthcare private equity",
+      "source": "CBInsights, Company data"
+    },
+    {
+      "year": 2022,
+      "event": "Renal Care 360 Investment",
+      "description": "Pharos Capital invested in Renal Care 360, capitalizing new chronic kidney care management platform",
+      "significance": "Demonstrates focus on chronic care management and patient outcomes",
+      "source": "PR Newswire press release"
+    },
+    {
+      "year": 2024,
+      "event": "RhythMedix Majority Investment",
+      "description": "Pharos Capital made majority investment in RhythMedix healthcare technology company",
+      "significance": "Recent acquisition activity showing continued growth strategy",
+      "source": "Paragon Ventures market report"
+    },
+    {
+      "year": "December 2024",
+      "event": "Forbes BLK50 Recognition",
+      "description": "Kneeland Youngblood ranked #50 on inaugural Forbes BLK50 list of most powerful Black Americans",
+      "significance": "National recognition for business leadership and social impact",
+      "source": "Forbes BLK50 2024 list"
+    },
+    {
+      "year": "2024-2025",
+      "event": "SEC Examination",
+      "description": "Successfully completed SEC examination using Ontra compliance platform, saving 40 hours in response time",
+      "significance": "Demonstrates regulatory compliance excellence and operational efficiency",
+      "source": "Ontra case study"
+    },
+    {
+      "year": "June 2025",
+      "event": "Milken Institute Panel Participation",
+      "description": "Youngblood participated in invite-only panel 'Private Equity and Patient Care: A Delicate Balancing Act' at 28th Annual Global Conference",
+      "significance": "Industry thought leadership recognition in healthcare PE ethics",
+      "source": "Milken Institute newsletter"
+    }
+  ],
+  "regulatory_timeline": [
+    {
+      "year": 1998,
+      "event": "SEC Registration",
+      "description": "Initial SEC registration as investment advisor (CRD 316789)",
+      "significance": "Formal regulatory compliance establishment",
+      "source": "SEC records"
+    },
+    {
+      "year": "Ongoing",
+      "event": "Federal Lobbying Registration",
+      "description": "Active federal lobbying registration maintained",
+      "significance": "Government relations activity and regulatory engagement",
+      "source": "LegiStorm regulatory data"
+    },
+    {
+      "year": "2024-2025",
+      "event": "Clean Regulatory Record",
+      "description": "No SEC regulatory issues, fraud allegations, or major legal controversies identified",
+      "significance": "Strong compliance track record",
+      "source": "Perplexity regulatory search, SEC records"
+    }
+  ],
+  "leadership_timeline": [
+    {
+      "year": "Pre-1998",
+      "event": "Medical Practice",
+      "description": "Dr. Youngblood practiced emergency room medicine at Baylor University Medical Center and Medical Center of Plano",
+      "significance": "Medical expertise foundation for healthcare investing approach",
+      "source": "Forbes profile, Wikipedia"
+    },
+    {
+      "year": 1998,
+      "event": "Transition to Private Equity",
+      "description": "Youngblood transitioned from medical practice to founding private equity firm",
+      "significance": "Career pivot from practitioner to investor",
+      "source": "Company history"
+    },
+    {
+      "year": "2019-Present",
+      "event": "ConocoPhillips Legal Action",
+      "description": "Youngblood sued ConocoPhillips for $900 million claiming family's claim to oil-rich land in Texas",
+      "significance": "Personal legal activity related to family heritage and property rights",
+      "source": "Forbes BLK50 profile"
+    }
+  ],
+  "growth_milestones": [
+    {
+      "metric": "Assets Under Management",
+      "value": "$1 billion",
+      "timeframe": "Current (2024-2025)",
+      "significance": "Substantial fund size demonstrating investor confidence"
+    },
+    {
+      "metric": "Total Investments",
+      "value": "58 companies",
+      "timeframe": "1998-2024",
+      "significance": "Extensive portfolio development over 26-year period"
+    },
+    {
+      "metric": "Fund Count",
+      "value": "6 funds",
+      "timeframe": "1998-2024",
+      "significance": "Multiple fund generations showing institutional development"
+    },
+    {
+      "metric": "Exit Activity",
+      "value": "12 exits",
+      "timeframe": "1998-2024",
+      "significance": "Demonstrated ability to generate returns for investors"
+    },
+    {
+      "metric": "Current Portfolio",
+      "value": "9 companies",
+      "timeframe": "Current (2024-2025)",
+      "significance": "Active investment management and portfolio optimization"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "fund_metrics": {
+    "assets_under_management": {
+      "value": "$1 billion",
+      "currency": "USD",
+      "as_of_date": "2024",
+      "source": "Forbes BLK50 profile",
+      "significance": "Substantial institutional fund size"
+    },
+    "fund_count": {
+      "total_funds": 6,
+      "timeframe": "1998-2024",
+      "fund_generation": "Multiple generations over 26-year period",
+      "institutional_development": "Demonstrates investor confidence and fund-raising capability"
+    }
+  },
+  "investment_metrics": {
+    "total_investments": {
+      "count": 58,
+      "timeframe": "1998-2024",
+      "investment_period": "26 years",
+      "average_per_year": 2.2
+    },
+    "current_portfolio": {
+      "active_companies": 9,
+      "portfolio_concentration": "Focused healthcare middle-market approach",
+      "geographic_focus": "Underserved markets"
+    },
+    "exit_activity": {
+      "total_exits": 12,
+      "exit_rate": "20.7% of total investments",
+      "timeframe": "1998-2024",
+      "portfolio_turnover": "Selective exit strategy"
+    }
+  },
+  "recent_transactions": {
+    "renal_care_360_2022": {
+      "transaction_type": "Investment",
+      "year": 2022,
+      "sector": "Chronic kidney care management",
+      "investment_thesis": "Platform for chronic kidney care in underserved markets",
+      "strategic_focus": "Cost reduction and patient outcomes improvement"
+    },
+    "rhythmedix_2024": {
+      "transaction_type": "Majority Investment",
+      "year": 2024,
+      "sector": "Healthcare technology",
+      "investment_structure": "Majority stake acquisition",
+      "market_focus": "Healthcare technology solutions"
+    }
+  },
+  "operational_efficiency": {
+    "compliance_cost_savings": {
+      "sec_examination_efficiency": "40 hours saved",
+      "technology_platform": "Ontra AI-powered compliance",
+      "per_fund_efficiency": "15 minutes vs 10 hours for side letter requests",
+      "annual_value": "Significant operational cost reduction"
+    }
+  },
+  "investment_philosophy": {
+    "target_markets": "Underserved regions",
+    "investment_focus": [
+      "Lowering healthcare costs",
+      "Improving patient outcomes", 
+      "Expanding access to care"
+    ],
+    "market_segment": "Middle-market healthcare companies",
+    "differentiation": "Physician-founded expertise in healthcare investing"
+  },
+  "regulatory_financial_status": {
+    "sec_registration": {
+      "crd_number": "316789",
+      "status": "Active investment advisor",
+      "compliance_record": "Clean - no regulatory issues or fraud allegations"
+    },
+    "lobbying_expenditure": {
+      "status": "Active federal lobbying registration",
+      "focus": "Healthcare policy and private equity regulation",
+      "investment_protection": "Regulatory environment monitoring"
+    }
+  },
+  "valuation_indicators": {
+    "founder_net_worth": {
+      "recognition": "Forbes BLK50 #50 ranking",
+      "wealth_category": "Among top 50 wealthiest Black Americans",
+      "business_value": "$1B AUM private equity firm",
+      "additional_assets": "ConocoPhillips $900M legal claim"
+    }
+  },
+  "market_position": {
+    "industry_ranking": "Recognized among leading healthcare PE firms",
+    "competitive_advantage": [
+      "Physician-founded medical expertise",
+      "Focus on underserved markets",
+      "26-year track record",
+      "Dual headquarters (Dallas/Nashville)"
+    ],
+    "market_differentiation": "Unique physician-investor combination in healthcare PE"
+  },
+  "risk_management": {
+    "regulatory_compliance": "AI-powered compliance technology platform",
+    "portfolio_diversification": "9 active companies across healthcare sectors",
+    "geographic_diversification": "Multi-state presence and underserved market focus",
+    "operational_risk": "Strong SEC examination performance"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "regulatory_risk_assessment": {
+    "sec_compliance": {
+      "risk_level": "LOW",
+      "status": "Active registration (CRD 316789)",
+      "recent_examination": "Successfully completed with 40-hour efficiency gain",
+      "compliance_record": "Clean - no regulatory issues or fraud allegations identified",
+      "technology_platform": "Ontra AI-powered compliance system",
+      "risk_mitigation": "Proactive compliance technology adoption"
+    },
+    "federal_lobbying": {
+      "risk_level": "LOW-MODERATE",
+      "status": "Active federal lobbying registration",
+      "focus": "Healthcare policy and private equity regulation",
+      "transparency": "Properly registered and disclosed",
+      "risk_factor": "Potential regulatory changes affecting private equity"
+    }
+  },
+  "reputational_risk_assessment": {
+    "public_sentiment": {
+      "risk_level": "LOW",
+      "positive_indicators": [
+        "Forbes BLK50 recognition (#50 most powerful Black Americans)",
+        "Milken Institute thought leadership participation",
+        "Healthcare ethics panel involvement"
+      ],
+      "concerning_indicators": [
+        "Reddit conspiracy theory post mentioning firm (isolated incident)",
+        "Private equity industry general skepticism"
+      ],
+      "overall_assessment": "Strong positive reputation with minimal negative exposure"
+    },
+    "media_coverage": {
+      "risk_level": "LOW",
+      "coverage_tone": "Predominantly positive",
+      "focus_areas": ["Business leadership", "Healthcare investment", "Diversity recognition"],
+      "controversy_level": "Minimal - no major negative coverage identified"
+    }
+  },
+  "legal_risk_assessment": {
+    "litigation_exposure": {
+      "risk_level": "MODERATE",
+      "active_litigation": "ConocoPhillips $900M property rights claim",
+      "litigation_type": "Personal/family property dispute (not business-related)",
+      "business_impact": "Limited direct impact on firm operations",
+      "risk_monitoring": "Ongoing legal proceedings"
+    },
+    "regulatory_violations": {
+      "risk_level": "LOW",
+      "sec_violations": "None identified",
+      "fraud_allegations": "None identified",
+      "compliance_issues": "None identified",
+      "track_record": "Clean regulatory history over 26 years"
+    }
+  },
+  "operational_risk_assessment": {
+    "key_person_risk": {
+      "risk_level": "MODERATE-HIGH",
+      "founder_dependency": "Dr. Kneeland Youngblood (age 69) - significant firm dependency",
+      "succession_planning": "Not publicly disclosed",
+      "leadership_depth": "16 professionals total",
+      "risk_mitigation": "Experienced team including CIO Bob Crants and CFO/CCO Kimberly Futrell"
+    },
+    "portfolio_concentration": {
+      "risk_level": "MODERATE",
+      "sector_focus": "Healthcare middle-market (concentrated exposure)",
+      "geographic_focus": "Underserved markets (potential liquidity challenges)",
+      "portfolio_size": "9 active companies (moderate diversification)",
+      "risk_factors": "Healthcare regulatory changes, market access challenges"
+    }
+  },
+  "financial_risk_assessment": {
+    "fund_performance": {
+      "risk_level": "LOW-MODERATE",
+      "aum": "$1 billion (substantial size)",
+      "exit_rate": "20.7% (12 exits from 58 investments)",
+      "fund_generations": "6 funds over 26 years",
+      "investor_confidence": "Multiple fund closings indicate confidence"
+    },
+    "market_risks": {
+      "risk_level": "MODERATE",
+      "healthcare_sector": "Regulatory and reimbursement risks",
+      "private_equity_environment": "Interest rate sensitivity and exit market conditions",
+      "underserved_markets": "Potential liquidity and valuation challenges"
+    }
+  },
+  "strategic_risk_assessment": {
+    "competitive_positioning": {
+      "risk_level": "LOW-MODERATE",
+      "differentiation": "Physician-founded healthcare expertise",
+      "market_position": "Recognized industry leader",
+      "competitive_threats": "Larger PE firms entering healthcare",
+      "defensive_moats": "Medical expertise and underserved market focus"
+    },
+    "regulatory_environment": {
+      "risk_level": "MODERATE",
+      "healthcare_policy": "Ongoing healthcare reform and regulation",
+      "private_equity_scrutiny": "Increased regulatory focus on PE in healthcare",
+      "lobbying_activity": "Active engagement in policy development"
+    }
+  },
+  "cybersecurity_and_technology_risks": {
+    "data_security": {
+      "risk_level": "LOW-MODERATE",
+      "compliance_platform": "Ontra AI-powered system (third-party dependency)",
+      "portfolio_companies": "Healthcare data sensitivity",
+      "regulatory_requirements": "HIPAA and healthcare data protection"
+    }
+  },
+  "overall_risk_profile": {
+    "composite_risk_level": "LOW-MODERATE",
+    "primary_risks": [
+      "Key person dependency (founder age 69)",
+      "Healthcare sector regulatory changes",
+      "ConocoPhillips litigation exposure"
+    ],
+    "risk_mitigants": [
+      "Clean regulatory record",
+      "Strong compliance technology",
+      "Experienced management team",
+      "Forbes BLK50 recognition",
+      "26-year track record"
+    ],
+    "monitoring_priorities": [
+      "Succession planning disclosure",
+      "Healthcare regulatory developments",
+      "ConocoPhillips litigation progress",
+      "SEC examination outcomes"
+    ]
+  },
+  "red_flags_identified": {
+    "immediate_concerns": "None identified",
+    "medium_term_concerns": [
+      "Founder succession planning (age 69)",
+      "Ongoing litigation exposure"
+    ],
+    "long_term_concerns": [
+      "Healthcare sector regulatory evolution",
+      "Private equity industry scrutiny"
+    ]
+  }
+}

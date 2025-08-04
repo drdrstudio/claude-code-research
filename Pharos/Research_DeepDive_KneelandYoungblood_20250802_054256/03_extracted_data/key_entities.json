@@ -1,0 +1,174 @@
+{
+  "subject": {
+    "name": "Kneeland Youngblood",
+    "full_name": "Dr. Kneeland Youngblood",
+    "birth_date": "1955-12-13",
+    "birth_location": "Galena Park, Texas",
+    "current_age": 69,
+    "primary_residence": "Dallas, Texas"
+  },
+  "education": {
+    "undergraduate": {
+      "institution": "Princeton University",
+      "degree": "A.B. in Politics/Science in Human Affairs",
+      "graduation_year": 1978,
+      "study_abroad": [
+        "Warnborough College, Oxford, England (1976-1977)",
+        "University of Stockholm, Sweden (1976-1977)"
+      ],
+      "notable_activities": [
+        "Nassau Hall sit-in protesting South African investments (1978)"
+      ]
+    },
+    "graduate": {
+      "institution": "University of Texas Southwestern Medical School",
+      "degree": "M.D.",
+      "graduation_year": 1982,
+      "international_study": "Cairo University Medical School, Egypt"
+    },
+    "post_graduate": {
+      "internship": "Columbia University surgical internship (1982-1983)",
+      "residency": "Emory University School of Medicine Emergency Medicine (1983-1985)"
+    }
+  },
+  "career_timeline": [
+    {
+      "period": "1985-1997",
+      "role": "Emergency Medicine Physician",
+      "organizations": ["Medical Center of Plano", "Baylor University Medical Center"],
+      "duration_years": 12
+    },
+    {
+      "period": "1997-present",
+      "role": "Founding Partner, Chairman & CEO",
+      "organization": "Pharos Capital Group, LLC",
+      "co_founders": ["Michael Devlin", "Robert Crants"],
+      "duration_years": 28
+    }
+  ],
+  "government_service": {
+    "presidential_appointments": [
+      {
+        "president": "Bill Clinton",
+        "position": "Board of Directors, United States Enrichment Corporation",
+        "period": "1993-1998",
+        "confirmation": "Senate confirmed",
+        "notable_activities": ["South Africa delegation", "Met Nelson Mandela", "Wrote 'From Sit-in to Soweto' essay"]
+      },
+      {
+        "president": "Joe Biden",
+        "position": "President's Intelligence Advisory Board",
+        "period": "2021-present",
+        "status": "Current appointment"
+      }
+    ],
+    "gubernatorial_appointments": [
+      {
+        "governor": "Ann Richards (Texas)",
+        "positions": ["Tax policy committee", "Teacher Retirement System of Texas Board"],
+        "period": "1993-1999"
+      },
+      {
+        "governor": "George W. Bush (Texas)", 
+        "position": "Teacher Retirement System of Texas Board",
+        "period": "1999-2003"
+      }
+    ],
+    "mayoral_appointments": [
+      {
+        "mayor": "Mike Rawlings (Dallas)",
+        "positions": [
+          "Dallas Police and Fire Pension System Board",
+          "Dallas Employees' Retirement Fund Board of Trustees"
+        ]
+      }
+    ],
+    "federal_task_forces": [
+      {
+        "name": "Hillary Clinton's Health Care Task Force",
+        "period": "1993-1994",
+        "role": "Member"
+      }
+    ]
+  },
+  "current_board_positions": [
+    {
+      "organization": "California Institute of Technology (CalTech)",
+      "role": "Board of Trustees",
+      "committees": ["Governance and Nominating", "Investment"],
+      "elected": 2021
+    },
+    {
+      "organization": "Milken Institute",
+      "role": "Board Member"
+    },
+    {
+      "organization": "Black Economic Alliance",
+      "role": "Board Member"
+    },
+    {
+      "organization": "Light & Wonder, Inc.",
+      "role": "Lead Director",
+      "exchange": "NYSE",
+      "industry": "Gaming"
+    },
+    {
+      "organization": "Reel FX",
+      "role": "Board Member"
+    }
+  ],
+  "past_board_positions": [
+    {
+      "organization": "Starwood Hotels & Resorts",
+      "role": "Director",
+      "status": "Past"
+    },
+    {
+      "organization": "Burger King Corporation",
+      "role": "Board of Directors",
+      "status": "Past"
+    },
+    {
+      "organization": "The Gap, Inc.",
+      "role": "Board of Directors", 
+      "status": "Past"
+    },
+    {
+      "organization": "AMR Investments (American Airlines)",
+      "role": "Board of Directors",
+      "status": "Past"
+    },
+    {
+      "organization": "American Beacon Funds",
+      "role": "Chairman",
+      "assets": "$30 billion",
+      "status": "Past (as of 2008)"
+    },
+    {
+      "organization": "Scientific Games",
+      "role": "Board Member",
+      "status": "Past"
+    }
+  ],
+  "professional_memberships": [
+    {
+      "organization": "Council on Foreign Relations",
+      "role": "Member",
+      "status": "Current"
+    }
+  ],
+  "family": {
+    "spouse": "Dr. Sharon Youngblood",
+    "children": 6,
+    "notable_relationships": [
+      "Bill Bradley (godfather to one child)"
+    ]
+  },
+  "data_sources": [
+    "https://www.thehistorymakers.org/biography/dr-kneeland-youngblood-40",
+    "https://board.caltech.edu/board-members/dr-kneeland-youngblood",
+    "https://www.princeton.edu/~alco/CTNAT/2008/Youngblood.html",
+    "https://en.wikipedia.org/wiki/Kneeland_Youngblood",
+    "https://www.pharosfunds.com/kneeland-youngblood.php"
+  ]
+}

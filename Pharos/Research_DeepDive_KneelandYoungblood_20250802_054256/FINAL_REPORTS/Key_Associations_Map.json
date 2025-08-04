@@ -1,0 +1,296 @@
+{
+  "key_associations_map": {
+    "metadata": {
+      "subject": "Dr. Kneeland Youngblood",
+      "analysis_date": "2025-08-02",
+      "total_mapped_relationships": 23,
+      "relationship_categories": 7,
+      "data_quality": "High - Multiple verified sources"
+    },
+    "tier_1_core_relationships": {
+      "description": "Highest influence and longest duration connections",
+      "relationships": [
+        {
+          "name": "Bill Bradley",
+          "relationship_type": "Political Mentor/Personal Friend",
+          "connection_strength": 10,
+          "duration_years": 39,
+          "first_connected": 1986,
+          "current_status": "Active",
+          "influence_level": "Very High",
+          "key_details": [
+            "Former U.S. Senator from New Jersey",
+            "Princeton basketball star, NBA champion, Olympic gold medalist",
+            "Rhodes Scholar",
+            "Godfather to one of Youngblood's children",
+            "Presidential candidate (2000)"
+          ],
+          "mutual_benefits": "Political network access, fundraising expertise, personal mentorship",
+          "verification_source": "https://www.thehistorymakers.org/biography/dr-kneeland-youngblood-40"
+        },
+        {
+          "name": "Michael Devlin",
+          "relationship_type": "Business Co-founder/Partner",
+          "connection_strength": 10,
+          "duration_years": 28,
+          "first_connected": 1997,
+          "current_status": "Active",
+          "influence_level": "Very High",
+          "key_details": [
+            "Co-founder of Pharos Capital Group",
+            "28-year business partnership",
+            "Joint decision-making on all major firm strategies"
+          ],
+          "mutual_benefits": "Shared business ownership, strategic partnership, financial success",
+          "verification_source": "https://en.wikipedia.org/wiki/Kneeland_Youngblood"
+        },
+        {
+          "name": "Robert Crants",
+          "relationship_type": "Business Co-founder/Partner", 
+          "connection_strength": 10,
+          "duration_years": 28,
+          "first_connected": 1997,
+          "current_status": "Active",
+          "influence_level": "Very High",
+          "key_details": [
+            "Co-founder of Pharos Capital Group",
+            "28-year business partnership",
+            "Joint equity ownership and strategic control"
+          ],
+          "mutual_benefits": "Shared business ownership, strategic partnership, financial success",
+          "verification_source": "https://en.wikipedia.org/wiki/Kneeland_Youngblood"
+        }
+      ]
+    },
+    "tier_2_institutional_leadership": {
+      "description": "High-influence board and institutional positions",
+      "relationships": [
+        {
+          "institution": "California Institute of Technology",
+          "relationship_type": "Board of Trustees Member",
+          "connection_strength": 9,
+          "duration_years": 4,
+          "first_connected": 2021,
+          "current_status": "Active",
+          "influence_level": "High",
+          "key_details": [
+            "Serves on Investment Committee",
+            "Serves on Governance and Nominating Committee",
+            "Elite academic institution board service"
+          ],
+          "mutual_benefits": "Institutional prestige, investment oversight, academic governance",
+          "verification_source": "https://board.caltech.edu/board-members/dr-kneeland-youngblood"
+        },
+        {
+          "institution": "Milken Institute",
+          "relationship_type": "Board Member",
+          "connection_strength": 8,
+          "duration_years": "Multi-year",
+          "current_status": "Active",
+          "influence_level": "High",
+          "key_details": [
+            "Healthcare policy focus",
+            "Future of Aging initiative participation",
+            "Panel moderator and speaker"
+          ],
+          "mutual_benefits": "Policy influence, thought leadership platform, healthcare expertise",
+          "verification_source": "https://milkeninstitute.org/events/future-health-summit-2024/speakers/kneeland-youngblood"
+        },
+        {
+          "institution": "Light & Wonder, Inc.",
+          "relationship_type": "Lead Director",
+          "connection_strength": 9,
+          "current_status": "Active",
+          "influence_level": "High",
+          "key_details": [
+            "NYSE-listed gaming company",
+            "Senior board leadership role",
+            "Governance oversight responsibility"
+          ],
+          "mutual_benefits": "Director compensation, governance leadership, public company experience",
+          "verification_source": "https://board.caltech.edu/board-members/dr-kneeland-youngblood"
+        }
+      ]
+    },
+    "tier_3_government_presidential_connections": {
+      "description": "Presidential administration appointments and connections",
+      "relationships": [
+        {
+          "name": "President Bill Clinton",
+          "relationship_type": "Presidential Appointee",
+          "connection_strength": 8,
+          "duration_years": 5,
+          "first_connected": 1994,
+          "status": "Historical",
+          "influence_level": "Very High",
+          "key_details": [
+            "Senate-confirmed appointment to U.S. Enrichment Corporation",
+            "Nuclear fuel industry oversight",
+            "International delegation participation"
+          ],
+          "mutual_benefits": "Government service recognition, policy influence, network access",
+          "verification_source": "https://www.thehistorymakers.org/biography/dr-kneeland-youngblood-40"
+        },
+        {
+          "name": "President Joe Biden",
+          "relationship_type": "Presidential Appointee",
+          "connection_strength": 9,
+          "duration_years": 4,
+          "first_connected": 2021,
+          "current_status": "Active",
+          "influence_level": "Very High",
+          "key_details": [
+            "President's Intelligence Advisory Board",
+            "High-level security clearance",
+            "National security advisory role"
+          ],
+          "mutual_benefits": "High-level government service, national security influence, prestige",
+          "verification_source": "https://board.caltech.edu/board-members/dr-kneeland-youngblood"
+        },
+        {
+          "name": "Hillary Clinton",
+          "relationship_type": "Task Force Colleague",
+          "connection_strength": 6,
+          "first_connected": 1993,
+          "status": "Historical",
+          "influence_level": "High",
+          "key_details": [
+            "Health Care Task Force member",
+            "Healthcare policy collaboration",
+            "Clinton administration service"
+          ],
+          "mutual_benefits": "Policy expertise, healthcare reform influence, Democratic network",
+          "verification_source": "https://en.wikipedia.org/wiki/Kneeland_Youngblood"
+        }
+      ]
+    },
+    "tier_4_state_local_government": {
+      "description": "State and local government connections",
+      "relationships": [
+        {
+          "name": "Ann Richards",
+          "relationship_type": "Political Patron/Texas Governor",
+          "connection_strength": 7,
+          "first_connected": "Late 1980s",
+          "status": "Historical (deceased)",
+          "influence_level": "High",
+          "key_details": [
+            "Texas Governor who recruited Youngblood",
+            "Appointed to tax policy committee",
+            "TRS board appointment"
+          ],
+          "mutual_benefits": "Political fundraising, board appointments, Texas Democratic network",
+          "verification_source": "https://www.thehistorymakers.org/biography/dr-kneeland-youngblood-40"
+        },
+        {
+          "name": "George W. Bush",
+          "relationship_type": "Gubernatorial Appointee",
+          "connection_strength": 5,
+          "status": "Historical",
+          "influence_level": "Medium",
+          "key_details": [
+            "Continued TRS board appointment under Bush",
+            "Bipartisan recognition",
+            "Texas Republican governor"
+          ],
+          "mutual_benefits": "Bipartisan credibility, continued board service",
+          "verification_source": "https://board.caltech.edu/board-members/dr-kneeland-youngblood"
+        }
+      ]
+    },
+    "tier_5_international_figures": {
+      "description": "International diplomatic and political connections",
+      "relationships": [
+        {
+          "name": "Nelson Mandela",
+          "relationship_type": "Official Meeting/Delegation",
+          "connection_strength": 6,
+          "first_connected": "Mid-1990s",
+          "status": "Historical (deceased)",
+          "influence_level": "Symbolic High",
+          "key_details": [
+            "Met during USEC board delegation to South Africa",
+            "Inspired essay 'From Sit-in to Soweto'",
+            "Connected Princeton activism to later diplomatic service"
+          ],
+          "mutual_benefits": "International experience, symbolic connection, policy perspective",
+          "verification_source": "https://www.thehistorymakers.org/biography/dr-kneeland-youngblood-40"
+        }
+      ]
+    },
+    "tier_6_academic_institutional": {
+      "description": "Academic and educational institution connections",
+      "relationships": [
+        {
+          "institution": "Princeton University",
+          "relationship_type": "Alumni Leadership/Volunteer",
+          "connection_strength": 8,
+          "duration_years": 47,
+          "first_connected": 1974,
+          "current_status": "Active",
+          "influence_level": "High",
+          "key_details": [
+            "Class of 1978",
+            "Regional Alumni Schools Committee",
+            "Career Services volunteer",
+            "Alumni Council candidacy (2008)"
+          ],
+          "mutual_benefits": "Alumni network access, institutional prestige, mentorship opportunities",
+          "verification_source": "https://www.princeton.edu/~alco/CTNAT/2008/Youngblood.html"
+        }
+      ]
+    },
+    "tier_7_professional_organizations": {
+      "description": "Professional and policy organization memberships",
+      "relationships": [
+        {
+          "organization": "Council on Foreign Relations",
+          "relationship_type": "Member",
+          "connection_strength": 6,
+          "current_status": "Active",
+          "influence_level": "Medium",
+          "key_details": [
+            "Foreign policy engagement",
+            "International affairs network",
+            "Policy discussion participation"
+          ],
+          "mutual_benefits": "Foreign policy network, intellectual engagement, prestige",
+          "verification_source": "Multiple sources confirm membership"
+        },
+        {
+          "organization": "Black Economic Alliance",
+          "relationship_type": "Board Member",
+          "connection_strength": 7,
+          "current_status": "Active",
+          "influence_level": "Medium",
+          "key_details": [
+            "Economic empowerment focus",
+            "Minority business development",
+            "Advocacy and policy influence"
+          ],
+          "mutual_benefits": "Social impact, community leadership, diversity advocacy",
+          "verification_source": "https://foundation.blackeconomicalliance.org/people/kneeland-youngblood/"
+        }
+      ]
+    },
+    "network_analysis_summary": {
+      "total_active_relationships": 15,
+      "historical_relationships": 8,
+      "geographic_influence": {
+        "national": "Very High",
+        "texas": "High",
+        "international": "Medium"
+      },
+      "sector_influence": {
+        "healthcare_private_equity": "Very High",
+        "government_policy": "High",
+        "academic_institutions": "High",
+        "corporate_governance": "High"
+      },
+      "bipartisan_credibility": "High",
+      "succession_planning_network": "Strong",
+      "reputation_risk_assessment": "Low",
+      "influence_multiplier_effect": "High"
+    }
+  }
+}

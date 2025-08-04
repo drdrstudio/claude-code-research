@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-08-02T05:52:00Z",
+  "tool": "tavily-search",
+  "query": "\"Kneeland Youngblood\" interview podcast quoted speaking conference media",
+  "angle": "Public Statements & Media Presence",
+  "result_count": 5,
+  "status": "success",
+  "results": [
+    {
+      "title": "Ep 104 - David Harris, Investor at Vista Equity Partners - 97% Effective - Apple Podcasts",
+      "url": "https://podcasts.apple.com/us/podcast/ep-104-david-harris-investor-at-vista-equity-partners/id1646325886?i=1000677587301",
+      "content": "Podcast featuring Kneeland Youngblood as Founding Partner, Chairman & CEO at Pharos",
+      "relevance": "High - Podcast appearance as subject"
+    },
+    {
+      "title": "Kneeland Youngblood - Black Economic Alliance Foundation",
+      "url": "https://foundation.blackeconomicalliance.org/people/kneeland-youngblood/",
+      "content": "Profile mentioning media appearances and interviews",
+      "relevance": "Medium - Media mention reference"
+    },
+    {
+      "title": "Future of Aging – Winter 2025 | Milken Institute",
+      "url": "https://milkeninstitute.org/content-hub/newsletters/future-aging-newsletter/future-aging-winter-2025",
+      "content": "Kneeland Youngblood panel participation at Milken Institute events discussing healthcare and aging issues",
+      "relevance": "High - Speaking engagement and panel participation"
+    },
+    {
+      "title": "97% Effective | RedCircle",
+      "url": "https://redcircle.com/shows/97-effective",
+      "content": "Reference to Kneeland Youngblood episode discussing career development and professional strategies",
+      "relevance": "High - Dedicated podcast episode"
+    },
+    {
+      "title": "Future of Aging – June 2025 | Milken Institute",
+      "url": "https://milkeninstitute.org/content-hub/newsletters/future-aging-newsletter/future-aging-june-2025",
+      "content": "Panel participation with healthcare leaders including Rush University Medical Center CEO",
+      "relevance": "High - Professional speaking engagement"
+    }
+  ]
+}

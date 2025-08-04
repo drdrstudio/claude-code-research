@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-08-02T05:55:00Z",
+  "tool": "tavily-search",
+  "query": "\"Pharos Capital\" lawsuit legal issues controversy SEC enforcement",
+  "angle": "Controversies, Criticisms, & Legal Issues",
+  "result_count": 5,
+  "status": "success",
+  "results": [
+    {
+      "title": "Securities Litigation | Class Action Recovery | Attorneys - Mintz",
+      "url": "https://www.mintz.com/insights-center/securities-litigation?type=2271&page=4",
+      "content": "Legal decision involving Pharos Capital Partners, L.P. - institutional investor litigation context",
+      "relevance": "Medium - Legal involvement but as plaintiff, not defendant"
+    },
+    {
+      "title": "Pharos Capital Partners, L.P. v. Credit Suisse Securities LLC - Court Document",
+      "url": "https://www.govinfo.gov/content/pkg/USCOURTS-ohsd-2_03-md-01565/pdf/USCOURTS-ohsd-2_03-md-01565-18.pdf",
+      "content": "Federal court case where Pharos Capital Partners sued Credit Suisse for fraud in securities transactions",
+      "relevance": "Medium - Pharos as plaintiff in fraud case against major bank"
+    },
+    {
+      "title": "Institutional Investor Class Action Recovery | Mintz",
+      "url": "https://www.mintz.com/insights-center/institutional-investor-class-action-recovery?page=4",
+      "content": "Reference to Pharos Capital Partners in institutional investor recovery context",
+      "relevance": "Low - Technical legal reference"
+    },
+    {
+      "title": "Pharos Capital Insurance Litigation - Court Document",
+      "url": "https://www.govinfo.gov/content/pkg/USCOURTS-txnd-3_13-cv-02603/pdf/USCOURTS-txnd-3_13-cv-02603-0.pdf",
+      "content": "2014 case involving Pharos Capital's Private Equity Fund and Management Liability Policy dispute with Nutmeg insurance",
+      "relevance": "Medium - Insurance coverage dispute, routine business litigation"
+    },
+    {
+      "title": "Private equity healthcare bankruptcies show no signs of slowing",
+      "url": "https://pestakeholder.org/news/private-equity-healthcare-bankruptcies-show-no-signs-of-slowing/",
+      "content": "Article on private equity healthcare bankruptcies - no direct mention of Pharos Capital Group but discusses industry issues",
+      "relevance": "Low - Industry context only"
+    }
+  ],
+  "analysis": {
+    "direct_controversies": "None identified",
+    "legal_involvement": "Primarily as plaintiff in securities/insurance disputes",
+    "regulatory_issues": "None identified",
+    "industry_context": "Healthcare PE sector facing scrutiny for bankruptcies",
+    "risk_assessment": "Low - No significant negative legal findings"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-08-02T05:51:00Z",
+  "tool": "tavily-search",
+  "query": "Kneeland Youngblood biography career Princeton University medical school Pharos Capital",
+  "angle": "Professional History & Achievements",
+  "result_count": 5,
+  "status": "success",
+  "results": [
+    {
+      "title": "Kneeland Youngblood '78 Profile - Princeton University",
+      "url": "https://www.princeton.edu/~alco/CTNAT/2008/Youngblood.html",
+      "content": "An emergency room doctor turned businessman, Kneeland Youngblood '78 credits Princeton with preparing him to \"be tough mentally and physically, to think strategically, not to be afraid of making difficult decisions and to embrace taking thoughtful risks.\" Founder and Managing Partner of Pharos Capital Group, a private equity firm in Dallas that funds technology, business services and healthcare services endeavors, Youngblood has embraced risk throughout his career.",
+      "relevance": "High - Princeton biography with career trajectory"
+    },
+    {
+      "title": "Dr. Kneeland Youngblood's Biography - The HistoryMakers",
+      "url": "https://www.thehistorymakers.org/biography/dr-kneeland-youngblood-40",
+      "content": "Dr. Kneeland Youngblood Physician, businessman, and presidential appointee Dr. Kneeland Youngblood, was born in Galena Park, Texas, on December 13, 1955. Discusses his time at Princeton University, career in emergency medicine, and political fundraising that led to appointments.",
+      "relevance": "High - Comprehensive biographical source"
+    },
+    {
+      "title": "Kneeland Youngblood '78 - Thrive: Empowering & Celebrating Princeton's Black Alumni",
+      "url": "https://thrive.princeton.edu/speaker/kneeland-youngblood-78/",
+      "content": "Youngblood graduated from Princeton with a bachelor's degree in politics and a certificate in the Program in Science in Human Affairs, and earned a medical degree from the University of Texas, Southwestern Medical School. Founding Partner, Pharos Capital Group",
+      "relevance": "High - Educational credentials and current role"
+    },
+    {
+      "title": "Kneeland Youngblood - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Kneeland_Youngblood",
+      "content": "Kneeland Youngblood (born December 13, 1955) is an American physician, businessman, and political figure. In 1997, Youngblood, along with Michael Devlin and Robert Crants, founded Pharos Capital Group, LLC, a private equity firm.",
+      "relevance": "High - Basic biographical facts and company founding"
+    },
+    {
+      "title": "KNEELAND YOUNGBLOOD - Milken Institute",
+      "url": "https://milkeninstitute.org/events/global-conference-2025/speakers/kneeland-youngblood",
+      "content": "Speaker profile for Milken Institute events showing current board membership and involvement",
+      "relevance": "Medium - Current professional affiliations"
+    }
+  ]
+}

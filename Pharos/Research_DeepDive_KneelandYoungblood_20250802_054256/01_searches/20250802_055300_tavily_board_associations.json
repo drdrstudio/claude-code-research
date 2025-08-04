@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-08-02T05:53:00Z",
+  "tool": "tavily-search",
+  "query": "Kneeland Youngblood board director California Institute Technology CalTech Milken Institute",
+  "angle": "Network & Associations",
+  "result_count": 5,
+  "status": "success",
+  "results": [
+    {
+      "title": "Dr. Kneeland Youngblood - Caltech Board of Trustees",
+      "url": "https://board.caltech.edu/board-members/dr-kneeland-youngblood",
+      "content": "Official CalTech board member page. Serves on Governance and Nominating; Investment committees. Also serves on Milken Institute board and is lead director for Light & Wonder, Inc. Appointed by President Biden to President's Intelligence Advisory Board.",
+      "relevance": "Critical - Official board position confirmation"
+    },
+    {
+      "title": "Kneeland Youngblood - Milken Institute",
+      "url": "https://milkeninstitute.org/events/future-health-summit-2024/speakers/kneeland-youngblood",
+      "content": "Milken Institute speaker profile confirming board membership and role as Founding Partner, Chairman, and CEO of Pharos Capital Group",
+      "relevance": "High - Confirms Milken Institute association"
+    },
+    {
+      "title": "Kneeland Youngblood Joins Caltech's Board of Trustees",
+      "url": "https://www.caltech.edu/about/news/kneeland-youngblood-joins-caltechs-board-of-trustees",
+      "content": "Official CalTech announcement of board appointment highlighting healthcare investment focus",
+      "relevance": "High - Board appointment announcement"
+    },
+    {
+      "title": "Kneeland Youngblood Managing Director - Pharos Financial Services",
+      "url": "https://pharosfinancial.com/data/kneeland-youngblood.php",
+      "content": "Details founding member role, past board positions (Burger King, Gap Inc., Teacher Retirement System of Texas), Council on Foreign Relations membership",
+      "relevance": "High - Comprehensive board history"
+    },
+    {
+      "title": "Kneeland Youngblood - Our Team | Pharos Capital Group",
+      "url": "https://www.pharosfunds.com/kneeland-youngblood.php",
+      "content": "Current role details and government appointments including President's Intelligence Advisory Board, Dallas pension boards",
+      "relevance": "High - Current positions and government roles"
+    }
+  ]
+}

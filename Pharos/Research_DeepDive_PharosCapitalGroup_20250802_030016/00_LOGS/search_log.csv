@@ -28,3 +28,7 @@ timestamp,tool,query,angle,results_count,status,notes
 2025-08-02 03:18,Firecrawl-MCP,https://reddit.com/r/DrainTheSwamp/comments/b9lht6/if_vaccine_damage_is_real_who_would_benefit_meet/,Content Extraction,1,BLOCKED,Reddit post blocked by Firecrawl platform restrictions
 2025-08-02 03:18,Firecrawl-MCP,https://reports.adviserinfo.sec.gov/reports/ADV/316789/PDF/316789.pdf,Content Extraction,1,ERROR,SEC Form ADV too large - exceeded 25000 token limit
 2025-08-02 03:19,Firecrawl-MCP,https://www.forbes.com/sites/jabariyoung/2024/12/19/forbes-blk-50-2024/,Content Extraction,1,SUCCESS,Forbes BLK50 2024 recognition - #50 most powerful Black Americans
+2025-08-02 04:15,RETRY,webshare-cli proxy configuration,Proxy Setup,0,ERROR,webshare-cli command not found - tool not installed or accessible in environment
+2025-08-02 04:16,RETRY,https://www.linkedin.com/company/pharos-capital-group,Content Extraction,1,BLOCKED,Still blocked by Firecrawl platform restrictions - proxy configuration unavailable
+2025-08-02 04:16,RETRY,https://reddit.com/r/DrainTheSwamp/comments/b9lht6/if_vaccine_damage_is_real_who_would_benefit_meet/,Content Extraction,1,BLOCKED,Still blocked by Firecrawl platform restrictions - proxy configuration unavailable
+2025-08-02 04:17,RETRY,https://reports.adviserinfo.sec.gov/reports/ADV/316789/PDF/316789.pdf,Content Extraction,1,ERROR,Still exceeds 25000 token limit - file too large for single extraction

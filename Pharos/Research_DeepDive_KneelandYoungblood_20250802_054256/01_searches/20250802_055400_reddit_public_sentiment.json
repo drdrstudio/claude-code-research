@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-08-02T05:54:00Z",
+  "tool": "reddit-search",
+  "query": "Kneeland Youngblood Pharos Capital",
+  "angle": "Public Sentiment & Community Perception",
+  "result_count": 1,
+  "status": "success",
+  "results": [
+    {
+      "title": "If vaccine damage is real who would benefit? Meet Pharos Capital Group and co-founder Kneeland Youngblood. How did Pharos know to rapidly grow portfolio of specialized behavior treatment centers for children and adolescents?",
+      "author": "u/MacPepper",
+      "subreddit": "r/DrainTheSwamp",
+      "score": 52,
+      "upvote_ratio": 0.92,
+      "comments": 8,
+      "posted": "2019-04-05T02:05:24Z",
+      "url": "https://reddit.com/r/DrainTheSwamp/comments/b9lht6/if_vaccine_damage_is_real_who_would_benefit_meet/",
+      "content": "Discussion linking Pharos Capital Group acquisitions of behavioral treatment centers to vaccine controversy theories",
+      "sentiment": "Negative/Conspiracy",
+      "relevance": "High - Direct mention with specific allegations",
+      "context": "r/DrainTheSwamp is a conspiracy-focused subreddit"
+    }
+  ],
+  "analysis": {
+    "total_mentions": 1,
+    "dominant_sentiment": "Negative/Conspiracy",
+    "key_themes": ["vaccine controversy", "behavioral treatment centers", "investment timing speculation"],
+    "community_type": "Conspiracy/Political activism subreddit",
+    "credibility_assessment": "Low - Single source from conspiracy-focused community"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "organization": {
+    "name": "Pharos Capital Group",
+    "legal_name": "Pharos Capital Group LLC",
+    "founded": 1998,
+    "headquarters": ["Dallas, TX", "Nashville, TN"],
+    "type": "Private Equity Firm",
+    "focus": "Healthcare Middle-Market",
+    "aum": "$1 billion",
+    "funds": 6,
+    "total_investments": 58,
+    "exits": 12,
+    "current_portfolio": 9,
+    "mission": "Investing in companies aimed at lowering costs, improving patient outcomes, expanding access to care",
+    "target_markets": "Underserved regions",
+    "website": "https://www.pharosfunds.com/",
+    "sec_crd": "316789",
+    "federal_lobbying": "Active registration"
+  },
+  "key_personnel": {
+    "founder_ceo": {
+      "name": "Dr. Kneeland Youngblood",
+      "title": "Founder and Managing Partner",
+      "age": 69,
+      "education": [
+        "Princeton University - B.A. in Politics",
+        "University of Texas Southwestern Medical School - M.D."
+      ],
+      "background": "Emergency room physician at Baylor University Medical Center and Medical Center of Plano",
+      "heritage": "Descendant of freed slaves",
+      "legal_activity": "Sued ConocoPhillips for $900 million claiming family oil-rich land in Texas",
+      "recognition": "Forbes BLK50 2024 - #50 most powerful Black Americans"
+    },
+    "cio": {
+      "name": "Bob Crants",
+      "title": "Chief Investment Officer",
+      "background": "Goldman Sachs experience"
+    },
+    "cfo_cco": {
+      "name": "Kimberly Futrell",
+      "title": "Chief Compliance Officer and Chief Financial Officer"
+    }
+  },
+  "team_structure": {
+    "total_professionals": 16,
+    "leadership_roles": ["Founder/Managing Partner", "Chief Investment Officer", "Chief Compliance Officer/CFO"],
+    "organizational_focus": "Physician-founded approach to healthcare investing"
+  },
+  "portfolio_companies": {
+    "current_investments": [
+      "Renal Care 360 - Chronic kidney care management platform (2022)",
+      "RhythMedix - Healthcare technology (2024 majority investment)"
+    ],
+    "investment_thesis": "Companies focused on underserved markets, cost reduction, patient outcomes improvement"
+  },
+  "board_positions": {
+    "kneeland_youngblood": [
+      "Government relations experience",
+      "Medical industry board positions"
+    ]
+  },
+  "industry_associations": {
+    "milken_institute": "Panel participant - Private Equity and Patient Care: A Delicate Balancing Act",
+    "sec_compliance": "Uses Ontra AI-powered compliance platform",
+    "professional_networks": "Healthcare private equity industry leadership"
+  },
+  "regulatory_status": {
+    "sec_registration": "Active SEC registration (CRD 316789)",
+    "compliance_record": "Clean regulatory record - no SEC issues or fraud allegations",
+    "lobbying_registration": "Active federal lobbying registration",
+    "compliance_technology": "Ontra Insight platform - 40 hours saved in SEC exam response"
+  },
+  "recognition": {
+    "forbes_blk50_2024": {
+      "ranking": 50,
+      "category": "Most powerful, impactful, and wealthiest Black Americans",
+      "criteria": "Social impact, social media presence, company status, title/position, net worth"
+    },
+    "milken_institute_participation": "28th Annual Global Conference panel on healthcare PE ethics"
+  }
+}
