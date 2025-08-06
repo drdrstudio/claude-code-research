@@ -1,0 +1,226 @@
+/* Pharos Premium Document Styling - Fixed Version */
+
+@page {
+    size: A4;
+    margin: 0.75in;
+    
+    @top-left {
+        content: url('pharos-logo.png');
+        width: 1.5in;
+        height: auto;
+    }
+    
+    @top-right {
+        content: "Strategic Analysis";
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: bold;
+        color: #4A4A4A;
+        font-size: 9pt;
+    }
+    
+    @bottom-center {
+        content: counter(page);
+        font-family: "Source Sans Pro", sans-serif;
+        color: #4A4A4A;
+        font-size: 9pt;
+    }
+}
+
+/* Cover Page */
+@page:first {
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+body {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    font-size: 9pt;
+}
+
+/* Cover page styling */
+h1:first-child {
+    text-align: center;
+    font-size: 24pt;
+    color: #1B365D;
+    margin-top: 15%;
+    margin-bottom: 0.5in;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2:first-of-type {
+    text-align: center;
+    font-size: 18pt;
+    color: #1B365D;
+    margin-top: -0.3in;
+    margin-bottom: 1in;
+    font-weight: normal;
+}
+
+/* Add logo to cover page */
+h1:first-child::before {
+    content: "";
+    display: block;
+    background-image: url('pharos-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 2.5in;
+    width: 100%;
+    margin-bottom: 0.5in;
+}
+
+h1:first-child::after {
+    content: "Strategic Intelligence Report\\A Confidential Analysis\\A August 5, 2025";
+    white-space: pre;
+    display: block;
+    font-size: 12pt;
+    color: #4A4A4A;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-top: 0.5in;
+    line-height: 1.6;
+}
+
+/* Section headings */
+h2 {
+    color: #1B365D;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    border-bottom: 2px solid #1B365D;
+    padding-bottom: 0.2em;
+}
+
+h3 {
+    color: #1B365D;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+h4 {
+    color: #4A4A4A;
+    font-size: 10pt;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 0.8em;
+    text-align: justify;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 1.2em;
+    margin-bottom: 0.8em;
+}
+
+li {
+    margin-bottom: 0.2em;
+}
+
+/* Strong text */
+strong {
+    color: #1B365D;
+    font-weight: bold;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 8pt;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: left;
+}
+
+th {
+    background-color: #1B365D;
+    color: white;
+    font-weight: bold;
+}
+
+/* Code blocks */
+pre, code {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: "Courier New", monospace;
+    font-size: 8pt;
+}
+
+pre {
+    padding: 0.8em;
+    overflow-x: auto;
+}
+
+code {
+    padding: 0.1em 0.3em;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #1B365D;
+    padding-left: 1em;
+    margin-left: 0;
+    font-style: italic;
+    color: #4A4A4A;
+    font-size: 8pt;
+}
+
+/* Links */
+a {
+    color: #1B365D;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footnotes */
+.footnote {
+    font-size: 7pt;
+    color: #666;
+}
+
+.footnote-ref {
+    font-size: 7pt;
+    vertical-align: super;
+    text-decoration: none;
+}
+
+/* Horizontal rules */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #1B365D;
+    margin: 1.5em 0;
+}
+
+/* Page breaks */
+h1, h2 {
+    page-break-after: avoid;
+}
+
+/* Avoid orphans and widows */
+p {
+    orphans: 2;
+    widows: 2;
+}

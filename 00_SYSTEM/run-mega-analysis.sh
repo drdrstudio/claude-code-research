@@ -57,39 +57,114 @@ fi
 # --- STAGE 1: THEMATIC CLUSTERING ---
 echo "▶️ Stage 1: Requesting Thematic Clustering blueprint from Architect..."
 
-# 1a: Get the project manifest
-MANIFEST=$(find "${PROJECT_FOLDER}" -type f | head -50)  # Limit to prevent API payload size issues
-PROMPT_FOR_ARCHITECT_S1="Architect, the research for '${PROJECT_FOLDER}' is complete. Here is the project manifest. Please prepare the prompt for Stage 1: Thematic Clustering. The prompt should instruct the local Operator to analyze this manifest, group key files into logical themes, and output a single JSON object of the result.
+# 1a: Process project in batches to handle large datasets without data loss
+process_thematic_clustering_batches() {
+    local project_dir="$1"
+    local temp_results_dir=$(mktemp -d)
+    
+    echo "🔄 Processing project in batches to preserve all data..."
+    
+    # Define logical batches with their content
+    declare -A batches=(
+        ["analysis"]="04_analysis/*.md"
+        ["synthesis"]="05_synthesis/*.md FINAL_REPORTS/*.md"
+        ["content"]="02_fetched_content/*.md"
+        ["searches"]="01_searches/*.md 01_searches/*.json"
+    )
+    
+    local batch_results=()
+    
+    for batch_name in "${!batches[@]}"; do
+        echo "📦 Processing batch: $batch_name"
+        
+        # Collect all files for this batch
+        local batch_files=()
+        for pattern in ${batches[$batch_name]}; do
+            while IFS= read -r -d '' file; do
+                [[ -f "$file" ]] && batch_files+=("$file")
+            done < <(find "$project_dir" -path "*/$pattern" -type f -print0 2>/dev/null)
+        done
+        
+        if [[ ${#batch_files[@]} -eq 0 ]]; then
+            echo "⚠️  No files found for batch: $batch_name"
+            continue
+        fi
+        
+        # Create complete batch manifest (no truncation!)
+        local batch_manifest_file="$temp_results_dir/batch_${batch_name}_manifest.txt"
+        {
+            echo "=== BATCH: $batch_name ==="
+            echo "Files: ${#batch_files[@]}"
+            echo "Timestamp: $(date)"
+            echo ""
+            
+            for file in "${batch_files[@]}"; do
+                echo "--- FILE: $file ---"
+                cat "$file"
+                echo -e "\n"
+            done
+        } > "$batch_manifest_file"
+        
+        # Send this batch to Gemini API
+        local batch_prompt="Architect, analyze this batch of research files labeled '$batch_name'. Extract key themes, entities, and relationships. Provide a structured analysis that can be combined with other batches later.
 
-Project Manifest:
-${MANIFEST}"
+Batch Content:
+$(cat "$batch_manifest_file")"
+        
+        local batch_payload=$(jq -n --arg prompt "$batch_prompt" \
+                             '{ "contents": [ { "parts": [ { "text": $prompt } ] } ] }')
+        
+        echo "🔄 Calling Gemini API for batch: $batch_name..."
+        local batch_response=$(curl -s -H "Content-Type: application/json" -d "$batch_payload" -X POST "$GEMINI_API_URL")
+        
+        # Check for API errors
+        if echo "$batch_response" | jq -e '.error' > /dev/null; then
+            echo "❌ Error processing batch $batch_name:"
+            echo "$batch_response" | jq '.error'
+            continue
+        fi
+        
+        local batch_result=$(echo "$batch_response" | jq -r '.candidates[0].content.parts[0].text')
+        echo "$batch_result" > "$temp_results_dir/batch_${batch_name}_result.txt"
+        batch_results+=("$batch_name:$batch_result")
+        
+        echo "✅ Batch $batch_name processed successfully"
+    done
+    
+    # Aggregate all batch results
+    echo "🔄 Aggregating batch results..."
+    local aggregation_prompt="Architect, I have completed thematic analysis in batches. Please combine these batch results into a unified thematic clustering analysis. Create a comprehensive JSON structure that represents the complete project themes.
 
-JSON_PAYLOAD_S1=$(jq -n --arg prompt "$PROMPT_FOR_ARCHITECT_S1" \
-                    '{ "contents": [ { "parts": [ { "text": $prompt } ] } ] }')
+Batch Results:
+$(for result_file in "$temp_results_dir"/batch_*_result.txt; do
+    echo "=== $(basename "$result_file" .txt | sed 's/batch_//; s/_result//') ==="
+    cat "$result_file"
+    echo ""
+done)"
+    
+    local final_payload=$(jq -n --arg prompt "$aggregation_prompt" \
+                         '{ "contents": [ { "parts": [ { "text": $prompt } ] } ] }')
+    
+    local final_response=$(curl -s -H "Content-Type: application/json" -d "$final_payload" -X POST "$GEMINI_API_URL")
+    
+    # Check for API errors
+    if echo "$final_response" | jq -e '.error' > /dev/null; then
+        echo "❌ Error in final aggregation:"
+        echo "$final_response" | jq '.error'
+        rm -rf "$temp_results_dir"
+        exit 1
+    fi
+    
+    local final_result=$(echo "$final_response" | jq -r '.candidates[0].content.parts[0].text')
+    
+    # Cleanup
+    rm -rf "$temp_results_dir"
+    
+    echo "$final_result"
+}
 
-# 1b: Call Gemini API to get the blueprint for Stage 1
-echo "🔄 Calling Gemini API for Stage 1 blueprint..."
-BLUEPRINT_S1_RESPONSE=$(curl -s -H "Content-Type: application/json" -d "$JSON_PAYLOAD_S1" -X POST "$GEMINI_API_URL")
-
-# Check for API errors
-if echo "$BLUEPRINT_S1_RESPONSE" | jq -e '.error' > /dev/null; then
-    echo "❌ Error: Gemini API returned an error:"
-    echo "$BLUEPRINT_S1_RESPONSE" | jq '.error'
-    exit 1
-fi
-
-BLUEPRINT_S1=$(echo "$BLUEPRINT_S1_RESPONSE" | jq -r '.candidates[0].content.parts[0].text')
-
-if [ -z "$BLUEPRINT_S1" ] || [ "$BLUEPRINT_S1" = "null" ]; then
-    echo "❌ Error: Failed to get Stage 1 blueprint from the Architect."
-    echo "Response: $BLUEPRINT_S1_RESPONSE"
-    exit 1
-fi
-echo "✅ Blueprint for Stage 1 received."
-
-# 1c: Execute the blueprint with the local Operator
-echo "⏳ Executing Stage 1 with local Operator..."
-THEMED_FILES_JSON=$(echo "$BLUEPRINT_S1" | claude)
+# Process all project data in batches (preserves ALL data)
+THEMED_FILES_JSON=$(process_thematic_clustering_batches "${PROJECT_FOLDER}")
 
 # Validate JSON output
 if ! echo "$THEMED_FILES_JSON" | jq . > /dev/null 2>&1; then

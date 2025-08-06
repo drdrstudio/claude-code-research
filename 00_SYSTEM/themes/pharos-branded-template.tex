@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{sectsty}
+\usepackage[default]{sourcesanspro}
+
+% Page geometry
+\geometry{a4paper, margin=1in, top=1.2in}
+
+% Brand colors (using professional navy and gray)
+\definecolor{PharosBlue}{HTML}{1B365D}
+\definecolor{PharosGray}{HTML}{4A4A4A}
+
+% Section styling
+\allsectionsfont{\bfseries\color{PharosBlue}}
+
+% Headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=0.4in]{$logo_file$}}
+\fancyhead[R]{\textcolor{PharosGray}{\small\textbf{Strategic Analysis}}}
+\fancyfoot[C]{\textcolor{PharosGray}{\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Hyperlinks
+\hypersetup{
+    colorlinks=true,
+    urlcolor=PharosBlue,
+    linkcolor=PharosBlue,
+    filecolor=PharosBlue,
+    citecolor=PharosBlue
+}
+
+% Document metadata
+\title{$title$}
+\author{$if(author)$$author$$else$Research Intelligence Team$endif$}
+\date{$if(date)$$date$$else$\today$endif$}
+
+\begin{document}
+
+% Custom cover page
+\begin{titlepage}
+    \centering
+    \vspace*{0.5in}
+    
+    % Client Logo
+    \includegraphics[width=3in]{$logo_file$}
+    
+    \vspace{1in}
+    
+    % Title
+    {\Huge\bfseries\color{PharosBlue} $title$ \par}
+    
+    \vspace{0.5in}
+    
+    % Subtitle
+    {\Large\color{PharosGray} Strategic Intelligence Report \par}
+    
+    \vspace{0.8in}
+    
+    % Line separator
+    \textcolor{PharosBlue}{\rule{4in}{2pt}}
+    
+    \vspace{0.8in}
+    
+    % Details
+    {\large
+    \textbf{Prepared for:} $client_name$ \\[0.3cm]
+    \textbf{Date:} $if(date)$$date$$else$\today$endif$ \\[0.3cm]
+    \textbf{Prepared by:} $if(author)$$author$$else$Research Intelligence Team$endif$ \\[0.3cm]
+    \textbf{Classification:} Strategic Planning
+    }
+    
+    \vfill
+    
+    % Footer
+    {\small\color{PharosGray}
+    This document contains confidential and proprietary information.
+    }
+    
+\end{titlepage}
+
+\thispagestyle{empty}
+\setcounter{page}{1}
+
+% Table of contents
+$if(toc)$
+\tableofcontents
+\newpage
+$endif$
+
+% Document body
+$body$
+
+\end{document}

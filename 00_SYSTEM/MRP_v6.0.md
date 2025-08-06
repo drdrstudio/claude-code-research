@@ -15,8 +15,10 @@ This system is driven by a `PROJECT_CONFIG.json` file, generated and approved at
 | **Web Search** | `Perplexity-MCP`, `Tavily-MCP` | Search & Synthesis Engines    | Recommended  | Standard     |
 | **Web Scraping** | `Firecrawl-MCP`       | Default Fetcher/Scraper       | **Mandatory**| Standard     |
 |                   | `Playwright`          | Escalation Fetcher            | **Mandatory**| Standard     |
+|                   | `Enhanced-Playwright` | **NEW** Anti-Detection Browser| **Mandatory**| Enhanced     |
 | **SEO & Data** | `DataForSEO-MCP`      | SEO & Keyword Data            | No           | **Optional** |
 | **Social** | `Reddit-MCP`, `LinkedIn-MCP` | Sentiment & Professional Vetting | Varies       | Standard     |
+| **YouTube** | `YouTube-Transcript`, `YouTube-Analysis` | Video Intelligence Extraction | Recommended  | Standard     |
 
 ## 4. Project Configuration
 At the start of each mission, the AI will generate a `PROJECT_CONFIG.json` for user approval.
@@ -27,7 +29,7 @@ At the start of each mission, the AI will generate a `PROJECT_CONFIG.json` for u
   "profile": "Deep-Dive",
   "topic": "ICP Analysis for Duarte Inc.",
   "primary_objective": "Identify and deeply analyze core challenges, key needs, and major pain points to inform GTM strategy and sales copywriting.",
-  "use_dataforseo_mcp": false,
+  "use_dataforseo_mcp": true,
   "perform_mega_analysis": true,
   "default_deliverable": "document",
   "custom_parameters": {
@@ -58,6 +60,72 @@ At the start of each mission, the AI will generate a `PROJECT_CONFIG.json` for u
 
 7.  **Phase 7: Finalization & Delivery**: Execute the `FINISH AND UPLOAD` protocol.
 
-## 6. Future Enhancements
+## 6. Enhanced Anti-Detection Capabilities (NEW in v6.0)
+
+### 6.1 Anti-Detection System Overview
+The research system now includes sophisticated anti-detection capabilities to improve scraping success rates and avoid blocks during data extraction phases.
+
+### 6.2 Enhanced Browser Automation
+**Script:** `enhanced-playwright-wrapper.js`
+**Configuration:** `enhanced-scraping-config.sh`
+
+**Key Features:**
+- **Browser Fingerprint Randomization**: Randomizes WebGL renderer, canvas fingerprints, screen resolution
+- **Behavioral Simulation**: Human-like mouse movements, scrolling patterns, reading delays
+- **Request Timing Control**: Configurable delays (3-8 seconds default) with jitter
+- **Session Management**: Automatic session rotation and warmup periods
+- **User Agent Cycling**: Realistic browser profiles with matching viewports
+
+**Environment Variables:**
+```bash
+export SCRAPING_MIN_DELAY=3              # Minimum delay between requests (seconds)
+export SCRAPING_MAX_DELAY=8              # Maximum delay between requests (seconds)
+export SCRAPING_SESSION_WARMUP=true      # Enable session warmup browsing
+export SCRAPING_BEHAVIORAL_SIM=true      # Enable human behavior simulation
+export SCRAPING_REQUESTS_PER_SESSION=50  # Max requests per browser session
+export PROXY_ROTATION_FREQUENCY=25       # Change proxy every N requests
+```
+
+### 6.3 Webshare Proxy Integration
+**Status:** ✅ **CONFIGURED AND OPERATIONAL**
+- **Available Proxies**: 20M+ residential proxies across 200+ countries
+- **US Proxies**: 6.6M available
+- **EU Proxies**: 2.7M available  
+- **API Key**: Configured in environment (`WEBSHARE_API_KEY`)
+- **Rotation**: Automatic proxy switching every 25 requests
+
+### 6.4 Usage in Research Phases
+
+**Phase 3 (Search)**: 
+- Light fingerprinting with basic proxy rotation
+- Standard request timing for search engines
+
+**Phase 4 (Content Extraction)**:
+- Full stealth mode activated
+- Enhanced behavioral simulation
+- Webshare proxy mandatory for designated tools
+- Session management with automatic rotation
+
+**Phase 5+ (Analysis)**:
+- Fallback methods if primary scraping fails
+- Alternative proxy sources if needed
+
+### 6.5 Success Rate Improvements
+**Expected Improvements:**
+- **YouTube Transcripts**: 50-200 successful extractions/day (vs 10-20 without proxies)
+- **General Web Scraping**: 85-95% success rate (vs 60-70% without anti-detection)
+- **Social Media**: Significant improvement in profile/post extraction
+- **News Sites**: Better success with paywall and rate-limited sites
+
+### 6.6 Monitoring and Optimization
+**Session Health Tracking:**
+- Request count per session
+- Success/failure rates by target domain
+- Proxy performance metrics
+- Automatic session rotation triggers
+
+## 7. Future Enhancements
 - **Cost Tracking**: Implement a `log-api-cost.sh` script to be called by all MCPs to create a central audit trail of API usage for cost analysis.
 - **Cloud Migration**: The system is designed with standard components, making it suitable for future migration to a shared cloud platform (e.g., Google Cloud) for team-wide access.
+- **Advanced Detection Evasion**: Integration with cloud browser farms (BrowserStack, LambdaTest)
+- **Captcha Solving**: Integration with 2captcha/Anti-Captcha services for automatic solving

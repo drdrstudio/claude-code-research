@@ -56,6 +56,24 @@ claude mcp add -s user klaviyo node "/Users/skipmatheny/Library/Application Supp
 ```
 Status: ✅ Added using your local installation
 
+### 10. DataForSEO MCP
+```bash
+claude mcp add dataforseo npx dataforseo-mcp-server -e DATAFORSEO_LOGIN="accounts@waterloo.digital" -e DATAFORSEO_PASSWORD="ca55f5e604bc59b0"
+```
+Status: ✅ CRITICAL - Added with Waterloo Digital credentials
+
+### 11. YouTube Transcript MCP
+```bash
+claude mcp add youtube-transcript npx @kimtaeyoon83/mcp-server-youtube-transcript
+```
+Status: ✅ FREE - Extract transcripts from any public YouTube video
+
+### 12. YouTube Analysis MCP
+```bash
+claude mcp add youtube npx @anaisbetts/mcp-youtube
+```
+Status: ✅ FREE - Video analysis and subtitle extraction using yt-dlp
+
 ## Pending Setup
 
 ### HubSpot MCP
@@ -92,6 +110,9 @@ Current output should show:
 - tavily
 - perplexity
 - klaviyo
+- dataforseo
+- youtube-transcript
+- youtube
 
 ## How to Use in Claude Code
 
