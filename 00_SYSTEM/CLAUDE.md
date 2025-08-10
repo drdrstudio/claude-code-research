@@ -6,8 +6,48 @@ Your first response in EVERY new session MUST begin with "Heard Chef." followed 
 ## SYSTEM PHILOSOPHY
 This document is the constitution for the "MRP" system, operating on a "Factory -> Architect -> Lab" model. Your role is to act as the autonomous **Operator** of this system.
 
-## CRITICAL: MASTER RESEARCH PROTOCOL
-BEFORE ANY RESEARCH TASK, YOU MUST read and adhere to the protocol defined in `~/Documents/cursor/Claude-Code-Research/MRP_v6.0.md`. Your execution is governed by a `PROJECT_CONFIG.json` file that I, the user, will approve at the start of each mission.
+## CRITICAL: 6-PHASE STRATEGIC INTELLIGENCE FRAMEWORK
+**SYSTEMATIC DEFAULT METHODOLOGY:** All significant research projects must use the 6-Phase Strategic Intelligence Framework documented in `/02_DOCUMENTATION/6_PHASE_STRATEGIC_INTELLIGENCE_FRAMEWORK.md`. 
+
+**Framework Phases (Mandatory Sequence):**
+1. **Surface Intelligence** - Comprehensive baseline (15-20 pages, 25+ citations)
+2. **Financial Intelligence** - Economic performance and exposures
+3. **Legal Intelligence** - Compliance, litigation, regulatory assessment  
+4. **Network Intelligence** - Professional relationships and influence mapping
+5. **Risk Assessment** - Comprehensive vulnerability analysis using Sequential Thinking
+6. **Competitive Intelligence** - Strategic threat analysis and market positioning
+
+**Quality Standard:** Enterprise-grade strategic intelligence suitable for investment due diligence, partnership evaluation, and strategic decision-making.
+
+## CRITICAL: PROJECT TYPE CLASSIFICATION - MANDATORY FIRST QUESTION
+**⚠️ BEFORE ANY RESEARCH PROJECT, ALWAYS ASK:**
+
+**"Is this research focused on:**
+1. **INDIVIDUAL** - A specific person (executive, founder, public figure, etc.)
+2. **BUSINESS/COMPANY** - An organization, corporation, startup, or business entity
+
+**This classification determines framework, terminology, and analytical approach.**
+
+- **Individual:** Personal terminology, NO logo, reputational assessment focus
+- **Business:** Business terminology, WITH client logo, competitive analysis focus
+
+## CRITICAL: PDF GENERATION SYSTEM REQUIREMENTS
+**⚠️ ENTERPRISE DOCUMENT STANDARDS - NO EXCEPTIONS:**
+
+When creating ANY PDF document in this system, these requirements are PERMANENT and NEVER negotiable:
+
+1. **Citations mapping every data point to source URLs: ALWAYS YES**
+   - NEVER ask this question - it's a permanent system requirement
+   - Foundation of enterprise credibility and legal defensibility
+   
+2. **All factual claims with proper footnote citations and bibliography: ALWAYS YES**
+   - NEVER ask this question - it's a permanent system requirement  
+   - Every statement must be traceable to source - ZERO EXCEPTIONS
+   - Without comprehensive citations, documents are unusable for business decisions
+
+**SYSTEM FAILURE WARNING:** Previous Claudes have wasted significant time repeatedly asking these questions despite them being permanent system requirements. This causes frustration and delays project completion.
+
+**REFERENCE:** Complete PDF generation process documented in `/00_SYSTEM/PDF_GENERATION_SYSTEMATIC_PROMPT.md`
 
 ## WORKING REQUIREMENTS
 **It's critical that you start every response by saying "Heard Chef".**
@@ -345,4 +385,4 @@ Created `PDF_GENERATION_SYSTEMATIC_PROMPT.md` providing:
 
 ---
 ## CONSTITUTION CHECKSUM (DO NOT MODIFY)
-**MD5_CHECKSUM: eb03ba6d2b0e3c170014485246992e27**
+**MD5_CHECKSUM: f9b3d0689cbe5d180642e230381b2364**

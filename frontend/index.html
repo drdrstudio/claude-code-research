@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRP Research System - Control Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .research-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .type-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .type-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .type-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        }
+
+        .type-card h3 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .type-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .advanced-options {
+            border-top: 2px solid #e0e0e0;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+
+        .advanced-header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 20px;
+        }
+
+        .advanced-header h3 {
+            color: #333;
+            margin-right: 10px;
+        }
+
+        .advanced-header .arrow {
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .advanced-header.open .arrow {
+            transform: rotate(90deg);
+        }
+
+        .advanced-content {
+            display: none;
+        }
+
+        .advanced-content.open {
+            display: block;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .status-message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            display: block;
+        }
+
+        .preset-configs {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .preset-configs.show {
+            display: block;
+        }
+
+        .preset-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MRP Research System</h1>
+        <p class="subtitle">Strategic Intelligence & Analysis Platform</p>
+
+        <form id="researchForm">
+            <div class="research-types">
+                <div class="type-card" data-type="individual-oppo">
+                    <h3>🔍 Individual Research</h3>
+                    <p>Opposition research, executive profiling, reputational assessment</p>
+                </div>
+                <div class="type-card" data-type="company-deep">
+                    <h3>🏢 Company Analysis</h3>
+                    <p>Competitive intelligence, market position, strategic assessment</p>
+                </div>
+                <div class="type-card" data-type="seo-analysis">
+                    <h3>📊 SEO Report</h3>
+                    <p>Keyword research, competitive SEO, content opportunities</p>
+                </div>
+                <div class="type-card" data-type="market-research">
+                    <h3>📈 Market Research</h3>
+                    <p>ICP analysis, GTM strategy, market sizing</p>
+                </div>
+                <div class="type-card" data-type="technical-audit">
+                    <h3>⚙️ Technical Audit</h3>
+                    <p>Technology stack analysis, security assessment, infrastructure review</p>
+                </div>
+                <div class="type-card" data-type="custom">
+                    <h3>✨ Custom Research</h3>
+                    <p>Flexible research with custom parameters</p>
+                </div>
+            </div>
+
+            <div class="preset-configs" id="presetConfigs">
+                <strong>This research type includes:</strong>
+                <div id="presetTags"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="targetName">Target Name/Company *</label>
+                <input type="text" id="targetName" name="targetName" required placeholder="e.g., John Doe or Acme Corporation">
+            </div>
+
+            <div class="form-group">
+                <label for="researchPrompt">Research Instructions *</label>
+                <textarea id="researchPrompt" name="researchPrompt" required 
+                    placeholder="Describe what you need to know. Be specific about your objectives, any particular areas of focus, and how you plan to use this information."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="deliverable">Output Format</label>
+                <select id="deliverable" name="deliverable">
+                    <option value="document">Comprehensive Document (PDF)</option>
+                    <option value="presentation">Executive Presentation</option>
+                    <option value="both">Both Document & Presentation</option>
+                    <option value="raw">Raw Research Data</option>
+                </select>
+            </div>
+
+            <div class="advanced-options">
+                <div class="advanced-header" onclick="toggleAdvanced()">
+                    <h3>Advanced Options</h3>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="advanced-content" id="advancedContent">
+                    <div class="form-group">
+                        <label>Research Depth</label>
+                        <select id="researchDepth" name="researchDepth">
+                            <option value="standard">Standard (15-20 pages)</option>
+                            <option value="comprehensive">Comprehensive (25-40 pages)</option>
+                            <option value="executive">Executive Summary (5-10 pages)</option>
+                            <option value="deep-dive">Deep Dive (40+ pages)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Features</label>
+                        <div class="options-grid">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="megaAnalysis" name="megaAnalysis" checked>
+                                <label for="megaAnalysis">Gemini Mega-Analysis</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="knowledgeGraph" name="knowledgeGraph" checked>
+                                <label for="knowledgeGraph">Knowledge Graph</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="citations" name="citations" checked>
+                                <label for="citations">Full Citations</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="riskAssessment" name="riskAssessment">
+                                <label for="riskAssessment">Risk Assessment</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="financialAnalysis" name="financialAnalysis">
+                                <label for="financialAnalysis">Financial Analysis</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="socialSentiment" name="socialSentiment">
+                                <label for="socialSentiment">Social Sentiment</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="geoScope">Geographic Scope</label>
+                        <input type="text" id="geoScope" name="geoScope" placeholder="e.g., North America, Global, US Only">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeframe">Analysis Timeframe</label>
+                        <select id="timeframe" name="timeframe">
+                            <option value="current">Current (Last 12 months)</option>
+                            <option value="3years">Last 3 Years</option>
+                            <option value="5years">Last 5 Years</option>
+                            <option value="historical">Full Historical</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientBranding">Client Branding</label>
+                        <select id="clientBranding" name="clientBranding">
+                            <option value="none">No Branding</option>
+                            <option value="pharos">Pharos Capital Group</option>
+                            <option value="duarte">Duarte Inc.</option>
+                            <option value="custom">Custom (specify in instructions)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Start Research</button>
+        </form>
+
+        <div id="statusMessage" class="status-message"></div>
+    </div>
+
+    <script>
+        // Research type presets
+        const researchPresets = {
+            'individual-oppo': {
+                name: 'Individual Opposition Research',
+                config: {
+                    profile: 'Deep-Dive',
+                    framework: '6-Phase Strategic Intelligence',
+                    phases: ['Surface Intelligence', 'Financial Intelligence', 'Legal Intelligence', 
+                            'Network Intelligence', 'Risk Assessment', 'Competitive Intelligence'],
+                    use_dataforseo_mcp: false,
+                    perform_mega_analysis: true,
+                    min_pages: 20,
+                    min_citations: 50
+                }
+            },
+            'company-deep': {
+                name: 'Company Deep Analysis',
+                config: {
+                    profile: 'Company-Analysis',
+                    framework: 'Business Strategic Intelligence',
+                    phases: ['Market Position', 'Financial Performance', 'Competitive Landscape',
+                            'Technology Stack', 'Leadership Assessment', 'Strategic Opportunities'],
+                    use_dataforseo_mcp: true,
+                    perform_mega_analysis: true,
+                    include_logo: true
+                }
+            },
+            'seo-analysis': {
+                name: 'SEO & Content Report',
+                config: {
+                    profile: 'SEO-Analysis',
+                    framework: 'SEO Intelligence Framework',
+                    use_dataforseo_mcp: true,
+                    perform_mega_analysis: false,
+                    focus: ['Keyword Research', 'Competitor Analysis', 'Content Gaps', 
+                           'Technical SEO', 'Backlink Profile']
+                }
+            },
+            'market-research': {
+                name: 'Market & ICP Research',
+                config: {
+                    profile: 'Market-Research',
+                    framework: 'GTM Intelligence',
+                    phases: ['ICP Definition', 'Pain Points Analysis', 'Buying Process',
+                            'Competitive Landscape', 'Market Sizing', 'Go-to-Market Strategy'],
+                    use_dataforseo_mcp: true,
+                    perform_mega_analysis: true
+                }
+            },
+            'technical-audit': {
+                name: 'Technical Infrastructure Audit',
+                config: {
+                    profile: 'Technical-Audit',
+                    framework: 'Technical Assessment',
+                    focus: ['Architecture Review', 'Security Assessment', 'Performance Analysis',
+                           'Scalability Review', 'Technology Stack', 'Best Practices Compliance']
+                }
+            },
+            'custom': {
+                name: 'Custom Research',
+                config: {
+                    profile: 'Custom',
+                    framework: 'Flexible',
+                    customizable: true
+                }
+            }
+        };
+
+        // Handle research type selection
+        document.querySelectorAll('.type-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                const type = this.dataset.type;
+                const preset = researchPresets[type];
+                
+                if (preset && preset.config) {
+                    showPresetConfig(preset);
+                } else {
+                    document.getElementById('presetConfigs').classList.remove('show');
+                }
+            });
+        });
+
+        function showPresetConfig(preset) {
+            const configDiv = document.getElementById('presetConfigs');
+            const tagsDiv = document.getElementById('presetTags');
+            
+            tagsDiv.innerHTML = '';
+            
+            if (preset.config.phases) {
+                preset.config.phases.forEach(phase => {
+                    tagsDiv.innerHTML += `<span class="preset-tag">${phase}</span>`;
+                });
+            }
+            
+            if (preset.config.focus) {
+                preset.config.focus.forEach(focus => {
+                    tagsDiv.innerHTML += `<span class="preset-tag">${focus}</span>`;
+                });
+            }
+            
+            configDiv.classList.add('show');
+        }
+
+        function toggleAdvanced() {
+            const header = document.querySelector('.advanced-header');
+            const content = document.getElementById('advancedContent');
+            
+            header.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+
+        // Handle form submission
+        document.getElementById('researchForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const selectedType = document.querySelector('.type-card.selected');
+            if (!selectedType) {
+                showStatus('Please select a research type', 'error');
+                return;
+            }
+            
+            const formData = {
+                researchType: selectedType.dataset.type,
+                targetName: document.getElementById('targetName').value,
+                researchPrompt: document.getElementById('researchPrompt').value,
+                deliverable: document.getElementById('deliverable').value,
+                researchDepth: document.getElementById('researchDepth').value,
+                megaAnalysis: document.getElementById('megaAnalysis').checked,
+                knowledgeGraph: document.getElementById('knowledgeGraph').checked,
+                citations: document.getElementById('citations').checked,
+                riskAssessment: document.getElementById('riskAssessment').checked,
+                financialAnalysis: document.getElementById('financialAnalysis').checked,
+                socialSentiment: document.getElementById('socialSentiment').checked,
+                geoScope: document.getElementById('geoScope').value,
+                timeframe: document.getElementById('timeframe').value,
+                clientBranding: document.getElementById('clientBranding').value,
+                preset: researchPresets[selectedType.dataset.type]
+            };
+            
+            showStatus('Initializing research system...', 'info');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/research', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showStatus(`Research started successfully! Project: ${result.projectId}`, 'success');
+                    
+                    // Optionally redirect to status page or show progress
+                    if (result.statusUrl) {
+                        setTimeout(() => {
+                            window.location.href = result.statusUrl;
+                        }, 2000);
+                    }
+                } else {
+                    showStatus(`Error: ${result.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(`Connection error: ${error.message}`, 'error');
+            }
+        });
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.className = `status-message ${type}`;
+            statusDiv.textContent = message;
+            
+            if (type === 'success' || type === 'info') {
+                setTimeout(() => {
+                    statusDiv.className = 'status-message';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
