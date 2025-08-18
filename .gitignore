@@ -43,3 +43,10 @@ venv/
 *.bak
 *.backup
 *.orig
+
+# System backups
+00_SYSTEM_BACKUP_*/
+*_BACKUP_*/
+
+# Project directories
+03_PROJECTS/*/Research_*/
