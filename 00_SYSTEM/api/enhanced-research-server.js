@@ -133,12 +133,44 @@ const server = http.createServer((req, res) => {
       const projectFolder = `Research_${researchType}_${targetName.replace(/\s+/g, '_')}_${timestamp}`;
       jobs[jobId].project_folder = projectFolder;
       
-      // Path to quick_research.sh
-      const scriptPath = path.join(__dirname, '../../quick_research.sh');
+      // Determine which script to run based on research type
+      // Use absolute paths from project root for Railway deployment
+      const projectRoot = path.join(__dirname, '../..');
+      let scriptPath;
+      switch(researchType) {
+        case 'individual':
+          scriptPath = path.join(projectRoot, 'quick_research.sh');
+          break;
+        case 'organization':
+          scriptPath = path.join(projectRoot, 'quick_research_org.sh');
+          break;
+        case 'market':
+          scriptPath = path.join(projectRoot, 'quick_research_gtm.sh');
+          break;
+        default:
+          scriptPath = path.join(projectRoot, 'quick_research.sh');
+      }
+      
+      // Check if script exists
+      if (!fs.existsSync(scriptPath)) {
+        console.error(`❌ Script not found: ${scriptPath}`);
+        jobs[jobId].state = 'failed';
+        jobs[jobId].error = `Research script not found: ${scriptPath}`;
+        jobs[jobId].phase = 'Failed';
+        
+        res.writeHead(500, headers);
+        res.end(JSON.stringify({ 
+          error: 'Research script not found',
+          details: `Looking for: ${scriptPath}`,
+          suggestion: 'Please ensure research scripts are in the project root'
+        }));
+        return;
+      }
       
       console.log(`🚀 Starting REAL research: ${targetName}`);
       console.log(`📁 Project: ${projectFolder}`);
       console.log(`🔍 Type: ${researchType}, Depth: ${depth}, Template: ${template}`);
+      console.log(`📜 Script: ${scriptPath}`);
       
       // Update progress function
       const updateProgress = (phase, log) => {
