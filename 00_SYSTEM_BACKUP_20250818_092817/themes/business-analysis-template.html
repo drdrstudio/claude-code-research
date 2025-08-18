@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{COMPANY_NAME}} - Strategic Business Analysis</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+            @top-left {
+                content: "{{COMPANY_NAME}} Analysis";
+                font-size: 10pt;
+                color: #666;
+            }
+            @top-right {
+                content: counter(page);
+                font-size: 10pt;
+                color: #666;
+            }
+            @top-center {
+                content: url('{{CLIENT_LOGO}}');
+                width: 1.5in;
+            }
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .cover-page {
+            text-align: center;
+            padding: 2in 0 0 0;
+            page-break-after: always;
+        }
+        
+        .client-logo {
+            width: 3in;
+            margin-bottom: 1in;
+        }
+        
+        .cover-title {
+            font-size: 28pt;
+            font-weight: bold;
+            color: #1B365D;
+            margin-bottom: 0.5in;
+            line-height: 1.2;
+        }
+        
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #34495e;
+            margin-bottom: 1in;
+        }
+        
+        .cover-meta {
+            font-size: 12pt;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        h1 {
+            font-size: 20pt;
+            color: #1B365D;
+            border-bottom: 3px solid #0066CC;
+            padding-bottom: 0.2in;
+            margin-top: 0.5in;
+            margin-bottom: 0.3in;
+        }
+        
+        h2 {
+            font-size: 16pt;
+            color: #34495e;
+            margin-top: 0.4in;
+            margin-bottom: 0.2in;
+            border-left: 4px solid #0066CC;
+            padding-left: 0.15in;
+        }
+        
+        h3 {
+            font-size: 14pt;
+            color: #1B365D;
+            margin-top: 0.3in;
+            margin-bottom: 0.15in;
+        }
+        
+        h4 {
+            font-size: 12pt;
+            color: #34495e;
+            margin-top: 0.2in;
+            margin-bottom: 0.1in;
+            font-weight: bold;
+        }
+        
+        .business-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0066CC;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .competitive-advantage {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .financial-highlight {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .risk-factor {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .citation {
+            font-size: 9pt;
+            color: #666;
+            vertical-align: super;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.2in 0;
+        }
+        
+        .data-table th,
+        .data-table td {
+            border: 1px solid #dee2e6;
+            padding: 0.1in;
+            text-align: left;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <img src="{{CLIENT_LOGO}}" alt="Client Logo" class="client-logo" />
+        <div class="cover-title">{{COMPANY_NAME}}</div>
+        <div class="cover-subtitle">Strategic Business Intelligence Analysis</div>
+        <div class="cover-meta">
+            <strong>Confidential Business Due Diligence Report</strong><br>
+            Analysis Period: {{ANALYSIS_DATE}}<br>
+            Research System: Claude Code Research MRP v6.0<br>
+            6-Phase Strategic Intelligence Framework<br>
+            Citation Standard: Enterprise-grade source accountability
+        </div>
+    </div>
+
+    <div class="business-section">
+        <h1>Executive Summary</h1>
+        {{EXECUTIVE_SUMMARY_CONTENT}}
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PHASE 1: SURFACE INTELLIGENCE -->
+    <h1>Phase 1: Surface Intelligence - Comprehensive Baseline Analysis</h1>
+    
+    <h2>Company Overview and Business Model</h2>
+    {{COMPANY_OVERVIEW_CONTENT}}
+    
+    <h2>Market Position and Industry Context</h2>
+    {{MARKET_POSITION_CONTENT}}
+    
+    <h2>Key Products and Services</h2>
+    {{PRODUCTS_SERVICES_CONTENT}}
+
+    <!-- PHASE 2: FINANCIAL INTELLIGENCE -->
+    <div class="page-break"></div>
+    <h1>Phase 2: Financial Intelligence - Performance Analysis</h1>
+    
+    <h2>Financial Performance Metrics</h2>
+    {{FINANCIAL_PERFORMANCE_CONTENT}}
+    
+    <h2>Revenue Streams and Profitability</h2>
+    {{REVENUE_STREAMS_CONTENT}}
+    
+    <h2>Investment History and Funding</h2>
+    {{INVESTMENT_HISTORY_CONTENT}}
+
+    <!-- PHASE 3: LEGAL AND REGULATORY INTELLIGENCE -->
+    <div class="page-break"></div>
+    <h1>Phase 3: Legal and Regulatory Intelligence</h1>
+    
+    <h2>Corporate Structure and Governance</h2>
+    {{CORPORATE_STRUCTURE_CONTENT}}
+    
+    <h2>Regulatory Compliance and Legal Issues</h2>
+    {{REGULATORY_COMPLIANCE_CONTENT}}
+    
+    <h2>Intellectual Property and Assets</h2>
+    {{IP_ASSETS_CONTENT}}
+
+    <!-- PHASE 4: NETWORK INTELLIGENCE -->
+    <div class="page-break"></div>
+    <h1>Phase 4: Network Intelligence - Stakeholder Analysis</h1>
+    
+    <h2>Management Team and Leadership</h2>
+    {{MANAGEMENT_TEAM_CONTENT}}
+    
+    <h2>Strategic Partnerships and Alliances</h2>
+    {{STRATEGIC_PARTNERSHIPS_CONTENT}}
+    
+    <h2>Customer Base and Market Relationships</h2>
+    {{CUSTOMER_BASE_CONTENT}}
+
+    <!-- PHASE 5: RISK ASSESSMENT -->
+    <div class="page-break"></div>
+    <h1>Phase 5: Risk Assessment - Comprehensive Analysis</h1>
+    
+    <h2>Operational Risk Factors</h2>
+    {{OPERATIONAL_RISKS_CONTENT}}
+    
+    <h2>Market and Competitive Risks</h2>
+    {{MARKET_RISKS_CONTENT}}
+    
+    <h2>Financial and Regulatory Risks</h2>
+    {{FINANCIAL_RISKS_CONTENT}}
+
+    <!-- PHASE 6: COMPETITIVE INTELLIGENCE -->
+    <div class="page-break"></div>
+    <h1>Phase 6: Competitive Intelligence - Strategic Market Position</h1>
+    
+    <h2>Competitive Landscape Analysis</h2>
+    {{COMPETITIVE_LANDSCAPE_CONTENT}}
+    
+    <h2>Competitive Advantages and Differentiators</h2>
+    {{COMPETITIVE_ADVANTAGES_CONTENT}}
+    
+    <h2>Strategic Positioning Assessment</h2>
+    {{STRATEGIC_POSITIONING_CONTENT}}
+
+    <!-- INVESTMENT THESIS -->
+    <div class="page-break"></div>
+    <div class="business-section">
+        <h1>Investment Thesis and Strategic Recommendations</h1>
+        
+        <div class="competitive-advantage">
+            <h2>Key Investment Highlights</h2>
+            {{INVESTMENT_HIGHLIGHTS_CONTENT}}
+        </div>
+        
+        <div class="financial-highlight">
+            <h2>Financial Projections and Value Creation</h2>
+            {{VALUE_CREATION_CONTENT}}
+        </div>
+        
+        <div class="risk-factor">
+            <h2>Risk Mitigation Strategies</h2>
+            {{RISK_MITIGATION_CONTENT}}
+        </div>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="page-break"></div>
+    <div class="bibliography">
+        <h1>Sources and Citations</h1>
+        {{BIBLIOGRAPHY_CONTENT}}
+    </div>
+</body>
+</html>

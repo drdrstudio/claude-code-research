@@ -1,0 +1,65 @@
+{
+  "identity_verification": {
+    "subject": "Kneeland C. Youngblood",
+    "confidence_score": 0.98,
+    "verification_status": "CONFIRMED",
+    "quality_gate_passed": true,
+    
+    "confirmed_details": {
+      "full_name": "Kneeland C. Youngblood",
+      "date_of_birth": "December 13, 1955",
+      "age": 68,
+      "birthplace": "Galena Park, Texas",
+      "current_position": "Founding Partner, Chairman & CEO",
+      "organization": "Pharos Capital Group, LLC",
+      "location": "Dallas, Texas",
+      "education": {
+        "undergraduate": "Princeton University, A.B. Politics/Science in Human Affairs (1978)",
+        "medical": "University of Texas Southwestern Medical School, M.D. (1982)",
+        "residency": "Emory University School of Medicine, Emergency Medicine (1983-1985)"
+      }
+    },
+    
+    "professional_timeline": {
+      "1985-1997": "Emergency Medicine Physician, Medical Center of Plano",
+      "1993-1999": "Board Trustee, Teacher Retirement System of Texas",
+      "1994-1997": "Board Director, United States Enrichment Corporation (Clinton appointment)",
+      "1997-present": "Founding Partner, Chairman & CEO, Pharos Capital Group",
+      "2020-present": "Board of Trustees, California Institute of Technology (Caltech)",
+      "2021-present": "President's Intelligence Advisory Board (Biden Administration)",
+      "current": "Lead Director, Light & Wonder Inc. (NASDAQ listed)"
+    },
+    
+    "key_identifiers": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Kneeland_Youngblood",
+      "pharos_bio": "https://www.pharosfunds.com/kneeland-youngblood.php",
+      "caltech_bio": "https://board.caltech.edu/board-members/dr-kneeland-youngblood"
+    },
+    
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Kneeland_Youngblood",
+        "credibility_tier": 2,
+        "date_accessed": "2025-08-14"
+      },
+      {
+        "url": "https://www.pharosfunds.com/kneeland-youngblood.php",
+        "credibility_tier": 1,
+        "date_accessed": "2025-08-14"
+      },
+      {
+        "url": "https://board.caltech.edu/board-members/dr-kneeland-youngblood",
+        "credibility_tier": 1,
+        "date_accessed": "2025-08-14"
+      }
+    ]
+  },
+  
+  "quality_gate_evaluation": {
+    "gate_name": "identity_verification",
+    "threshold_required": 0.8,
+    "score_achieved": 0.98,
+    "decision": "PROCEED",
+    "reasoning": "Multiple authoritative sources confirm identity with consistent biographical details"
+  }
+}

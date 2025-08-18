@@ -1,0 +1,65 @@
+/* @theme waterloo-light-theme */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
+:root {
+  --color-background: #FFFFFF;
+  --color-text: #2c2c2c;
+  --color-primary-blue: #0059B3;
+  --color-accent-gold: #f0c419;
+  --font-family-serif: 'Lora', serif;
+  --font-family-sans: 'Source Sans Pro', sans-serif;
+}
+section {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  padding: 50px;
+}
+h1, h2 {
+  font-family: var(--font-family-serif);
+  color: #000000;
+  font-weight: 700;
+}
+h1 { font-size: 3em; text-align: left; }
+h2 { font-size: 2.2em; border-bottom: 2px solid var(--color-accent-gold); padding-bottom: 0.2em; margin-bottom: 0.5em; }
+p { font-size: 1.25em; line-height: 1.6; }
+li { font-size: 1.1em; line-height: 1.5; }
+ul li::marker { color: var(--color-accent-gold); }
+a { color: var(--color-primary-blue); text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+footer {
+  font-size: 0.8em;
+  color: #888888;
+  text-align: right;
+  padding: 0 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  line-height: 60px;
+}
+
+/* Helper classes for dynamic layouts */
+section.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+}
+.stat-box {
+  background-color: #f4f4f4;
+  border-left: 5px solid var(--color-accent-gold);
+  padding: 20px;
+  text-align: center;
+}
+.stat-box p {
+  font-size: 1.2em;
+  margin: 0;
+  line-height: 1.2;
+}
+.stat-box .number {
+  font-size: 4em;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  line-height: 1;
+}

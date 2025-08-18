@@ -1,0 +1,195 @@
+/* Pharos Premium Document Styling */
+
+@page {
+    size: A4;
+    margin: 1in;
+    
+    @top-left {
+        content: url('./pharos-logo.png');
+        width: 2in;
+        height: auto;
+    }
+    
+    @top-right {
+        content: "Strategic Analysis";
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: bold;
+        color: #4A4A4A;
+        font-size: 10pt;
+    }
+    
+    @bottom-center {
+        content: counter(page);
+        font-family: "Source Sans Pro", sans-serif;
+        color: #4A4A4A;
+        font-size: 10pt;
+    }
+}
+
+/* Cover Page */
+@page:first {
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+body {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    font-size: 11pt;
+}
+
+/* Cover page styling */
+h1:first-child {
+    text-align: center;
+    font-size: 28pt;
+    color: #1B365D;
+    margin-top: 20%;
+    margin-bottom: 1in;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Add cover page elements */
+h1:first-child::before {
+    content: "";
+    display: block;
+    background-image: url('./pharos-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 3in;
+    width: 100%;
+    margin-bottom: 1in;
+}
+
+h1:first-child::after {
+    content: "Strategic Intelligence Report\A Confidential Analysis\A " attr(data-date);
+    white-space: pre;
+    display: block;
+    font-size: 14pt;
+    color: #4A4A4A;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-top: 0.5in;
+    line-height: 1.8;
+}
+
+/* Section headings */
+h2 {
+    color: #1B365D;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #1B365D;
+    padding-bottom: 0.2em;
+}
+
+h3 {
+    color: #1B365D;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+h4 {
+    color: #4A4A4A;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.3em;
+}
+
+/* Strong text */
+strong {
+    color: #1B365D;
+    font-weight: bold;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #1B365D;
+    color: white;
+    font-weight: bold;
+}
+
+/* Code blocks */
+pre, code {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: "Courier New", monospace;
+}
+
+pre {
+    padding: 1em;
+    overflow-x: auto;
+}
+
+code {
+    padding: 0.2em 0.4em;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #1B365D;
+    padding-left: 1em;
+    margin-left: 0;
+    font-style: italic;
+    color: #4A4A4A;
+}
+
+/* Links */
+a {
+    color: #1B365D;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Horizontal rules */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #1B365D;
+    margin: 2em 0;
+}
+
+/* Page breaks */
+h1, h2 {
+    page-break-after: avoid;
+}
+
+/* Avoid orphans and widows */
+p {
+    orphans: 3;
+    widows: 3;
+}

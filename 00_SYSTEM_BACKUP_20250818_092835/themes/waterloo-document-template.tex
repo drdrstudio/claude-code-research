@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{sectsty}
+
+% --- FONT LOADING ---
+% Use dedicated packages for fonts instead of relying on system installation.
+% Tectonic will fetch these automatically.
+\usepackage{sourcesanspro}
+
+\geometry{a4paper, margin=1in}
+\definecolor{WaterlooBlue}{HTML}{0059B3}
+\definecolor{WaterlooGold}{HTML}{f0c419}
+
+% Use Source Sans Pro for headers and make them bold
+\allsectionsfont{\sourcesanspro\bfseries\color{WaterlooBlue}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{WaterlooBlue}{\sourcesanspro\bfseries Waterloo Digital}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\hypersetup{colorlinks=true, urlcolor=WaterlooBlue, linkcolor=WaterlooBlue}
+
+\title{$title$}
+\author{$author$}
+\date{$date$}
+
+\begin{document}
+\maketitle
+$if(toc)$
+\tableofcontents
+\newpage
+$endif$
+$body$
+\end{document}

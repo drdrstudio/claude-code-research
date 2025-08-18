@@ -1,0 +1,225 @@
+{
+  "recipes": {
+    "reputational_intelligence": {
+      "name": "Reputational Intelligence",
+      "icon": "🔍",
+      "description": "Individual due diligence and personal brand analysis",
+      "target_type": "INDIVIDUAL",
+      "framework": "6-phase-strategic-intelligence",
+      "phases": [
+        "Identity Verification & Baseline",
+        "Financial Intelligence",
+        "Legal Intelligence",
+        "Network Intelligence",
+        "Risk Assessment",
+        "Competitive Intelligence"
+      ],
+      "mcp_tools": {
+        "primary": ["firecrawl", "perplexity", "tavily"],
+        "secondary": ["reddit", "playwright"],
+        "optional": ["dataforseo"]
+      },
+      "output_specs": {
+        "page_range": "15-20",
+        "citation_minimum": 50,
+        "sections": [
+          "Executive Summary",
+          "Identity & Background",
+          "Professional History",
+          "Network Analysis",
+          "Digital Footprint",
+          "Reputational Assessment",
+          "Risk Matrix",
+          "Recommendations"
+        ]
+      },
+      "quality_controls": {
+        "verification_level": "maximum",
+        "fact_checking": "triangulation_required",
+        "source_quality_minimum": 3,
+        "contradiction_analysis": true
+      },
+      "templates": {
+        "preferred": ["corporate", "classic"],
+        "acceptable": ["tufte"]
+      },
+      "specialized_scripts": [
+        "individual-reputational-scan.sh",
+        "sequential-thinking-reputational-template.py",
+        "execute-full-reputational-scan.py"
+      ]
+    },
+    
+    "organizational_intelligence": {
+      "name": "Organizational Intelligence",
+      "icon": "🏢",
+      "description": "Company analysis and competitive intelligence",
+      "target_type": "ORGANIZATION",
+      "framework": "business-intelligence-model",
+      "phases": [
+        "Corporate Structure Analysis",
+        "Financial Performance Review",
+        "Market Position Assessment",
+        "Competitive Landscape",
+        "Regulatory Compliance",
+        "Strategic Capabilities"
+      ],
+      "mcp_tools": {
+        "primary": ["firecrawl", "perplexity", "dataforseo"],
+        "secondary": ["tavily", "playwright"],
+        "optional": ["reddit"]
+      },
+      "output_specs": {
+        "page_range": "20-30",
+        "citation_minimum": 40,
+        "sections": [
+          "Executive Summary",
+          "Company Overview",
+          "Financial Analysis",
+          "Market Position",
+          "Competitive Analysis",
+          "SWOT Analysis",
+          "Risk Assessment",
+          "Strategic Recommendations"
+        ]
+      },
+      "quality_controls": {
+        "verification_level": "high",
+        "fact_checking": "dual_source_required",
+        "source_quality_minimum": 3,
+        "financial_verification": true
+      },
+      "templates": {
+        "preferred": ["corporate", "tufte"],
+        "acceptable": ["classic"]
+      },
+      "specialized_features": {
+        "logo_acquisition": true,
+        "financial_charts": true,
+        "competitor_matrix": true,
+        "market_share_analysis": true
+      }
+    },
+    
+    "gtm_marketing_research": {
+      "name": "GTM Marketing Research",
+      "icon": "🚀",
+      "description": "Go-to-market strategy and audience intelligence",
+      "target_type": "GTM",
+      "framework": "gtm-intelligence",
+      "phases": [
+        "Market Landscape Analysis",
+        "Target Audience Profiling",
+        "Competitive Positioning",
+        "Channel Opportunity Mapping",
+        "Messaging Framework",
+        "Campaign Strategy Development"
+      ],
+      "mcp_tools": {
+        "primary": ["perplexity", "dataforseo", "firecrawl"],
+        "secondary": ["reddit", "tavily"],
+        "heavy_use": ["perplexity", "dataforseo"]
+      },
+      "output_specs": {
+        "page_range": "25-35",
+        "citation_minimum": 30,
+        "sections": [
+          "Executive Summary",
+          "Market Analysis",
+          "Audience Personas",
+          "Competitive Landscape",
+          "Channel Strategy",
+          "Messaging Framework",
+          "Campaign Playbook",
+          "Lead Magnet Concepts",
+          "Implementation Roadmap",
+          "Success Metrics"
+        ]
+      },
+      "quality_controls": {
+        "verification_level": "medium",
+        "fact_checking": "standard",
+        "source_quality_minimum": 2,
+        "trend_validation": true
+      },
+      "templates": {
+        "preferred": ["sakura", "corporate"],
+        "acceptable": ["tufte", "classic"]
+      },
+      "specialized_features": {
+        "keyword_research": true,
+        "audience_psychographics": true,
+        "channel_analysis": true,
+        "lead_magnet_generation": true,
+        "campaign_templates": true,
+        "dataforseo_integration": "required"
+      },
+      "deliverables": {
+        "primary": "GTM Strategy Document",
+        "secondary": [
+          "Audience Persona Cards",
+          "Campaign Playbook",
+          "Lead Magnet Concepts",
+          "Content Calendar Template"
+        ]
+      }
+    }
+  },
+  
+  "shared_components": {
+    "citation_system": {
+      "extractor": "auto-citation-extractor.sh",
+      "inserter": "auto-insert-citations.py",
+      "format": "footnote",
+      "bibliography": "required"
+    },
+    "pdf_generation": {
+      "primary": "generate-research-pdf-automated.sh",
+      "premium": "create-premium-document.sh",
+      "citations": "create-research-pdf-with-citations.sh"
+    },
+    "knowledge_management": {
+      "graph_builder": "build-knowledge-graph.sh",
+      "entity_extractor": "auto-extract-entities.sh",
+      "notebooklm": "upload-to-notebooklm.sh"
+    },
+    "quality_assurance": {
+      "mega_analysis": "run-mega-analysis.sh",
+      "fact_checker": "sequential-thinking",
+      "source_scoring": "1-5 scale"
+    }
+  },
+  
+  "workflow_mapping": {
+    "reputational": {
+      "1_initialization": "Setup project structure, verify identity",
+      "2_planning": "Sequential thinking strategy generation",
+      "3_search": "Execute comprehensive search queries",
+      "4_vetting": "Source quality scoring and approval",
+      "5_extraction": "Deep content extraction with Firecrawl",
+      "6_verification": "Triangulation and fact-checking",
+      "7_synthesis": "6-phase framework application",
+      "8_output": "Generate dossier with risk matrix"
+    },
+    "organizational": {
+      "1_initialization": "Setup project, acquire logo",
+      "2_planning": "Business intelligence strategy",
+      "3_search": "Financial + market search",
+      "4_vetting": "Financial source verification",
+      "5_extraction": "Financial data + competitor intel",
+      "6_analysis": "SWOT and competitive positioning",
+      "7_synthesis": "Business intelligence compilation",
+      "8_output": "Generate report with financials"
+    },
+    "gtm": {
+      "1_initialization": "Setup project, define audience",
+      "2_planning": "GTM strategy framework",
+      "3_search": "Audience + competitor research",
+      "4_keyword": "DataForSEO keyword analysis",
+      "5_extraction": "Channel and messaging insights",
+      "6_persona": "Build audience personas",
+      "7_synthesis": "Campaign strategy development",
+      "8_output": "GTM playbook + lead magnets"
+    }
+  }
+}

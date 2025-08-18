@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SUBJECT_NAME}} - Individual Reputational Assessment</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+            @top-left {
+                content: "{{SUBJECT_NAME}} Assessment";
+                font-size: 10pt;
+                color: #666;
+            }
+            @top-right {
+                content: counter(page);
+                font-size: 10pt;
+                color: #666;
+            }
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .cover-page {
+            text-align: center;
+            padding: 4in 0 0 0;
+            page-break-after: always;
+        }
+        
+        .cover-title {
+            font-size: 28pt;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5in;
+            line-height: 1.2;
+        }
+        
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #34495e;
+            margin-bottom: 1in;
+        }
+        
+        .cover-meta {
+            font-size: 12pt;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        h1 {
+            font-size: 20pt;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.2in;
+            margin-top: 0.5in;
+            margin-bottom: 0.3in;
+        }
+        
+        h2 {
+            font-size: 16pt;
+            color: #34495e;
+            margin-top: 0.4in;
+            margin-bottom: 0.2in;
+            border-left: 4px solid #3498db;
+            padding-left: 0.15in;
+        }
+        
+        h3 {
+            font-size: 14pt;
+            color: #2c3e50;
+            margin-top: 0.3in;
+            margin-bottom: 0.15in;
+        }
+        
+        h4 {
+            font-size: 12pt;
+            color: #34495e;
+            margin-top: 0.2in;
+            margin-bottom: 0.1in;
+            font-weight: bold;
+        }
+        
+        .individual-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #17a2b8;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .personal-highlight {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .reputation-finding {
+            background-color: #d1ecf1;
+            border-left: 4px solid #0dcaf0;
+            padding: 0.2in;
+            margin: 0.2in 0;
+        }
+        
+        .citation {
+            font-size: 9pt;
+            color: #666;
+            vertical-align: super;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <div class="cover-title">{{SUBJECT_NAME}}</div>
+        <div class="cover-subtitle">Individual Reputational Assessment</div>
+        <div class="cover-meta">
+            <strong>Confidential Individual Due Diligence Report</strong><br>
+            Assessment Period: {{ANALYSIS_DATE}}<br>
+            Research System: Claude Code Research MRP v6.0<br>
+            6-Phase Individual Intelligence Framework<br>
+            Citation Standard: Enterprise-grade source accountability
+        </div>
+    </div>
+
+    <div class="individual-section">
+        <h1>Executive Summary</h1>
+        {{EXECUTIVE_SUMMARY_CONTENT}}
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 1: PERSONAL BACKGROUND -->
+    <h1>Personal Background and Professional Foundation</h1>
+    
+    <h2>Early Life and Formative Experiences</h2>
+    {{EARLY_LIFE_CONTENT}}
+    
+    <h2>Educational Background</h2>
+    {{EDUCATION_CONTENT}}
+    
+    <h2>Career Development</h2>
+    {{CAREER_DEVELOPMENT_CONTENT}}
+
+    <!-- SECTION 2: PROFESSIONAL ACHIEVEMENTS -->
+    <div class="page-break"></div>
+    <h1>Professional Achievements and Leadership</h1>
+    
+    <h2>Current Positions and Responsibilities</h2>
+    {{CURRENT_POSITIONS_CONTENT}}
+    
+    <h2>Historical Leadership Roles</h2>
+    {{HISTORICAL_ROLES_CONTENT}}
+    
+    <h2>Recognition and Awards</h2>
+    {{RECOGNITION_CONTENT}}
+
+    <!-- SECTION 3: CIVIC AND PUBLIC SERVICE -->
+    <div class="page-break"></div>
+    <h1>Public Service and Civic Involvement</h1>
+    
+    <h2>Government Service</h2>
+    {{GOVERNMENT_SERVICE_CONTENT}}
+    
+    <h2>Board Positions and Institutional Leadership</h2>
+    {{BOARD_POSITIONS_CONTENT}}
+    
+    <h2>Community Involvement</h2>
+    {{COMMUNITY_INVOLVEMENT_CONTENT}}
+
+    <!-- SECTION 4: PROFESSIONAL NETWORKS -->
+    <div class="page-break"></div>
+    <h1>Professional Networks and Influence</h1>
+    
+    <h2>Industry Relationships</h2>
+    {{INDUSTRY_RELATIONSHIPS_CONTENT}}
+    
+    <h2>Political and Policy Networks</h2>
+    {{POLITICAL_NETWORKS_CONTENT}}
+    
+    <h2>Academic and Institutional Connections</h2>
+    {{ACADEMIC_CONNECTIONS_CONTENT}}
+
+    <!-- SECTION 5: REPUTATIONAL ASSESSMENT -->
+    <div class="page-break"></div>
+    <h1>Reputational Risk Assessment</h1>
+    
+    <h2>Personal and Professional Risk Factors</h2>
+    {{PERSONAL_RISK_FACTORS_CONTENT}}
+    
+    <h2>Public Profile and Media Exposure</h2>
+    {{PUBLIC_PROFILE_CONTENT}}
+    
+    <h2>Ethical and Legal Considerations</h2>
+    {{ETHICAL_CONSIDERATIONS_CONTENT}}
+
+    <!-- SECTION 6: OVERALL STANDING -->
+    <div class="page-break"></div>
+    <h1>Overall Standing and Future Outlook</h1>
+    
+    <h2>Professional Strengths and Capabilities</h2>
+    {{PROFESSIONAL_STRENGTHS_CONTENT}}
+    
+    <h2>Potential Areas of Concern</h2>
+    {{AREAS_OF_CONCERN_CONTENT}}
+    
+    <h2>Future Opportunities and Trajectory</h2>
+    {{FUTURE_OPPORTUNITIES_CONTENT}}
+
+    <!-- FINAL ASSESSMENT -->
+    <div class="page-break"></div>
+    <div class="individual-section">
+        <h1>Final Assessment and Recommendations</h1>
+        {{FINAL_ASSESSMENT_CONTENT}}
+    </div>
+
+    <!-- SOURCES -->
+    <div class="page-break"></div>
+    <div class="bibliography">
+        <h1>Sources and Citations</h1>
+        {{BIBLIOGRAPHY_CONTENT}}
+    </div>
+</body>
+</html>

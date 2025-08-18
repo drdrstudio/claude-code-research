@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRP Intelligence System v7.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .research-types {
+            display: flex;
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .research-type {
+            flex: 1;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            text-align: center;
+        }
+
+        .research-type:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .research-type.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+        }
+
+        .research-type .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .research-type h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.3em;
+        }
+
+        .research-type p {
+            color: #6c757d;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .depth-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .depth-option {
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .depth-option:hover {
+            border-color: #667eea;
+            background: rgba(102,126,234,0.05);
+        }
+
+        .depth-option.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+        }
+
+        .depth-option h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .depth-option p {
+            color: #6c757d;
+            font-size: 0.85em;
+        }
+
+        .output-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .submit-section {
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .progress-bar .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .help-text {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 MRP Intelligence System</h1>
+            <p>$5,000 Enterprise-Grade Reputational & Strategic Intelligence</p>
+        </div>
+
+        <div class="research-types">
+            <div class="research-type active" data-type="individual">
+                <div class="icon">👤</div>
+                <h3>Individual</h3>
+                <p>Executive vetting, personal brand analysis, reputational assessment</p>
+            </div>
+            <div class="research-type" data-type="organization">
+                <div class="icon">🏢</div>
+                <h3>Organization</h3>
+                <p>Company analysis, competitive intelligence, M&A due diligence</p>
+            </div>
+            <div class="research-type" data-type="market">
+                <div class="icon">🚀</div>
+                <h3>Market/GTM</h3>
+                <p>Go-to-market strategy, audience intelligence, campaign development</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <!-- Individual Research Form -->
+            <div class="form-section active" id="individual-form">
+                <h2 style="margin-bottom: 25px; color: #2c3e50;">Individual Intelligence Research</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" name="target_name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Company/Position</label>
+                        <input type="text" name="company" placeholder="CEO at TechCorp">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>LinkedIn URL</label>
+                        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/...">
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" name="location" placeholder="San Francisco, CA">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Previous Companies/Roles</label>
+                    <textarea name="previous_roles" placeholder="List previous positions, companies, board memberships..."></textarea>
+                    <span class="help-text">Include any relevant professional history</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Areas of Focus</label>
+                    <textarea name="focus_areas" placeholder="What specific intelligence do you need? (e.g., litigation history, financial dealings, reputation risks, professional network, conflicts of interest)"></textarea>
+                </div>
+            </div>
+
+            <!-- Organization Research Form -->
+            <div class="form-section" id="organization-form">
+                <h2 style="margin-bottom: 25px; color: #2c3e50;">Organizational Intelligence Research</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Company Name <span class="required">*</span></label>
+                        <input type="text" name="target_name" placeholder="Acme Corporation" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Website URL</label>
+                        <input type="url" name="website" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Industry/Sector</label>
+                        <input type="text" name="industry" placeholder="Healthcare Technology">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Size/Revenue</label>
+                        <input type="text" name="size" placeholder="$50M revenue, 200 employees">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Key Executives to Research</label>
+                    <textarea name="executives" placeholder="List key executives, founders, board members to include in research..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Intelligence Requirements</label>
+                    <textarea name="requirements" placeholder="What intelligence do you need? (e.g., financial health, legal issues, competitive position, M&A activity, regulatory compliance, market reputation)"></textarea>
+                </div>
+            </div>
+
+            <!-- Market/GTM Research Form -->
+            <div class="form-section" id="market-form">
+                <h2 style="margin-bottom: 25px; color: #2c3e50;">Market & GTM Intelligence</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product/Service <span class="required">*</span></label>
+                        <input type="text" name="target_name" placeholder="Enterprise CRM Software" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Market</label>
+                        <input type="text" name="market" placeholder="B2B SaaS, Healthcare">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Geographic Focus</label>
+                        <input type="text" name="geography" placeholder="North America, Europe">
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Segments</label>
+                        <input type="text" name="segments" placeholder="Enterprise, 500+ employees">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Key Competitors</label>
+                    <textarea name="competitors" placeholder="List main competitors to analyze..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Campaign Goals & Requirements</label>
+                    <textarea name="goals" placeholder="What are your GTM objectives? (e.g., market entry strategy, competitive positioning, customer acquisition, pricing strategy)"></textarea>
+                </div>
+            </div>
+
+            <!-- Common Options for All Forms -->
+            <div class="form-group">
+                <label>Research Depth</label>
+                <div class="depth-selector">
+                    <div class="depth-option" data-depth="quick">
+                        <h4>Quick Scan</h4>
+                        <p>1-2 hours<br>10-15 sources</p>
+                    </div>
+                    <div class="depth-option selected" data-depth="standard">
+                        <h4>Standard</h4>
+                        <p>2-4 hours<br>25-40 sources</p>
+                    </div>
+                    <div class="depth-option" data-depth="deep">
+                        <h4>Deep Dive</h4>
+                        <p>4-8 hours<br>50+ sources<br><strong>$5K Standard</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Output Format</label>
+                    <select name="template">
+                        <option value="corporate">Corporate (Professional Business)</option>
+                        <option value="tufte">Tufte (Academic/Analytical)</option>
+                        <option value="sakura">Sakura (Minimal Design)</option>
+                        <option value="classic">Classic (Traditional)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Options</label>
+                    <div class="output-options">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="pdf" name="output_pdf" checked>
+                            <label for="pdf">PDF Report</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="wordpress" name="output_wordpress">
+                            <label for="wordpress">WordPress Article</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Additional Instructions</label>
+                <textarea name="instructions" placeholder="Any specific requirements, data sources to prioritize/avoid, or special considerations..."></textarea>
+            </div>
+        </div>
+
+        <div class="submit-section">
+            <button class="submit-btn" onclick="startResearch()">
+                🚀 Start Intelligence Research
+            </button>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            
+            <div class="status-message"></div>
+        </div>
+    </div>
+
+    <script>
+        // Handle research type selection
+        document.querySelectorAll('.research-type').forEach(type => {
+            type.addEventListener('click', function() {
+                // Update active type
+                document.querySelectorAll('.research-type').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding form
+                document.querySelectorAll('.form-section').forEach(form => form.classList.remove('active'));
+                const formId = this.dataset.type + '-form';
+                document.getElementById(formId).classList.add('active');
+            });
+        });
+
+        // Handle depth selection
+        document.querySelectorAll('.depth-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.depth-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Start research function
+        async function startResearch() {
+            const activeType = document.querySelector('.research-type.active').dataset.type;
+            const activeForm = document.querySelector('.form-section.active');
+            
+            // Gather form data
+            const formData = {
+                research_type: activeType,
+                depth: document.querySelector('.depth-option.selected').dataset.depth,
+                template: document.querySelector('select[name="template"]').value,
+                output_pdf: document.querySelector('input[name="output_pdf"]').checked,
+                output_wordpress: document.querySelector('input[name="output_wordpress"]').checked
+            };
+
+            // Collect all form inputs from active section
+            activeForm.querySelectorAll('input, textarea, select').forEach(input => {
+                if (input.type === 'checkbox') {
+                    formData[input.name] = input.checked;
+                } else if (input.value) {
+                    formData[input.name] = input.value;
+                }
+            });
+
+            // Validate required fields
+            const targetName = activeForm.querySelector('input[name="target_name"]').value;
+            if (!targetName) {
+                showStatus('Please enter a name/target for the research', 'error');
+                return;
+            }
+
+            // Show progress
+            showProgress();
+            
+            try {
+                // Send to backend
+                const response = await fetch('http://localhost:5000/api/research', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    showStatus(`✅ Research started successfully! Job ID: ${result.job_id}`, 'success');
+                    // Poll for status
+                    pollStatus(result.job_id);
+                } else {
+                    showStatus(`❌ Error: ${result.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(`❌ Connection error: ${error.message}`, 'error');
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusDiv = document.querySelector('.status-message');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message ${type}`;
+            statusDiv.style.display = 'block';
+        }
+
+        function showProgress() {
+            const progressBar = document.querySelector('.progress-bar');
+            const submitBtn = document.querySelector('.submit-btn');
+            
+            progressBar.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Research in Progress...';
+            
+            // Simulate progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) progress = 90;
+                document.querySelector('.progress').style.width = progress + '%';
+            }, 2000);
+        }
+
+        async function pollStatus(jobId) {
+            // Poll backend for job status
+            const pollInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`http://localhost:5000/api/status/${jobId}`);
+                    const status = await response.json();
+                    
+                    if (status.state === 'completed') {
+                        clearInterval(pollInterval);
+                        document.querySelector('.progress').style.width = '100%';
+                        showStatus(`✅ Research complete! ${status.message}`, 'success');
+                        resetForm();
+                    } else if (status.state === 'failed') {
+                        clearInterval(pollInterval);
+                        showStatus(`❌ Research failed: ${status.error}`, 'error');
+                        resetForm();
+                    } else {
+                        // Update progress
+                        if (status.progress) {
+                            document.querySelector('.progress').style.width = status.progress + '%';
+                        }
+                        showStatus(`⏳ ${status.phase || 'Processing'}...`, 'info');
+                    }
+                } catch (error) {
+                    console.error('Status poll error:', error);
+                }
+            }, 5000);
+        }
+
+        function resetForm() {
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = false;
+            submitBtn.textContent = '🚀 Start Intelligence Research';
+        }
+    </script>
+</body>
+</html>

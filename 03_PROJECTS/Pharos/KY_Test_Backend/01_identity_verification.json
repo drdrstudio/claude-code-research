@@ -1,0 +1,73 @@
+{
+  "identity_verification": {
+    "subject": "Kneeland Youngblood",
+    "confidence_score": 0.98,
+    "verification_status": "CONFIRMED",
+    "quality_gate_passed": true,
+    
+    "confirmed_details": {
+      "full_name": "Kneeland C. Youngblood",
+      "date_of_birth": "December 13, 1955",
+      "age": 68,
+      "current_position": "Founding Partner, Chairman & CEO",
+      "organization": "Pharos Capital Group, LLC",
+      "location": "Dallas, Texas",
+      "education": {
+        "undergraduate": "Princeton University, A.B. Politics/Science in Human Affairs (1978)",
+        "medical": "University of Texas Southwestern Medical School, M.D. (1982)",
+        "residency": "Emory University School of Medicine, Emergency Medicine (1983-1985)"
+      }
+    },
+    
+    "professional_timeline": {
+      "1985-1997": "Emergency Medicine Physician, Medical Center of Plano",
+      "1993-1999": "Board Trustee, Teacher Retirement System of Texas",
+      "1994-1997": "Board Director, United States Enrichment Corporation (Presidential Appointment)",
+      "1997-present": "Founding Partner, Chairman & CEO, Pharos Capital Group",
+      "2021-present": "Board of Trustees, California Institute of Technology (Caltech)",
+      "2021-present": "President's Intelligence Advisory Board (Biden Administration)"
+    },
+    
+    "key_identifiers": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Kneeland_Youngblood",
+      "pharos_bio": "https://www.pharosfunds.com/kneeland-youngblood.php",
+      "caltech_bio": "https://board.caltech.edu/board-members/dr-kneeland-youngblood",
+      "birth_location": "Galena Park, Texas"
+    },
+    
+    "notable_attributes": {
+      "african_american_physician": true,
+      "private_equity_executive": true,
+      "presidential_appointments": ["Clinton", "Biden"],
+      "board_experience": ["Starwood Hotels", "Burger King", "Gap Inc.", "Scientific Games", "Light & Wonder Inc."],
+      "council_on_foreign_relations": true,
+      "political_donor": "Listed as top bundler for Barack Obama"
+    },
+    
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Kneeland_Youngblood",
+        "credibility_tier": 2,
+        "date_accessed": "2025-08-14"
+      },
+      {
+        "url": "https://www.pharosfunds.com/kneeland-youngblood.php",
+        "credibility_tier": 1,
+        "date_accessed": "2025-08-14"
+      },
+      {
+        "url": "https://board.caltech.edu/board-members/dr-kneeland-youngblood",
+        "credibility_tier": 1,
+        "date_accessed": "2025-08-14"
+      }
+    ]
+  },
+  
+  "quality_gate_evaluation": {
+    "gate_name": "identity_verification",
+    "threshold_required": 0.8,
+    "score_achieved": 0.98,
+    "decision": "PROCEED",
+    "reasoning": "Multiple authoritative sources confirm identity with consistent biographical details. Wikipedia, official Pharos bio, and Caltech board page all align. Birth date, education, and career timeline verified."
+  }
+}

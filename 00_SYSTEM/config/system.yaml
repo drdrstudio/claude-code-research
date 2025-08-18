@@ -1,0 +1,37 @@
+# MRP v7.0 Central Configuration
+system:
+  version: "7.0"
+  environment: "production"
+  
+research:
+  default_depth: "comprehensive"
+  min_sources: 50
+  min_pages: 20
+  max_runtime_hours: 4
+  
+mcp_tools:
+  priority:
+    - firecrawl      # Primary: Deep extraction
+    - perplexity     # Primary: AI search
+    - dataforseo     # Secondary: SEO data
+    - sequential_thinking  # Secondary: Analysis
+    - reddit         # Secondary: Sentiment
+    - playwright     # Secondary: Dynamic sites
+    - tavily        # Last resort only
+    
+output:
+  default_template: "corporate"
+  default_quality: "premium"
+  citations_required: true
+  min_citations: 50
+  
+pricing:
+  target_value_usd: 5000
+  track_costs: true
+  alert_threshold: 100
+  
+logging:
+  level: "INFO"
+  rotation: "daily"
+  retention_days: 30
+  path: "logs/"

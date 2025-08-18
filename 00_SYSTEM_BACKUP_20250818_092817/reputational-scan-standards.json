@@ -1,0 +1,174 @@
+{
+  "mcp_standards": {
+    "perplexity": {
+      "search_broad": {
+        "recency": "year",
+        "limit": 50,
+        "include_citations": true
+      },
+      "search_specific": {
+        "recency": "month", 
+        "limit": 30,
+        "include_citations": true
+      },
+      "search_historical": {
+        "recency": "all",
+        "limit": 100,
+        "include_citations": true
+      }
+    },
+    "firecrawl": {
+      "scrape_article": {
+        "formats": ["markdown"],
+        "onlyMainContent": false,
+        "maxDepth": 3,
+        "limit": 50,
+        "maxAge": 0
+      },
+      "scrape_profile": {
+        "formats": ["markdown", "links", "html"],
+        "onlyMainContent": false,
+        "maxDepth": 5,
+        "limit": 100,
+        "includeImages": true
+      },
+      "deep_crawl": {
+        "formats": ["markdown", "links", "html"],
+        "maxDepth": 10,
+        "limit": 200,
+        "allowExternalLinks": true,
+        "deduplicateSimilarURLs": true
+      },
+      "search_web": {
+        "limit": 10,
+        "scrapeOptions": {
+          "formats": ["markdown"],
+          "onlyMainContent": true
+        }
+      }
+    },
+    "sequential_thinking": {
+      "analysis_phase": {
+        "totalThoughts": 10,
+        "maxBranches": 3,
+        "requireConfirmation": true
+      },
+      "verification_phase": {
+        "totalThoughts": 5,
+        "maxBranches": 2,
+        "requireConfirmation": false
+      },
+      "synthesis_phase": {
+        "totalThoughts": 15,
+        "maxBranches": 4,
+        "requireConfirmation": true
+      }
+    },
+    "reddit": {
+      "general_search": {
+        "time_filter": "year",
+        "limit": 50,
+        "sort": "relevance"
+      },
+      "deep_search": {
+        "time_filter": "all",
+        "limit": 100,
+        "sort": "top"
+      },
+      "comment_search": {
+        "limit": 200,
+        "sort": "best"
+      }
+    },
+    "network_analysis": {
+      "level1": {
+        "max_associates": "all_found",
+        "confidence_threshold": 0.6
+      },
+      "level2": {
+        "top_associates_to_scan": 5,
+        "scan_depth": "condensed"
+      },
+      "level3": {
+        "relationship_timeframe_years": 5,
+        "focus": "red_flags_only"
+      }
+    },
+    "quality_gates": {
+      "source_requirements": {
+        "standard_claim": {
+          "minimum_sources": 2,
+          "minimum_credibility": 0.6
+        },
+        "controversial_claim": {
+          "minimum_sources": 3,
+          "minimum_credibility": 0.8
+        }
+      },
+      "source_credibility_weights": {
+        "tier1_official": 1.0,
+        "tier2_major_media": 0.8,
+        "tier3_trade_blogs": 0.5,
+        "tier4_social": 0.3,
+        "tier5_anonymous": 0.1
+      },
+      "identity_confidence": {
+        "minimum_to_proceed": 0.8,
+        "auto_proceed_above": 0.95
+      }
+    },
+    "output_limits": {
+      "brief": {
+        "pages": "5-10",
+        "word_count": "2500-5000"
+      },
+      "standard": {
+        "pages": "20-30",
+        "word_count": "10000-15000"
+      },
+      "comprehensive": {
+        "pages": "30-50",
+        "word_count": "15000-25000"
+      }
+    }
+  },
+  "research_phases": {
+    "phase1_identity": {
+      "perplexity_searches": 10,
+      "firecrawl_scrapes": 20,
+      "minimum_duration_minutes": 15
+    },
+    "phase2_professional": {
+      "perplexity_searches": 15,
+      "firecrawl_scrapes": 30,
+      "minimum_duration_minutes": 30
+    },
+    "phase3_public_statements": {
+      "perplexity_searches": 20,
+      "firecrawl_scrapes": 40,
+      "minimum_duration_minutes": 45
+    },
+    "phase4_sentiment": {
+      "reddit_searches": 10,
+      "perplexity_searches": 10,
+      "firecrawl_scrapes": 20,
+      "minimum_duration_minutes": 30
+    },
+    "phase5_legal": {
+      "perplexity_searches": 15,
+      "firecrawl_scrapes": 30,
+      "minimum_duration_minutes": 30
+    },
+    "phase6_network": {
+      "perplexity_searches": 25,
+      "firecrawl_scrapes": 50,
+      "sequential_thinking_rounds": 5,
+      "minimum_duration_minutes": 60
+    }
+  },
+  "total_estimated_runtime": {
+    "quick": "30-45 minutes",
+    "standard": "90-120 minutes",
+    "comprehensive": "180-240 minutes"
+  }
+}

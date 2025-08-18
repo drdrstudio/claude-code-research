@@ -1,0 +1,17 @@
+{
+  "identity_confirmed": true,
+  "confidence_score": 0.95,
+  "verified_details": {
+    "full_name": "Kneeland C. Youngblood",
+    "title": "Founder, Chairman & CEO",
+    "organization": "Pharos Capital Group",
+    "location": "Dallas, Texas",
+    "linkedin": "https://www.linkedin.com/in/kneeland-youngblood",
+    "founded_pharos": "1998"
+  },
+  "sources": [
+    "https://www.linkedin.com/in/kneeland-youngblood",
+    "https://www.pharosfunds.com/team",
+    "https://www.bloomberg.com/profile/person/1517641"
+  ]
+}

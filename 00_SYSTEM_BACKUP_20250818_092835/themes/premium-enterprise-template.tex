@@ -1,0 +1,134 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{sectsty}
+\usepackage{titling}
+\usepackage{afterpage}
+
+% --- PROFESSIONAL FONT OPTIONS ---
+% Option 1: Source Sans Pro (Modern, Clean) - Default
+\usepackage{sourcesanspro}
+
+% Option 2: Times New Roman (Traditional Business)
+% \usepackage{times}
+% \renewcommand{\familydefault}{\rmdefault}
+
+% Option 3: Palatino (Elegant Serif)
+% \usepackage{palatino}
+% \renewcommand{\familydefault}{\rmdefault}
+
+% Option 4: Helvetica (Professional Sans-Serif)
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Option 5: Charter (Business Readable)
+% \usepackage{charter}
+% \renewcommand{\familydefault}{\rmdefault}
+
+% --- PAGE GEOMETRY ---
+\geometry{a4paper, margin=1in, top=1.2in}
+
+% --- BRAND COLORS ---
+\definecolor{DuarteBlue}{HTML}{0066CC}
+\definecolor{DuarteGray}{HTML}{4A4A4A}
+\definecolor{AccentGray}{HTML}{F5F5F5}
+
+% --- SECTION STYLING ---
+\allsectionsfont{\sourcesanspro\bfseries\color{DuarteBlue}}
+
+% --- HEADER/FOOTER SETUP ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=0.5in]{duarte-logo.png}}
+\fancyhead[R]{\textcolor{DuarteGray}{\small \textbf{Strategic Analysis}}}
+\fancyfoot[C]{\textcolor{DuarteGray}{\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- HYPERLINK STYLING ---
+\hypersetup{
+    colorlinks=true,
+    urlcolor=DuarteBlue,
+    linkcolor=DuarteBlue,
+    filecolor=DuarteBlue,
+    citecolor=DuarteBlue
+}
+
+% --- COVER PAGE SETUP ---
+\newcommand{\makecoverpage}{
+    \begin{titlepage}
+        \centering
+        \vspace*{1in}
+        
+        % Client Logo (Large)
+        \includegraphics[width=4in]{duarte-logo.png}
+        
+        \vspace{1.5in}
+        
+        % Document Title
+        {\Huge\bfseries\color{DuarteBlue} $title$ \par}
+        
+        \vspace{0.5in}
+        
+        % Subtitle/Description
+        {\Large\color{DuarteGray} Strategic Intelligence Report \par}
+        
+        \vspace{1in}
+        
+        % Professional separator line
+        \textcolor{DuarteBlue}{\rule{4in}{2pt}}
+        
+        \vspace{1in}
+        
+        % Date and Author
+        {\large 
+        \begin{tabular}{l}
+        \textbf{Prepared for:} Duarte Inc. \\[0.2cm]
+        \textbf{Date:} $date$ \\[0.2cm]
+        \textbf{Prepared by:} $if(author)$$author$$else$Research Intelligence Team$endif$ \\[0.2cm]
+        \textbf{Classification:} Strategic Planning
+        \end{tabular}
+        }
+        
+        \vfill
+        
+        % Footer disclaimer
+        {\small\color{DuarteGray}
+        This document contains confidential and proprietary information. \\
+        Distribution is restricted to authorized personnel only.
+        }
+        
+    \end{titlepage}
+    
+    % Clear page style for cover
+    \thispagestyle{empty}
+    \newpage
+}
+
+% --- DOCUMENT METADATA ---
+\title{$title$}
+\author{$if(author)$$author$$else$Research Intelligence Team$endif$}
+\date{$if(date)$$date$$else$\today$endif$}
+
+% --- DOCUMENT START ---
+\begin{document}
+
+% Generate cover page
+\makecoverpage
+
+% Reset page numbering after cover
+\setcounter{page}{1}
+
+% Table of contents (if requested)
+$if(toc)$
+\tableofcontents
+\newpage
+$endif$
+
+% Document body
+$body$
+
+\end{document}

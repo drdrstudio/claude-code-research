@@ -1,0 +1,49 @@
+{
+  "project_id": "Research_ReputationalScan_Kneeland_Youngblood_20250814_152735",
+  "research_type": "individual_reputational_scan",
+  "target": {
+    "name": "Kneeland Youngblood",
+    "type": "individual",
+    "classification": "reputational_assessment"
+  },
+  "quality_gates": {
+    "enabled": true,
+    "mode": "interactive",
+    "gates": {
+      "identity_verification": true,
+      "source_credibility": true,
+      "data_completeness": true,
+      "network_correlation": true,
+      "citation_availability": true
+    },
+    "thresholds": {
+      "identity_confidence": 0.8,
+      "source_credibility": 0.6,
+      "data_completeness": 0.7,
+      "network_relevance": 0.5,
+      "auto_proceed_above": 0.9
+    }
+  },
+  "investigation_vectors": [
+    "professional_history_business_conduct",
+    "public_statements_media_presence",
+    "online_discourse_public_sentiment",
+    "legal_financial_records",
+    "network_analysis_second_level"
+  ],
+  "output_requirements": {
+    "format": "pdf",
+    "length": "20-50 pages",
+    "citation_style": "markdown_footnotes",
+    "knowledge_graph": true
+  },
+  "mcp_stack": {
+    "orchestrator": "sequential_thinking",
+    "primary_search": ["perplexity", "firecrawl"],
+    "deep_fetch": ["firecrawl", "playwright"],
+    "social_sentiment": ["reddit", "perplexity"],
+    "verification": ["tavily", "firecrawl"]
+  },
+  "created_at": "2025-08-14T22:27:35Z",
+  "status": "initialized"
+}

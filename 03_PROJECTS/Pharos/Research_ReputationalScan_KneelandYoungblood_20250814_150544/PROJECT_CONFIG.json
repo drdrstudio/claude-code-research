@@ -1,0 +1,42 @@
+{
+  "project_id": "Research_ReputationalScan_KneelandYoungblood_20250814_150544",
+  "research_type": "individual_reputational_scan",
+  "target": {
+    "name": "Kneeland Youngblood",
+    "organization": "Pharos Capital Group",
+    "linkedin": "https://www.linkedin.com/in/kneeland-youngblood",
+    "location": "Dallas, Texas",
+    "type": "individual",
+    "classification": "private_equity_executive"
+  },
+  "quality_gates": {
+    "enabled": true,
+    "mode": "interactive",
+    "gates": {
+      "identity_verification": true,
+      "source_credibility": true,
+      "data_completeness": true,
+      "network_correlation": true,
+      "citation_availability": true
+    }
+  },
+  "investigation_vectors": [
+    "professional_history_business_conduct",
+    "public_statements_media_presence",
+    "online_discourse_public_sentiment",
+    "legal_financial_records",
+    "network_analysis_second_level"
+  ],
+  "network_analysis": {
+    "max_depth": 2,
+    "top_associates_to_scan": 5,
+    "focus_areas": ["healthcare", "private_equity", "board_positions"]
+  },
+  "output_requirements": {
+    "format": "pdf",
+    "length": "20-30 pages",
+    "include_knowledge_graph": true,
+    "include_risk_matrix": true
+  },
+  "created_at": "2025-08-14T22:05:44Z"
+}
