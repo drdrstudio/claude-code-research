@@ -4,7 +4,7 @@ const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
 // Simple CORS headers
 const headers = {
@@ -34,6 +34,35 @@ const PROGRESS_PHASES = {
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const pathname = parsedUrl.pathname;
+
+  // Serve static files (HTML, JS, CSS)
+  if (pathname === '/' || pathname === '/index.html') {
+    const htmlPath = path.join(__dirname, '../web-interface/index.html');
+    fs.readFile(htmlPath, (err, data) => {
+      if (err) {
+        res.writeHead(404);
+        res.end('Not found');
+      } else {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+      }
+    });
+    return;
+  }
+
+  if (pathname === '/config.js') {
+    const jsPath = path.join(__dirname, '../web-interface/config.js');
+    fs.readFile(jsPath, (err, data) => {
+      if (err) {
+        res.writeHead(404);
+        res.end('Not found');
+      } else {
+        res.writeHead(200, {'Content-Type': 'application/javascript'});
+        res.end(data);
+      }
+    });
+    return;
+  }
 
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {

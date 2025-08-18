@@ -630,6 +630,7 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script>
         const prompt_templates = {
             'individual': `## Mission Briefing: Deep Reputational Scan (v6.1 Final)
@@ -743,7 +744,7 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
             }
             showProgress();
             try {
-                const response = await fetch('http://localhost:5001/api/research', {
+                const response = await fetch(`${window.API_CONFIG.baseUrl}/api/research`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
@@ -786,7 +787,7 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
             
             const pollInterval = setInterval(async () => {
                 try {
-                    const response = await fetch(`http://localhost:5001/api/status/${jobId}`);
+                    const response = await fetch(`${window.API_CONFIG.baseUrl}/api/status/${jobId}`);
                     const status = await response.json();
                     
                     // Update progress bar and phase
@@ -846,7 +847,7 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
         function viewPDF() {
             if (currentPdfUrl) {
                 const iframe = document.querySelector('.pdf-embed');
-                iframe.src = `http://localhost:5001${currentPdfUrl}`;
+                iframe.src = `${window.API_CONFIG.baseUrl}${currentPdfUrl}`;
                 iframe.style.display = 'block';
                 document.querySelector('.view-pdf-btn').style.display = 'none';
             }
