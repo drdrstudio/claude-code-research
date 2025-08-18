@@ -269,6 +269,25 @@ const server = http.createServer((req, res) => {
           }
           
           console.log(`✅ Research completed successfully for ${targetName}`);
+          
+          // Auto-commit to GitHub if enabled
+          if (process.env.AUTO_COMMIT_RESEARCH === 'true' && process.env.GITHUB_TOKEN) {
+            console.log('🔄 Auto-committing research to GitHub...');
+            const autoCommitScript = path.join(__dirname, '../auto-commit-research.sh');
+            const { exec } = require('child_process');
+            
+            exec(`bash "${autoCommitScript}" "${projectFolder}" "${researchType}" "${targetName}"`, 
+              { cwd: path.join(__dirname, '../..') },
+              (error, stdout, stderr) => {
+                if (error) {
+                  console.error('❌ Auto-commit failed:', error);
+                } else {
+                  console.log('✅ Auto-committed to GitHub');
+                  jobs[jobId].github_synced = true;
+                }
+              }
+            );
+          }
         } else {
           jobs[jobId].state = 'failed';
           jobs[jobId].error = `Research process exited with code ${code}`;

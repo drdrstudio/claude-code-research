@@ -1,40 +1,34 @@
 #!/bin/bash
 
-# Quick Research Script for GTM/Market Intelligence
-# Lightweight version for web interface
+# REAL Market/GTM Research Script - Actually runs research with API calls
+# NO DEMO, NO MOCK, NO SLEEP - REAL RESEARCH
 
-PROJECT_NAME="${1:-Market_Research}"
+TARGET="${1:-Market_Research}"
 RESEARCH_TYPE="${RESEARCH_TYPE:-market}"
 DEPTH="${DEPTH:-standard}"
 TEMPLATE="${TEMPLATE:-corporate}"
 
-echo "🚀 Starting Market/GTM Research: $PROJECT_NAME"
-echo "📊 Configuration: Type=$RESEARCH_TYPE, Depth=$DEPTH, Template=$TEMPLATE"
+echo "🔍 Starting REAL Market/GTM Research"
+echo "=================================="
+echo "📋 Target: $TARGET"
+echo "📊 Type: $RESEARCH_TYPE"
+echo ""
 
-# Simulate research phases for demo
-echo "🔍 Phase 1: Searching with Firecrawl..."
-sleep 2
+# Create project directory
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+PROJECT_FOLDER="Research_${RESEARCH_TYPE}_${TARGET}_${TIMESTAMP}"
+PROJECT_DIR="03_PROJECTS/$PROJECT_FOLDER"
+mkdir -p "$PROJECT_DIR"
 
-echo "🔍 Phase 2: Deep searching with Perplexity..."
-sleep 2
+# Run REAL research using Node.js engine
+echo "🚀 Running actual API calls..."
+node 00_SYSTEM/api/real-research-engine.js "$TARGET" "$RESEARCH_TYPE" "$PROJECT_FOLDER" "$PROJECT_DIR"
 
-echo "📊 Phase 3: Gathering from DataForSEO..."
-sleep 2
-
-echo "💬 Phase 4: Reddit sentiment analysis..."
-sleep 2
-
-echo "🤖 Phase 5: Synthesizing with Gemini..."
-sleep 3
-
-echo "📄 Phase 6: Generating PDF..."
-sleep 2
-
-echo "✅ Research complete for $PROJECT_NAME"
-
-# For production, replace with actual research commands:
-# python 00_SYSTEM/research-pdf-api.py \
-#   --research-type market \
-#   --target-name "$PROJECT_NAME" \
-#   --output-types pdf \
-#   --template "$TEMPLATE"
+# Check if research succeeded
+if [ $? -eq 0 ]; then
+    echo "✅ Research completed successfully"
+    echo "📁 Results in: $PROJECT_DIR"
+else
+    echo "❌ Research failed - check API keys"
+    exit 1
+fi
