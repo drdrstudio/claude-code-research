@@ -1,0 +1,32 @@
+# Python dependencies for MRP Intelligence System v6.1.2
+# Full deployment requirements
+
+# Core dependencies
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+pandas>=2.0.0
+numpy>=1.24.0
+python-dotenv>=1.0.0
+
+# API clients
+google-generativeai>=0.3.0
+openai>=1.0.0  # For Perplexity API compatibility
+
+# Document generation
+markdown>=3.4.0
+weasyprint>=60.0
+jinja2>=3.1.0
+pypandoc>=1.11.0
+
+# Data processing
+pyyaml>=6.0
+jsonschema>=4.0.0
+
+# Web server
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2023.3

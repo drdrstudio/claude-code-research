@@ -1,0 +1,1 @@
+web: gunicorn --bind 0.0.0.0:$PORT 00_SYSTEM.api.full-mrp-server:app --timeout 300 --workers 2

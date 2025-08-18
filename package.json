@@ -1,17 +1,14 @@
 {
   "name": "mrp-intelligence-system",
-  "version": "7.0.0",
-  "description": "MRP Intelligence System - Enterprise Research Platform",
-  "main": "00_SYSTEM/api/enhanced-research-server.js",
+  "version": "6.1.2",
+  "description": "MRP Intelligence System v6.1.2 - FULL Strategic Intelligence Platform",
   "scripts": {
-    "start": "node 00_SYSTEM/api/enhanced-research-server.js",
-    "dev": "node 00_SYSTEM/api/enhanced-research-server.js",
+    "start:node": "node 00_SYSTEM/api/enhanced-research-server.js",
+    "start:python": "python3 00_SYSTEM/api/full-mrp-server.py",
+    "start": "python3 00_SYSTEM/api/full-mrp-server.py",
+    "dev": "python3 00_SYSTEM/api/full-mrp-server.py",
     "test": "echo \"No tests configured\""
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/drdrstudio/claude-code-research.git"
