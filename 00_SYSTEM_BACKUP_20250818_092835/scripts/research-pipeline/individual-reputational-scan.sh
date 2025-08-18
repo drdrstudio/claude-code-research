@@ -1,1 +1,0 @@
-../individual-reputational-scan.sh

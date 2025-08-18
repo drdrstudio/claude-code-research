@@ -1,1 +1,0 @@
-../create-premium-document.sh

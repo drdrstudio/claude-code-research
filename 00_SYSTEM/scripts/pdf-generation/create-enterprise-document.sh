@@ -1,1 +1,0 @@
-../create-enterprise-document.sh

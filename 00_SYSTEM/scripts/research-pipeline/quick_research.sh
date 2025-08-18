@@ -1,1 +1,0 @@
-../quick_research.sh

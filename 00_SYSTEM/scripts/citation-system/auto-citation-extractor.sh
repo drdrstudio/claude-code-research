@@ -1,1 +1,0 @@
-../auto-citation-extractor.sh
