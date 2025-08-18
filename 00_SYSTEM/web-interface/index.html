@@ -259,6 +259,63 @@
             border: 1px solid #bee5eb;
         }
 
+        .progress-details {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .progress-details.active {
+            display: block;
+        }
+
+        .progress-logs {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85em;
+        }
+
+        .pdf-viewer {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .pdf-viewer.active {
+            display: block;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+        }
+
+        .view-pdf-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .view-pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+        }
+
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -559,6 +616,17 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
             </div>
             
             <div class="status-message"></div>
+            
+            <div class="progress-details">
+                <h4 style="margin-bottom: 10px; color: #2c3e50;">Research Progress</h4>
+                <div class="progress-logs"></div>
+            </div>
+            
+            <div class="pdf-viewer">
+                <h4 style="margin-bottom: 10px; color: #2c3e50;">📄 Research Report Ready!</h4>
+                <button class="view-pdf-btn" onclick="viewPDF()">📖 View PDF Report</button>
+                <iframe class="pdf-embed" style="display: none;"></iframe>
+            </div>
         </div>
     </div>
 
@@ -675,7 +743,7 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
             }
             showProgress();
             try {
-                const response = await fetch('http://localhost:5000/api/research', {
+                const response = await fetch('http://localhost:5001/api/research', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
@@ -707,36 +775,93 @@ Conduct an exhaustive scan of the organization and its key leadership to identif
             submitBtn.textContent = '⏳ Research in Progress...';
         }
 
+        let currentPdfUrl = null;
+        
         async function pollStatus(jobId) {
+            const progressDetails = document.querySelector('.progress-details');
+            const progressLogs = document.querySelector('.progress-logs');
+            const pdfViewer = document.querySelector('.pdf-viewer');
+            
+            progressDetails.classList.add('active');
+            
             const pollInterval = setInterval(async () => {
                 try {
-                    const response = await fetch(`http://localhost:5000/api/status/${jobId}`);
+                    const response = await fetch(`http://localhost:5001/api/status/${jobId}`);
                     const status = await response.json();
+                    
+                    // Update progress bar and phase
+                    if (status.progress) {
+                        document.querySelector('.progress').style.width = status.progress + '%';
+                    }
+                    
+                    // Update status message with emoji indicators
+                    const phaseEmojis = {
+                        'Initializing': '🚀',
+                        'Searching with Firecrawl': '🔥',
+                        'Deep searching with Perplexity': '🧠',
+                        'Gathering from DataForSEO': '📊',
+                        'Reddit sentiment analysis': '💬',
+                        'Synthesizing with Gemini': '✨',
+                        'Generating PDF': '📄',
+                        'Finalizing': '🎯',
+                        'Complete': '✅'
+                    };
+                    
+                    const emoji = phaseEmojis[status.phase] || '⏳';
+                    showStatus(`${emoji} ${status.phase || 'Processing'}... (${status.progress || 0}%)`, 'info');
+                    
+                    // Update logs if available
+                    if (status.logs && status.logs.length > 0) {
+                        const latestLogs = status.logs.slice(-10).reverse();
+                        progressLogs.innerHTML = latestLogs.map(log => {
+                            const time = new Date(log.time).toLocaleTimeString();
+                            const isError = log.type === 'error';
+                            return `<div style="color: ${isError ? 'red' : '#495057'}">[${time}] ${log.message}</div>`;
+                        }).join('');
+                    }
+                    
                     if (status.state === 'completed') {
                         clearInterval(pollInterval);
                         document.querySelector('.progress').style.width = '100%';
                         showStatus(`✅ Research complete! ${status.message}`, 'success');
+                        
+                        // Show PDF if available
+                        if (status.pdf_url) {
+                            currentPdfUrl = status.pdf_url;
+                            pdfViewer.classList.add('active');
+                        }
+                        
                         resetForm();
                     } else if (status.state === 'failed') {
                         clearInterval(pollInterval);
                         showStatus(`❌ Research failed: ${status.error}`, 'error');
                         resetForm();
-                    } else {
-                        if (status.progress) {
-                            document.querySelector('.progress').style.width = status.progress + '%';
-                        }
-                        showStatus(`⏳ ${status.phase || 'Processing'}...`, 'info');
                     }
                 } catch (error) {
                     console.error('Status poll error:', error);
                 }
-            }, 5000);
+            }, 2000); // Poll every 2 seconds for more real-time updates
+        }
+        
+        function viewPDF() {
+            if (currentPdfUrl) {
+                const iframe = document.querySelector('.pdf-embed');
+                iframe.src = `http://localhost:5001${currentPdfUrl}`;
+                iframe.style.display = 'block';
+                document.querySelector('.view-pdf-btn').style.display = 'none';
+            }
         }
 
         function resetForm() {
             const submitBtn = document.querySelector('.submit-btn');
             submitBtn.disabled = false;
             submitBtn.textContent = '🚀 Start Intelligence Research';
+            
+            // Hide progress bar after a delay
+            setTimeout(() => {
+                document.querySelector('.progress-bar').style.display = 'none';
+                document.querySelector('.progress').style.width = '0%';
+            }, 3000);
         }
     </script>
 </body>
