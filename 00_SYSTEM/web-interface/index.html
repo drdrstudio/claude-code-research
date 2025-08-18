@@ -319,8 +319,8 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Full Name <span class="required">*</span></label>
-                        <input type="text" name="target_name" placeholder="John Smith" required>
+                        <label>Full Name</label>
+                        <input type="text" name="target_name" placeholder="John Smith (or leave blank for template)">
                     </div>
                     <div class="form-group">
                         <label>Current Company/Position</label>
@@ -346,8 +346,29 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Areas of Focus</label>
+                    <label>Areas of Focus <span style="color: #6c757d; font-weight: normal;">(leave blank for default prompt)</span></label>
                     <textarea name="focus_areas" placeholder="What specific intelligence do you need? (e.g., litigation history, financial dealings, reputation risks, professional network, conflicts of interest)"></textarea>
+                    <details style="margin-top: 10px;">
+                        <summary style="cursor: pointer; color: #667eea; font-size: 0.9em;">View Default Prompt Template</summary>
+                        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px; font-size: 0.85em; white-space: pre-wrap; color: #495057;">## Mission Briefing: Deep Reputational Scan (v6.1 Final)
+
+### 1) Inputs (fill before execution)
+- Primary subject (canonical name): [INSERT NAME HERE]
+- Known aliases: [e.g., nicknames, previous names]
+- Primary geographies & jurisdictions: [e.g., California, USA]
+- Time window to cover: [e.g., 2010–present]
+- Known associates for second-level scan (seed list): [e.g., Co-founders, Board Members]
+
+### 2) Primary Objective
+Conduct an exhaustive, "opposition-research" level scan of all publicly available online information regarding the subject and key associates to identify any and all potential reputational liabilities.
+
+### 3) content.streams (Key Areas of Investigation)
+- Professional History & Business Conduct
+- Public Statements & Media Presence
+- Online Discourse & Public Sentiment (including Reddit & X/Twitter)
+- Legal & Financial Records (Publicly Searchable)
+- Network Analysis & Second-Level Liabilities</pre>
+                    </details>
                 </div>
             </div>
 
@@ -357,8 +378,8 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Company Name <span class="required">*</span></label>
-                        <input type="text" name="target_name" placeholder="Acme Corporation" required>
+                        <label>Company Name</label>
+                        <input type="text" name="target_name" placeholder="Acme Corporation (or leave blank for template)">
                     </div>
                     <div class="form-group">
                         <label>Website URL</label>
@@ -383,8 +404,27 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Intelligence Requirements</label>
+                    <label>Intelligence Requirements <span style="color: #6c757d; font-weight: normal;">(leave blank for default prompt)</span></label>
                     <textarea name="requirements" placeholder="What intelligence do you need? (e.g., financial health, legal issues, competitive position, M&A activity, regulatory compliance, market reputation)"></textarea>
+                    <details style="margin-top: 10px;">
+                        <summary style="cursor: pointer; color: #667eea; font-size: 0.9em;">View Default Prompt Template</summary>
+                        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px; font-size: 0.85em; white-space: pre-wrap; color: #495057;">## Mission Briefing: Deep Organizational Scan (v1.0)
+
+### 1) Inputs (fill before execution)
+- Organization Name: [INSERT NAME HERE]
+- Website: [e.g., www.example.com]
+- Industry/Sector: [e.g., Healthcare Technology]
+- Key Executives to Research: [e.g., CEO, CTO, Board Chair]
+
+### 2) Primary Objective
+Conduct an exhaustive scan of the organization and its key leadership to identify potential reputational, financial, and operational liabilities.
+
+### 3) Key Areas of Investigation (content.streams)
+- Corporate & Financial Health (SEC filings, analyst reports)
+- Market Position & Public Perception (media coverage, customer complaints)
+- Operational & Cultural Health (employee reviews, supply chain risks)
+- Leadership Vetting (condensed reputational scans on C-suite and Board members)</pre>
+                    </details>
                 </div>
             </div>
 
@@ -394,8 +434,8 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Product/Service <span class="required">*</span></label>
-                        <input type="text" name="target_name" placeholder="Enterprise CRM Software" required>
+                        <label>Product/Service</label>
+                        <input type="text" name="target_name" placeholder="Enterprise CRM Software (or leave blank for template)">
                     </div>
                     <div class="form-group">
                         <label>Target Market</label>
@@ -420,8 +460,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Campaign Goals & Requirements</label>
+                    <label>Campaign Goals & Requirements <span style="color: #6c757d; font-weight: normal;">(leave blank for default prompt)</span></label>
                     <textarea name="goals" placeholder="What are your GTM objectives? (e.g., market entry strategy, competitive positioning, customer acquisition, pricing strategy)"></textarea>
+                    <details style="margin-top: 10px;">
+                        <summary style="cursor: pointer; color: #667eea; font-size: 0.9em;">View Default Prompt Template</summary>
+                        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px; font-size: 0.85em; white-space: pre-wrap; color: #495057;">## Mission Briefing: Comprehensive Audience & Segmentation Audit
+
+### 1) Context (fill in)
+- Company: [Client Name] — [1-sentence description]
+- Product(s): [Product names + short value props]
+- Business model: [B2B/B2C/SaaS/etc.]
+- Goals & time horizon: [e.g., pipeline for Q4]
+
+### 2) Objectives
+- Map the market and quantify the opportunity.
+- Build a defensible segmentation model.
+- Translate segments into targetable audiences.
+- Produce messaging starters and creative hooks per segment.
+- Deliver an experiment roadmap and measurement plan.</pre>
+                    </details>
                 </div>
             </div>
 
@@ -446,14 +503,26 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label>Output Format</label>
+                    <label>PDF Template Style</label>
                     <select name="template">
-                        <option value="corporate">Corporate (Professional Business)</option>
-                        <option value="tufte">Tufte (Academic/Analytical)</option>
-                        <option value="sakura">Sakura (Minimal Design)</option>
-                        <option value="classic">Classic (Traditional)</option>
+                        <option value="corporate">Corporate Professional</option>
+                        <option value="premium-branded">Premium Branded (with Client Logo)</option>
+                    </select>
+                    <span class="help-text">Corporate: Clean business template | Premium: Includes cover page with client branding</span>
+                </div>
+                <div class="form-group">
+                    <label>Document Format</label>
+                    <select name="document_style">
+                        <option value="modern">Modern (Source Sans Pro)</option>
+                        <option value="traditional">Traditional (Times New Roman)</option>
+                        <option value="elegant">Elegant (Palatino)</option>
+                        <option value="professional">Professional (Helvetica)</option>
+                        <option value="readable">Business Readable (Charter)</option>
                     </select>
                 </div>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group">
                     <label>Delivery Options</label>
                     <div class="output-options">
@@ -466,6 +535,11 @@
                             <label for="wordpress">WordPress Article</label>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>Client Branding (Optional)</label>
+                    <input type="text" name="client_name" placeholder="Client/Company Name (for branded templates)">
+                    <span class="help-text">Used for cover page and headers in Premium template</span>
                 </div>
             </div>
 
@@ -489,6 +563,59 @@
     </div>
 
     <script>
+        const prompt_templates = {
+            'individual': `## Mission Briefing: Deep Reputational Scan (v6.1 Final)
+
+### 1) Inputs (fill before execution)
+- Primary subject (canonical name): [INSERT NAME HERE]
+- Known aliases: [e.g., nicknames, previous names]
+- Primary geographies & jurisdictions: [e.g., California, USA]
+- Time window to cover: [e.g., 2010–present]
+- Known associates for second-level scan (seed list): [e.g., Co-founders, Board Members]
+
+### 2) Primary Objective
+Conduct an exhaustive, "opposition-research" level scan of all publicly available online information regarding the subject and key associates to identify any and all potential reputational liabilities.
+
+### 3) content.streams (Key Areas of Investigation)
+- Professional History & Business Conduct
+- Public Statements & Media Presence
+- Online Discourse & Public Sentiment (including Reddit & X/Twitter)
+- Legal & Financial Records (Publicly Searchable)
+- Network Analysis & Second-Level Liabilities`,
+
+            'organization': `## Mission Briefing: Deep Organizational Scan (v1.0)
+
+### 1) Inputs (fill before execution)
+- Organization Name: [INSERT NAME HERE]
+- Website: [e.g., www.example.com]
+- Industry/Sector: [e.g., Healthcare Technology]
+- Key Executives to Research: [e.g., CEO, CTO, Board Chair]
+
+### 2) Primary Objective
+Conduct an exhaustive scan of the organization and its key leadership to identify potential reputational, financial, and operational liabilities.
+
+### 3) Key Areas of Investigation (content.streams)
+- Corporate & Financial Health (SEC filings, analyst reports)
+- Market Position & Public Perception (media coverage, customer complaints)
+- Operational & Cultural Health (employee reviews, supply chain risks)
+- Leadership Vetting (condensed reputational scans on C-suite and Board members)`,
+
+            'market': `## Mission Briefing: Comprehensive Audience & Segmentation Audit
+
+### 1) Context (fill in)
+- Company: [Client Name] — [1-sentence description]
+- Product(s): [Product names + short value props]
+- Business model: [B2B/B2C/SaaS/etc.]
+- Goals & time horizon: [e.g., pipeline for Q4]
+
+### 2) Objectives
+- Map the market and quantify the opportunity.
+- Build a defensible segmentation model.
+- Translate segments into targetable audiences.
+- Produce messaging starters and creative hooks per segment.
+- Deliver an experiment roadmap and measurement plan.`
+        };
+
         // Handle research type selection
         document.querySelectorAll('.research-type').forEach(type => {
             type.addEventListener('click', function() {
@@ -498,8 +625,18 @@
                 
                 // Show corresponding form
                 document.querySelectorAll('.form-section').forEach(form => form.classList.remove('active'));
-                const formId = this.dataset.type + '-form';
-                document.getElementById(formId).classList.add('active');
+                const type_id = this.dataset.type;
+                const formId = type_id + '-form';
+                const activeForm = document.getElementById(formId);
+                activeForm.classList.add('active');
+
+                // Auto-populate the instruction textarea in the now-active form
+                if (prompt_templates[type_id]) {
+                    const instructionTextarea = activeForm.querySelector('textarea[name="focus_areas"], textarea[name="requirements"], textarea[name="goals"]');
+                    if (instructionTextarea) {
+                        instructionTextarea.value = prompt_templates[type_id];
+                    }
+                }
             });
         });
 
@@ -515,17 +652,15 @@
         async function startResearch() {
             const activeType = document.querySelector('.research-type.active').dataset.type;
             const activeForm = document.querySelector('.form-section.active');
-            
-            // Gather form data
             const formData = {
                 research_type: activeType,
                 depth: document.querySelector('.depth-option.selected').dataset.depth,
                 template: document.querySelector('select[name="template"]').value,
+                document_style: document.querySelector('select[name="document_style"]').value,
+                client_name: document.querySelector('input[name="client_name"]').value,
                 output_pdf: document.querySelector('input[name="output_pdf"]').checked,
                 output_wordpress: document.querySelector('input[name="output_wordpress"]').checked
             };
-
-            // Collect all form inputs from active section
             activeForm.querySelectorAll('input, textarea, select').forEach(input => {
                 if (input.type === 'checkbox') {
                     formData[input.name] = input.checked;
@@ -533,32 +668,21 @@
                     formData[input.name] = input.value;
                 }
             });
-
-            // Validate required fields
             const targetName = activeForm.querySelector('input[name="target_name"]').value;
+            // Allow blank target name to use template defaults
             if (!targetName) {
-                showStatus('Please enter a name/target for the research', 'error');
-                return;
+                formData.target_name = 'Template Mode - Using Default Prompts';
             }
-
-            // Show progress
             showProgress();
-            
             try {
-                // Send to backend
                 const response = await fetch('http://localhost:5000/api/research', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
-
                 const result = await response.json();
-                
                 if (result.success) {
                     showStatus(`✅ Research started successfully! Job ID: ${result.job_id}`, 'success');
-                    // Poll for status
                     pollStatus(result.job_id);
                 } else {
                     showStatus(`❌ Error: ${result.error}`, 'error');
@@ -578,27 +702,16 @@
         function showProgress() {
             const progressBar = document.querySelector('.progress-bar');
             const submitBtn = document.querySelector('.submit-btn');
-            
             progressBar.style.display = 'block';
             submitBtn.disabled = true;
             submitBtn.textContent = '⏳ Research in Progress...';
-            
-            // Simulate progress
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.random() * 15;
-                if (progress > 90) progress = 90;
-                document.querySelector('.progress').style.width = progress + '%';
-            }, 2000);
         }
 
         async function pollStatus(jobId) {
-            // Poll backend for job status
             const pollInterval = setInterval(async () => {
                 try {
                     const response = await fetch(`http://localhost:5000/api/status/${jobId}`);
                     const status = await response.json();
-                    
                     if (status.state === 'completed') {
                         clearInterval(pollInterval);
                         document.querySelector('.progress').style.width = '100%';
@@ -609,7 +722,6 @@
                         showStatus(`❌ Research failed: ${status.error}`, 'error');
                         resetForm();
                     } else {
-                        // Update progress
                         if (status.progress) {
                             document.querySelector('.progress').style.width = status.progress + '%';
                         }
