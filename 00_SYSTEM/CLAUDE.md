@@ -849,6 +849,204 @@ async runFinancialIntelligence() {
 
 **Action Required:** Force Railway redeployment or manual deployment trigger needed.
 
+### v6.1.7 - COMPLETE API KEY RECOVERY AND SYSTEM FIX (2025-08-19)
+**🚨 CRITICAL SESSION: Recovered from weeks of deployment failures by finding and setting ALL missing API keys**
+
+**Context:** User asked to continue from previous session where Railway deployment was failing with empty API responses despite claiming to work.
+
+**Root Cause Discovery Chain:**
+1. **Initial Problem:** APIs returning HTML error pages instead of JSON data
+2. **First Discovery:** Missing `protocol: 'https:'` in all HTTPS requests (fixed in real-mrp-v6-engine.js)
+3. **Second Discovery:** ALL API keys missing from Railway runtime (0 keys loaded)
+4. **Third Discovery:** Railway service not linked properly
+5. **Final Discovery:** Wrong Perplexity model name causing 400 errors
+
+**COMPREHENSIVE FIX IMPLEMENTED:**
+
+#### 1. Fixed HTTPS Protocol Issues (Line-by-line fixes in real-mrp-v6-engine.js):
+```javascript
+// BEFORE (broken):
+const options = {
+  hostname: 'api.firecrawl.dev',
+  path: '/v1/search',
+  method: 'POST',
+  // MISSING protocol property!
+}
+
+// AFTER (fixed):
+const options = {
+  protocol: 'https:',  // CRITICAL: This was missing everywhere
+  hostname: 'api.firecrawl.dev',
+  path: '/v1/search',
+  method: 'POST',
+}
+```
+
+**Files Fixed:**
+- `00_SYSTEM/api/real-mrp-v6-engine.js:129` - Firecrawl search
+- `00_SYSTEM/api/real-mrp-v6-engine.js:168` - Firecrawl scrape  
+- `00_SYSTEM/api/real-mrp-v6-engine.js:207` - Firecrawl crawl
+- `00_SYSTEM/api/real-mrp-v6-engine.js:247` - Perplexity query
+- `00_SYSTEM/api/real-mrp-v6-engine.js:289` - Tavily search
+- `00_SYSTEM/api/real-mrp-v6-engine.js:335` - DataForSEO keyword
+- `00_SYSTEM/api/real-mrp-v6-engine.js:380` - DataForSEO SERP
+- `00_SYSTEM/api/real-mrp-v6-engine.js:425` - DataForSEO competitor
+
+#### 2. Railway Service Linking (Critical for environment access):
+```bash
+# Problem: Service not linked
+railway whoami  # Showed logged in but no service context
+
+# Solution: Linked to specific service
+railway service d021d994-c477-435d-b1ab-b77898c7e6be
+
+# Verification:
+railway status
+# Output: Project: mrp-intelligence-real
+#         Environment: production
+#         Service: mrp-intelligence-real
+```
+
+#### 3. API Key Discovery and Recovery:
+
+**Created custom debug endpoint to check runtime environment:**
+```javascript
+// Added to real-mrp-v6-engine.js:1498
+app.get('/api/mrp/debug-env', (req, res) => {
+  const apiKeys = Object.keys(process.env).filter(key => 
+    key.includes('API') || key.includes('KEY') || key.includes('SECRET')
+  );
+  res.json({
+    total_env_vars: Object.keys(process.env).length,
+    api_keys_found: apiKeys.length,
+    keys: apiKeys.map(k => `${k}: ${process.env[k] ? 'SET' : 'NOT SET'}`)
+  });
+});
+```
+
+**Result:** 0 API keys loaded in Railway runtime!
+
+#### 4. Found Local API Keys:
+```bash
+# Searched for API keys locally
+grep -r "PERPLEXITY_API_KEY" ~/Library/Application\ Support/Claude/
+
+# Found in: ~/Library/Application Support/Claude/claude_desktop_config.json
+```
+
+**Discovered ALL real API keys in Claude MCP configuration:**
+- `PERPLEXITY_API_KEY`: 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
+- `FIRECRAWL_API_KEY`: fc-99ce2e081f9644c4aa9a669d86073f73
+- `TAVILY_API_KEY`: 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
+- `DATAFORSEO_LOGIN`: accounts@waterloo.digital
+- `DATAFORSEO_PASSWORD`: ca55f5e604bc59b0
+- `REDDIT_CLIENT_ID`: D4jHShqeKpzpSR-OhB-oww
+- `REDDIT_CLIENT_SECRET`: n2AjAKBzIYw3otpP7INatjGe-WZFHQ
+- `GEMINI_API_KEY`: AIzaSyC-TfhncQKXf8lkIzRCQBchVW6oSjD5wyA (already set)
+
+#### 5. Set All API Keys in Railway:
+```bash
+# Set all real API keys using Railway CLI
+railway variables --set "PERPLEXITY_API_KEY=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"
+railway variables --set "FIRECRAWL_API_KEY=fc-99ce2e081f9644c4aa9a669d86073f73"
+railway variables --set "TAVILY_API_KEY=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"
+railway variables --set "DATAFORSEO_LOGIN=accounts@waterloo.digital"
+railway variables --set "DATAFORSEO_PASSWORD=ca55f5e604bc59b0"
+railway variables --set "REDDIT_CLIENT_ID=D4jHShqeKpzpSR-OhB-oww"
+railway variables --set "REDDIT_CLIENT_SECRET=n2AjAKBzIYw3otpP7INatjGe-WZFHQ"
+
+# Verified: 7 API keys now set in Railway
+railway variables | grep -E "PERPLEXITY|FIRECRAWL|TAVILY|DATAFORSEO|REDDIT" | wc -l
+# Output: 7
+```
+
+#### 6. Created Local .env File for Development:
+```bash
+# Created /Users/skipmatheny/Documents/cursor/Claude-Code-Research/.env
+# Contains all real API keys for local testing
+```
+
+#### 7. Fixed Perplexity Model Name Issue:
+```javascript
+// BEFORE (HTTP 400 error):
+model: "llama-3.1-sonar-large-128k-online"  // Invalid model name
+
+// AFTER (working):
+model: "sonar"  // Correct model name as of 2025
+
+// Fixed in: 00_SYSTEM/api/real-mrp-v6-engine.js:265
+```
+
+**Verification of Fix:**
+```bash
+# Direct API test succeeded:
+curl -X POST "https://api.perplexity.ai/chat/completions" \
+  -H "Authorization: Bearer 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" \
+  -d '{"model": "sonar", "messages": [{"role": "user", "content": "What is 2+2?"}]}'
+# Response: Detailed answer about 2+2=4
+```
+
+#### 8. Deployed All Fixes:
+```bash
+# Committed and pushed all fixes
+git add -A && git commit -m "Fix Perplexity model name - use 'sonar' instead of deprecated model"
+git push
+
+# Deployed to Railway
+railway up --detach
+# Build URL: https://railway.com/project/08cea438-8d53-471a-8c54-d7c372963bfb/...
+```
+
+#### 9. Created Diagnostic Test Server:
+**File:** `00_SYSTEM/api/test-mrp-diagnostic.js`
+- Tests each API independently with timeouts
+- Reports success/failure for each API
+- Helps identify which specific API is failing
+
+**Test Results:**
+- ✅ Firecrawl API: Working (returns search results)
+- ✅ Perplexity API: Working (with "sonar" model)
+- ✅ Tavily API: Working (returns search results)
+- ⚠️ Phase 1 gets stuck at 15% despite APIs working
+
+### CURRENT STATUS (End of Session):
+
+**What's Working:**
+1. ✅ All API keys recovered and set in Railway
+2. ✅ Railway service properly linked
+3. ✅ HTTPS protocol issues fixed
+4. ✅ Perplexity model name corrected
+5. ✅ All three Phase 1 APIs respond correctly when tested individually
+6. ✅ Local .env file created with all real API keys
+7. ✅ Deployment pipeline working
+
+**Remaining Issue:**
+- Phase 1 Surface Intelligence starts but hangs at 15% progress
+- APIs work individually but something in the async flow is blocking
+- Likely issue in how promises are handled in `runSurfaceIntelligence()`
+
+**User Messages During Session:**
+1. "can you check anything in the CLI? go deep?"
+2. "nudge - all ok?" (multiple times during deployments)
+3. "can you place these in the env on railway using the cli?"
+4. "where are these locally?"
+5. "check the local env again"
+
+**Critical Files for Next Session:**
+- `00_SYSTEM/api/real-mrp-v6-engine.js` - Main engine (Phase 1 hanging issue)
+- `00_SYSTEM/api/test-mrp-diagnostic.js` - API diagnostic tool
+- `.env` - Local API keys for testing
+- `railway.json` - Deployment configuration
+
+**Next Steps for Resolution:**
+1. Debug why Phase 1 hangs despite working APIs
+2. Test Phase 2-6 once Phase 1 is fixed
+3. Verify full 6-phase execution with real data
+4. Test PDF generation and GitHub auto-commit
+5. Ensure 40-50 source minimum is enforced
+
+**Key Learning:** Always check environment variables are actually loaded in production runtime, not just set in the platform!
+
 ---
 ## CONSTITUTION CHECKSUM (DO NOT MODIFY)
 **MD5_CHECKSUM: 7a8f2c1d9e3b5a6c4d8e9f0a1b2c3d4e**

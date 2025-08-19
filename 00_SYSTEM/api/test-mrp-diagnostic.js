@@ -1,109 +1,224 @@
-#!/usr/bin/env node
+const express = require('express');
+const https = require('https');
+const cors = require('cors');
 
-/**
- * Diagnostic script to test MRP engine locally
- */
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-const path = require('path');
+// Simple diagnostic test for each API
+async function testFirecrawl() {
+  console.log('Testing Firecrawl...');
+  return new Promise((resolve) => {
+    const postData = JSON.stringify({
+      query: "test query",
+      limit: 1
+    });
 
-// Load the engine
-const enginePath = path.join(__dirname, 'complete-mrp-v6-engine.js');
+    const options = {
+      protocol: 'https:',
+      hostname: 'api.firecrawl.dev',
+      path: '/v1/search',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.FIRECRAWL_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      },
+      timeout: 5000
+    };
 
-console.log('🔍 MRP Engine Diagnostic Tool\n');
-console.log('================================');
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          console.log('Firecrawl response:', parsed.success ? 'SUCCESS' : 'FAILED');
+          resolve({ api: 'firecrawl', success: !!parsed.success, data: parsed.data?.length || 0 });
+        } catch (e) {
+          console.log('Firecrawl error:', e.message);
+          resolve({ api: 'firecrawl', success: false, error: e.message });
+        }
+      });
+    });
 
-// Check environment variables
-const requiredVars = [
-  'FIRECRAWL_API_KEY',
-  'PERPLEXITY_API_KEY', 
-  'TAVILY_API_KEY',
-  'DATAFORSEO_LOGIN',
-  'DATAFORSEO_PASSWORD'
-];
+    req.on('error', (e) => {
+      console.log('Firecrawl request error:', e.message);
+      resolve({ api: 'firecrawl', success: false, error: e.message });
+    });
 
-console.log('\n📋 Environment Variables Check:');
-let missingVars = [];
-for (const varName of requiredVars) {
-  const value = process.env[varName];
-  if (value) {
-    console.log(`✅ ${varName}: Set (${value.substring(0, 10)}...)`);
-  } else {
-    console.log(`❌ ${varName}: NOT SET`);
-    missingVars.push(varName);
-  }
-}
+    req.on('timeout', () => {
+      console.log('Firecrawl timeout');
+      req.destroy();
+      resolve({ api: 'firecrawl', success: false, error: 'timeout' });
+    });
 
-if (missingVars.length > 0) {
-  console.log('\n⚠️  WARNING: Missing API keys will cause the research to hang!');
-  console.log('The following environment variables need to be set:');
-  missingVars.forEach(v => console.log(`  - ${v}`));
-  console.log('\nTo fix in Railway:');
-  console.log('1. Go to your Railway project dashboard');
-  console.log('2. Click on the service');
-  console.log('3. Go to Variables tab');
-  console.log('4. Add the missing variables');
-  console.log('5. Redeploy the service');
-}
-
-console.log('\n📊 Testing Engine Initialization:');
-try {
-  // Try to load the engine file
-  const engineCode = require('fs').readFileSync(enginePath, 'utf8');
-  
-  // Check if EnhancedRealMRPEngine class exists
-  if (engineCode.includes('class EnhancedRealMRPEngine')) {
-    console.log('✅ EnhancedRealMRPEngine class found');
-  } else {
-    console.log('❌ EnhancedRealMRPEngine class NOT found');
-  }
-  
-  // Check for key methods
-  const methods = [
-    'runFullResearch',
-    'runSurfaceIntelligence', 
-    'runFinancialIntelligence',
-    'runLegalIntelligence',
-    'runNetworkIntelligence',
-    'runRiskAssessment',
-    'runCompetitiveIntelligence'
-  ];
-  
-  console.log('\n🔧 Checking required methods:');
-  methods.forEach(method => {
-    if (engineCode.includes(`async ${method}`)) {
-      console.log(`✅ ${method} found`);
-    } else {
-      console.log(`❌ ${method} NOT found`);
-    }
+    req.write(postData);
+    req.end();
   });
+}
+
+async function testPerplexity() {
+  console.log('Testing Perplexity...');
+  return new Promise((resolve) => {
+    const postData = JSON.stringify({
+      model: "sonar",
+      messages: [{ role: "user", content: "Hi" }]
+    });
+
+    const options = {
+      protocol: 'https:',
+      hostname: 'api.perplexity.ai',
+      path: '/chat/completions',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.PERPLEXITY_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      },
+      timeout: 5000
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          console.log('Perplexity response:', parsed.choices ? 'SUCCESS' : 'FAILED');
+          resolve({ api: 'perplexity', success: !!parsed.choices, content: parsed.choices?.[0]?.message?.content?.substring(0, 50) });
+        } catch (e) {
+          console.log('Perplexity error:', e.message);
+          resolve({ api: 'perplexity', success: false, error: e.message });
+        }
+      });
+    });
+
+    req.on('error', (e) => {
+      console.log('Perplexity request error:', e.message);
+      resolve({ api: 'perplexity', success: false, error: e.message });
+    });
+
+    req.on('timeout', () => {
+      console.log('Perplexity timeout');
+      req.destroy();
+      resolve({ api: 'perplexity', success: false, error: 'timeout' });
+    });
+
+    req.write(postData);
+    req.end();
+  });
+}
+
+async function testTavily() {
+  console.log('Testing Tavily...');
+  return new Promise((resolve) => {
+    const postData = JSON.stringify({
+      api_key: process.env.TAVILY_API_KEY,
+      query: "test",
+      max_results: 1
+    });
+
+    const options = {
+      protocol: 'https:',
+      hostname: 'api.tavily.com',
+      path: '/search',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      },
+      timeout: 5000
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          console.log('Tavily response:', parsed.results ? 'SUCCESS' : 'FAILED');
+          resolve({ api: 'tavily', success: !!parsed.results, results: parsed.results?.length || 0 });
+        } catch (e) {
+          console.log('Tavily error:', e.message);
+          resolve({ api: 'tavily', success: false, error: e.message });
+        }
+      });
+    });
+
+    req.on('error', (e) => {
+      console.log('Tavily request error:', e.message);
+      resolve({ api: 'tavily', success: false, error: e.message });
+    });
+
+    req.on('timeout', () => {
+      console.log('Tavily timeout');
+      req.destroy();
+      resolve({ api: 'tavily', success: false, error: 'timeout' });
+    });
+
+    req.write(postData);
+    req.end();
+  });
+}
+
+// Test endpoint
+app.get('/test-apis', async (req, res) => {
+  console.log('Starting API tests...');
   
-  // Try to actually run a minimal test
-  console.log('\n🧪 Running minimal initialization test:');
-  
-  // Create minimal test
-  const testCode = `
-    const { EnhancedRealMRPEngine } = require('./complete-mrp-v6-engine.js');
-    const engine = new EnhancedRealMRPEngine('test_job', 'Test Company', 'organization');
-    console.log('✅ Engine initialized successfully');
-  `;
-  
+  const results = {
+    timestamp: new Date().toISOString(),
+    env: {
+      firecrawl: !!process.env.FIRECRAWL_API_KEY,
+      perplexity: !!process.env.PERPLEXITY_API_KEY,
+      tavily: !!process.env.TAVILY_API_KEY
+    },
+    tests: []
+  };
+
+  // Test each API with timeout
   try {
-    eval(engineCode + '\n' + 'const testEngine = new EnhancedRealMRPEngine("test", "Test", "organization"); console.log("✅ Engine can be instantiated");');
+    const firecrawlResult = await Promise.race([
+      testFirecrawl(),
+      new Promise(resolve => setTimeout(() => resolve({ api: 'firecrawl', success: false, error: 'global timeout' }), 10000))
+    ]);
+    results.tests.push(firecrawlResult);
   } catch (e) {
-    console.log('❌ Engine instantiation failed:', e.message);
+    results.tests.push({ api: 'firecrawl', success: false, error: e.message });
   }
-  
-} catch (error) {
-  console.log('❌ Failed to load engine:', error.message);
-}
 
-console.log('\n================================');
-console.log('Diagnostic complete.\n');
+  try {
+    const perplexityResult = await Promise.race([
+      testPerplexity(),
+      new Promise(resolve => setTimeout(() => resolve({ api: 'perplexity', success: false, error: 'global timeout' }), 10000))
+    ]);
+    results.tests.push(perplexityResult);
+  } catch (e) {
+    results.tests.push({ api: 'perplexity', success: false, error: e.message });
+  }
 
-if (missingVars.length > 0) {
-  console.log('⚠️  ACTION REQUIRED: Add the missing API keys to Railway environment variables');
-  process.exit(1);
-} else {
-  console.log('✅ All checks passed!');
-  process.exit(0);
-}
+  try {
+    const tavilyResult = await Promise.race([
+      testTavily(),
+      new Promise(resolve => setTimeout(() => resolve({ api: 'tavily', success: false, error: 'global timeout' }), 10000))
+    ]);
+    results.tests.push(tavilyResult);
+  } catch (e) {
+    results.tests.push({ api: 'tavily', success: false, error: e.message });
+  }
+
+  res.json(results);
+});
+
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'MRP Diagnostic Test Server',
+    endpoint: '/test-apis'
+  });
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Diagnostic server running on port ${PORT}`);
+});
