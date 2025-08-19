@@ -1468,6 +1468,23 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // Debug endpoint to check environment variables
+  if (pathname === '/debug/env') {
+    res.writeHead(200, headers);
+    res.end(JSON.stringify({
+      firecrawl_available: !!process.env.FIRECRAWL_API_KEY,
+      perplexity_available: !!process.env.PERPLEXITY_API_KEY,
+      tavily_available: !!process.env.TAVILY_API_KEY,
+      dataforseo_login_available: !!process.env.DATAFORSEO_LOGIN,
+      dataforseo_password_available: !!process.env.DATAFORSEO_PASSWORD,
+      reddit_client_id_available: !!process.env.REDDIT_CLIENT_ID,
+      reddit_client_secret_available: !!process.env.REDDIT_CLIENT_SECRET,
+      gemini_available: !!process.env.GEMINI_API_KEY,
+      env_count: Object.keys(process.env).length
+    }));
+    return;
+  }
+
   // Start research
   if (pathname === '/research' && req.method === 'POST') {
     let body = '';
