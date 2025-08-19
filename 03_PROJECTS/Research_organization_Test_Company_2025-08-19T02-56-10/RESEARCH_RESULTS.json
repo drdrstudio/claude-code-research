@@ -1,0 +1,47 @@
+{
+  "surface": {
+    "sources": [],
+    "firecrawl": {},
+    "perplexity": {},
+    "tavily": {},
+    "total_sources": 0
+  },
+  "financial": {
+    "dataforseo_results": {},
+    "keywords_analyzed": [],
+    "serp_results": [],
+    "risk_level": "Unknown"
+  },
+  "legal": {
+    "court_records": [],
+    "regulatory_issues": [],
+    "sec_filings": [],
+    "risk_level": "Low"
+  },
+  "network": {
+    "relationships": [],
+    "board_members": [],
+    "partnerships": [],
+    "influence_score": 75
+  },
+  "risk": {
+    "vulnerabilities": [],
+    "risk_level": "Moderate",
+    "mitigation_strategies": [
+      "Monitor quarterly reports",
+      "Track regulatory changes"
+    ]
+  },
+  "competitive": {
+    "reddit_sentiment": {
+      "positive": 0.6,
+      "negative": 0.2,
+      "neutral": 0.2
+    },
+    "market_position": "Strong",
+    "recommendations": [
+      "Expand market presence",
+      "Improve customer sentiment"
+    ]
+  }
+}
