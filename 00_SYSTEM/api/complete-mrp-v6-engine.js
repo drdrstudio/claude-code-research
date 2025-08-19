@@ -194,6 +194,7 @@ class EnhancedRealMRPEngine {
         for (const query of searchQueries) {
           try {
             const firecrawlOptions = {
+              protocol: 'https:',
               hostname: 'api.firecrawl.dev',
               path: '/v0/search',
               method: 'POST',
@@ -223,6 +224,7 @@ class EnhancedRealMRPEngine {
       const perplexityKey = process.env.PERPLEXITY_API_KEY;
       if (perplexityKey) {
         const perplexityOptions = {
+          protocol: 'https:',
           hostname: 'api.perplexity.ai',
           path: '/chat/completions',
           method: 'POST',
@@ -248,6 +250,7 @@ class EnhancedRealMRPEngine {
       const tavilyKey = process.env.TAVILY_API_KEY;
       if (tavilyKey) {
         const tavilyOptions = {
+          protocol: 'https:',
           hostname: 'api.tavily.com',
           path: '/search',
           method: 'POST',
