@@ -1471,6 +1471,24 @@ const server = http.createServer(async (req, res) => {
   // Debug endpoint to check environment variables
   if (pathname === '/debug/env') {
     res.writeHead(200, headers);
+    
+    // Get all environment variable names (no values for security)
+    const envNames = Object.keys(process.env).sort();
+    const apiKeyNames = envNames.filter(name => 
+      name.includes('API') || 
+      name.includes('KEY') || 
+      name.includes('SECRET') || 
+      name.includes('TOKEN') ||
+      name.includes('PASSWORD') ||
+      name.includes('LOGIN') ||
+      name.includes('FIRECRAWL') ||
+      name.includes('PERPLEXITY') ||
+      name.includes('TAVILY') ||
+      name.includes('DATAFORSEO') ||
+      name.includes('REDDIT') ||
+      name.includes('GEMINI')
+    );
+    
     res.end(JSON.stringify({
       firecrawl_available: !!process.env.FIRECRAWL_API_KEY,
       perplexity_available: !!process.env.PERPLEXITY_API_KEY,
@@ -1480,7 +1498,9 @@ const server = http.createServer(async (req, res) => {
       reddit_client_id_available: !!process.env.REDDIT_CLIENT_ID,
       reddit_client_secret_available: !!process.env.REDDIT_CLIENT_SECRET,
       gemini_available: !!process.env.GEMINI_API_KEY,
-      env_count: Object.keys(process.env).length
+      env_count: Object.keys(process.env).length,
+      all_env_names: envNames,
+      api_related_env_names: apiKeyNames
     }));
     return;
   }
