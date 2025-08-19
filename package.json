@@ -1,13 +1,13 @@
 {
   "name": "mrp-intelligence-system",
-  "version": "6.1.2",
-  "description": "MRP Intelligence System v6.1.2 - FULL Strategic Intelligence Platform",
-  "main": "00_SYSTEM/api/real-mrp-v6-engine.js",
+  "version": "6.1.4",
+  "description": "MRP Intelligence System v6.1.4 - Enhanced with Real-time Progress & Easy PDF Delivery",
+  "main": "00_SYSTEM/api/enhanced-mrp-v6-engine.js",
   "scripts": {
-    "start": "node 00_SYSTEM/api/real-mrp-v6-engine.js",
-    "start:node": "node 00_SYSTEM/api/real-mrp-v6-engine.js",
+    "start": "node 00_SYSTEM/api/enhanced-mrp-v6-engine.js",
+    "start:real": "node 00_SYSTEM/api/real-mrp-v6-engine.js",
     "start:python": "python3 00_SYSTEM/api/full-mrp-server.py",
-    "dev": "node 00_SYSTEM/api/full-mrp-engine.js",
+    "dev": "node 00_SYSTEM/api/enhanced-mrp-v6-engine.js",
     "test": "echo \"No tests configured\""
   },
   "engines": {
@@ -19,5 +19,8 @@
   },
   "author": "DrDr Studio",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "ws": "^8.16.0",
+    "@sendgrid/mail": "^8.1.0"
+  }
 }
