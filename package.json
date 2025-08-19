@@ -20,7 +20,7 @@
   "author": "DrDr Studio",
   "license": "MIT",
   "dependencies": {
-    "ws": "^8.16.0",
-    "@sendgrid/mail": "^8.1.0"
+    "@sendgrid/mail": "^8.1.5",
+    "ws": "^8.18.3"
   }
 }
