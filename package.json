@@ -2,10 +2,10 @@
   "name": "mrp-intelligence-system",
   "version": "6.1.6",
   "description": "MRP Intelligence System v6.1.6 - REAL Implementation with all fixes deployed",
-  "main": "00_SYSTEM/api/real-mrp-v6-engine-fixed.js",
+  "main": "00_SYSTEM/api/real-mrp-v6-engine.js",
   "scripts": {
-    "start": "node 00_SYSTEM/api/real-mrp-v6-engine-fixed.js",
-    "start:real": "node 00_SYSTEM/api/real-mrp-v6-engine-fixed.js",
+    "start": "node 00_SYSTEM/api/real-mrp-v6-engine.js",
+    "start:real": "node 00_SYSTEM/api/real-mrp-v6-engine.js",
     "start:python": "python3 00_SYSTEM/api/full-mrp-server.py",
     "dev": "node 00_SYSTEM/api/enhanced-mrp-v6-engine.js",
     "test": "echo \"No tests configured\""

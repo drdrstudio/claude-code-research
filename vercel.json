@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "00_SYSTEM/api/real-mrp-v6-engine-fixed.js",
+      "src": "00_SYSTEM/api/real-mrp-v6-engine.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/mrp/(.*)",
-      "dest": "00_SYSTEM/api/real-mrp-v6-engine-fixed.js"
+      "dest": "00_SYSTEM/api/real-mrp-v6-engine.js"
     },
     {
       "src": "/(.*)",
-      "dest": "00_SYSTEM/api/real-mrp-v6-engine-fixed.js"
+      "dest": "00_SYSTEM/api/real-mrp-v6-engine.js"
     }
   ],
   "env": {

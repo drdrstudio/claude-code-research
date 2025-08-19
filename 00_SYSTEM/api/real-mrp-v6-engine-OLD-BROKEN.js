@@ -206,6 +206,8 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -260,7 +262,7 @@ class RealMRPEngine {
   async perplexityQuery(prompt) {
     return new Promise((resolve) => {
       const postData = JSON.stringify({
-        model: "llama-3.1-sonar-large-128k-online",
+        model: "sonar",
         messages: [
           {
             role: "system",
@@ -277,6 +279,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.perplexity.ai',
         path: '/chat/completions',
         method: 'POST',
@@ -343,6 +346,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.tavily.com',
         path: '/search',
         method: 'POST',
@@ -462,6 +466,7 @@ class RealMRPEngine {
       const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN}:${process.env.DATAFORSEO_PASSWORD}`).toString('base64');
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.dataforseo.com',
         path: '/v3/keywords_data/google_ads/search_volume/live',
         method: 'POST',
@@ -513,6 +518,7 @@ class RealMRPEngine {
       const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN}:${process.env.DATAFORSEO_PASSWORD}`).toString('base64');
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.dataforseo.com',
         path: '/v3/serp/google/organic/live/advanced',
         method: 'POST',
@@ -568,6 +574,7 @@ class RealMRPEngine {
       const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN}:${process.env.DATAFORSEO_PASSWORD}`).toString('base64');
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.dataforseo.com',
         path: '/v3/dataforseo_labs/google/competitors_domain/live',
         method: 'POST',
@@ -649,6 +656,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -776,6 +784,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -1051,6 +1060,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -1454,6 +1464,48 @@ const server = http.createServer(async (req, res) => {
       version: '6.1.2',
       implementation: 'REAL - All 6 phases with actual API calls',
       requirements: '40-50 sources minimum enforced'
+    }));
+    return;
+  }
+
+  // Debug endpoint to check environment variables
+  if (pathname === '/debug/env') {
+    res.writeHead(200, headers);
+    
+    // Get all environment variable names (no values for security)
+    const envNames = Object.keys(process.env).sort();
+    const apiKeyNames = envNames.filter(name => 
+      name.includes('API') || 
+      name.includes('KEY') || 
+      name.includes('SECRET') || 
+      name.includes('TOKEN') ||
+      name.includes('PASSWORD') ||
+      name.includes('LOGIN') ||
+      name.includes('FIRECRAWL') ||
+      name.includes('PERPLEXITY') ||
+      name.includes('TAVILY') ||
+      name.includes('DATAFORSEO') ||
+      name.includes('REDDIT') ||
+      name.includes('GEMINI')
+    );
+    
+    res.end(JSON.stringify({
+      firecrawl_available: !!process.env.FIRECRAWL_API_KEY,
+      perplexity_available: !!process.env.PERPLEXITY_API_KEY,
+      tavily_available: !!process.env.TAVILY_API_KEY,
+      dataforseo_login_available: !!process.env.DATAFORSEO_LOGIN,
+      dataforseo_password_available: !!process.env.DATAFORSEO_PASSWORD,
+      reddit_client_id_available: !!process.env.REDDIT_CLIENT_ID,
+      reddit_client_secret_available: !!process.env.REDDIT_CLIENT_SECRET,
+      gemini_available: !!process.env.GEMINI_API_KEY,
+      env_count: Object.keys(process.env).length,
+      all_env_names: envNames,
+      api_related_env_names: apiKeyNames,
+      railway_service_id: process.env.RAILWAY_SERVICE_ID,
+      railway_service_name: process.env.RAILWAY_SERVICE_NAME,
+      railway_project_id: process.env.RAILWAY_PROJECT_ID,
+      railway_environment: process.env.RAILWAY_ENVIRONMENT_NAME,
+      railway_deployment_id: process.env.RAILWAY_DEPLOYMENT_ID
     }));
     return;
   }
