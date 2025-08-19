@@ -1,45 +1,33 @@
 #!/bin/bash
 
-echo "🚀 Deploying MRP Intelligence System to Railway"
-echo "============================================="
+echo "🚀 Deploying Enhanced MRP v6.1.4 to Railway..."
 echo ""
-
-# Check if logged in
-if ! railway whoami > /dev/null 2>&1; then
-    echo "❌ Not logged in to Railway"
-    echo "Please run: railway login"
-    exit 1
-fi
-
-echo "✅ Logged in to Railway"
+echo "Since Railway isn't auto-deploying, please follow these steps:"
 echo ""
-
-# Initialize new project
-echo "📦 Creating new Railway project..."
-railway init -n mrp-intelligence
-
-# Link to the project
-echo "🔗 Project created and linked"
+echo "1. Go to Railway Dashboard: https://railway.app/dashboard"
 echo ""
-
-# Deploy
-echo "🚀 Starting deployment..."
-railway up --detach
-
+echo "2. Click on your project: 'mrp-intelligence-real'"
 echo ""
-echo "✅ Deployment initiated!"
+echo "3. Go to Settings tab"
 echo ""
-echo "📝 Next steps:"
-echo "1. Run: railway open"
-echo "   (This opens your project in the browser)"
+echo "4. Check these settings:"
+echo "   - GitHub Repo: Should be connected to 'drdrstudio/claude-code-research'"
+echo "   - Branch: Should be 'main'"  
+echo "   - Auto Deploy: Should be ENABLED"
 echo ""
-echo "2. Go to Variables tab and add:"
-echo "   GEMINI_API_KEY=your_key"
-echo "   FIRECRAWL_API_KEY=your_key"
-echo "   PERPLEXITY_API_KEY=your_key"
+echo "5. If GitHub is NOT connected:"
+echo "   - Click 'Connect GitHub'"
+echo "   - Select the repo 'claude-code-research'"
+echo "   - Choose branch 'main'"
 echo ""
-echo "3. Railway will provide your URL in the Settings tab"
+echo "6. To force deploy NOW:"
+echo "   - Go to Deployments tab"
+echo "   - Click the 3 dots on latest deployment"
+echo "   - Click 'Redeploy'"
 echo ""
-echo "4. Your app will be live at:"
-echo "   https://mrp-intelligence-production.up.railway.app"
-echo "   (or similar URL)"
+echo "The enhanced version includes:"
+echo "✅ Intake form on homepage"
+echo "✅ Real-time progress updates" 
+echo "✅ PDF download links"
+echo "✅ Email notifications"
+echo "✅ WebSocket support"
