@@ -44,6 +44,9 @@ const server = http.createServer(async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const pathname = parsedUrl.pathname;
 
+  // Set UTF-8 encoding for all responses
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+
   // CORS preflight
   if (req.method === 'OPTIONS') {
     res.writeHead(200, headers);
@@ -181,12 +184,14 @@ const server = http.createServer(async (req, res) => {
 
   // Enhanced HTML interface with real-time updates
   if (pathname === '/' || pathname === '/index.html') {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(`
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MRP Intelligence System v6.1.4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRP Intelligence System v6.1.5</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
