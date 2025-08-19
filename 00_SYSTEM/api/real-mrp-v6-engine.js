@@ -262,7 +262,7 @@ class RealMRPEngine {
   async perplexityQuery(prompt) {
     return new Promise((resolve) => {
       const postData = JSON.stringify({
-        model: "llama-3.1-sonar-large-128k-online",
+        model: "sonar",
         messages: [
           {
             role: "system",
