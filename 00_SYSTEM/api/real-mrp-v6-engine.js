@@ -1500,7 +1500,12 @@ const server = http.createServer(async (req, res) => {
       gemini_available: !!process.env.GEMINI_API_KEY,
       env_count: Object.keys(process.env).length,
       all_env_names: envNames,
-      api_related_env_names: apiKeyNames
+      api_related_env_names: apiKeyNames,
+      railway_service_id: process.env.RAILWAY_SERVICE_ID,
+      railway_service_name: process.env.RAILWAY_SERVICE_NAME,
+      railway_project_id: process.env.RAILWAY_PROJECT_ID,
+      railway_environment: process.env.RAILWAY_ENVIRONMENT_NAME,
+      railway_deployment_id: process.env.RAILWAY_DEPLOYMENT_ID
     }));
     return;
   }
