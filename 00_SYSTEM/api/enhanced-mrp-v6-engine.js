@@ -1228,6 +1228,7 @@ server.listen(PORT, () => {
 ║  ✅ WebSocket support for live updates                      ║
 ║  ✅ Beautiful web interface with phase tracking             ║
 ║  ✅ Time estimates and progress percentages                 ║
+║  ✅ Intake form for easy research initiation                ║
 ╠════════════════════════════════════════════════════════════╣
 ║  Server running at: http://localhost:${PORT}                    ║
 ║                                                              ║
