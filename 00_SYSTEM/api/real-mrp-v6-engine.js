@@ -206,6 +206,8 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -277,6 +279,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.perplexity.ai',
         path: '/chat/completions',
         method: 'POST',
@@ -343,6 +346,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.tavily.com',
         path: '/search',
         method: 'POST',
@@ -462,6 +466,7 @@ class RealMRPEngine {
       const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN}:${process.env.DATAFORSEO_PASSWORD}`).toString('base64');
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.dataforseo.com',
         path: '/v3/keywords_data/google_ads/search_volume/live',
         method: 'POST',
@@ -513,6 +518,7 @@ class RealMRPEngine {
       const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN}:${process.env.DATAFORSEO_PASSWORD}`).toString('base64');
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.dataforseo.com',
         path: '/v3/serp/google/organic/live/advanced',
         method: 'POST',
@@ -568,6 +574,7 @@ class RealMRPEngine {
       const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN}:${process.env.DATAFORSEO_PASSWORD}`).toString('base64');
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.dataforseo.com',
         path: '/v3/dataforseo_labs/google/competitors_domain/live',
         method: 'POST',
@@ -649,6 +656,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -776,6 +784,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
@@ -1051,6 +1060,7 @@ class RealMRPEngine {
       });
 
       const options = {
+        protocol: 'https:',
         hostname: 'api.firecrawl.dev',
         path: '/v1/search',
         method: 'POST',
