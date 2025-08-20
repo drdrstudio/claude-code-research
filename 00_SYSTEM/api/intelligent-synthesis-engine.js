@@ -88,12 +88,12 @@ class IntelligentSynthesisEngine {
       const url = source.url;
       const title = source.title || '';
       
-      // Extract monetary amounts
-      const moneyMatches = content.match(/\$[\d,]+(?:\.\d{2})?(?:\s*(?:million|billion|M|B))?/gi);
+      // Extract monetary amounts (including thousands with K)
+      const moneyMatches = content.match(/\$[\d,]+(?:\.\d{2})?(?:\s*(?:million|billion|thousand|M|B|K))?/gi);
       if (moneyMatches) {
         moneyMatches.forEach(match => {
           const amount = this.parseMoneyAmount(match);
-          if (amount > 1000000) { // Only track significant amounts
+          if (amount > 100000) { // Track amounts over $100K
             this.entities.financials.push({
               amount: amount,
               original: match,
@@ -232,6 +232,28 @@ class IntelligentSynthesisEngine {
             source: url,
             citation: citationId
           });
+        }
+      }
+      
+      // Extract political contributions and bundling
+      const politicalPatterns = /(?:bundled?|raised?|contributed?|donated?|fundrais|campaign|political|FEC|election)\s+(?:over\s+)?\$[\d,]+(?:K|thousand|million)?/gi;
+      let politicalMatch;
+      while ((politicalMatch = politicalPatterns.exec(content)) !== null) {
+        const context = this.extractContext(content, politicalMatch[0], 200);
+        const amountMatch = politicalMatch[0].match(/\$[\d,]+(?:K|thousand|million)?/);
+        if (amountMatch) {
+          const amount = this.parseMoneyAmount(amountMatch[0]);
+          if (amount > 10000) { // Political contributions over $10K
+            this.riskFactors.political += Math.min(2, amount / 100000); // Scale by amount
+            const citationId = this.addCitation(url, title);
+            this.findings.medium.push({
+              type: 'political',
+              finding: `Political contribution/bundling: ${amountMatch[0]}`,
+              details: context,
+              source: url,
+              citation: citationId
+            });
+          }
         }
       }
       

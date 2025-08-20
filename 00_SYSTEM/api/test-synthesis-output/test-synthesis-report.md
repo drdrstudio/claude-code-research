@@ -1,6 +1,6 @@
 # INTELLIGENT SYNTHESIS TEST REPORT
 
-Generated: 2025-08-20T03:32:50.246Z
+Generated: 2025-08-20T03:40:36.275Z
 
 ---
 
@@ -24,7 +24,7 @@ Generated: 2025-08-20T03:32:50.246Z
 - Significant financial exposure: $900 million[^1]
 
 ## INTELLIGENCE OVERVIEW
-- **Financial Exposure:** $1.7B across 3 items
+- **Financial Exposure:** $1.7B across 4 items
 - **Legal Matters:** 3 litigation references identified
 - **Positive Indicators:** 1 achievements/recognitions noted
 
@@ -62,6 +62,10 @@ Source: https://www.healthcarefinancenews.com/charter-bankruptcy
 ### 8. [HIGH] Significant financial exposure: $785 million
 Pharos Capital Group's SEC registration has been revoked as of 2024. The firm, founded by       Kneeland Youngblood in 1997, previously managed over $785 million in assets under management.       The revocation affects the firm's ability to raise funds from certain institutional investors.       No enforcement
 Source: https://www.sec.gov/edgar/pharos-capital
+
+### 9. [MEDIUM] Political contribution/bundling: $317,000
+Federal Election Commission records show that Kneeland Youngblood bundled over $317,000       for Hillary Clinton's presidential campaigns. Youngblood served as a major fundraiser for       the 2016 campaign, hosting events and coordinating donations from his network. He has also
+Source: https://www.fec.gov/data/contributions
 
 
 
@@ -103,7 +107,7 @@ Source: https://www.sec.gov/edgar/pharos-capital
 - $37 million[^2] - Charter Healthcare Files for Chapter 11 Bankruptcy
 
 ### Total Financial Exposure
-**$1.7B** across 3 identified items
+**$1.7B** across 4 identified items
 
 
 ---
@@ -119,9 +123,9 @@ Source: https://www.sec.gov/edgar/pharos-capital
   Context: "Charter Healthcare, a portfolio company of Pharos Capital Group, has filed for Chapter 11 bankruptcy       protection with $37 million in liabilities. The bankruptcy affects approximately 13,000 patie..."
 - Charter Healthcare Files for Chapter 11 Bankruptcy[^2]
   Context: "Charter Healthcare, a portfolio company of Pharos Capital Group, has filed for Chapter 11 bankruptcy       protection with $37 million in liabilities. The bankruptcy affects approximately 13,000 patie..."
-- Kneeland Youngblood: From Emergency Room to Boardroom[^4]
+- Kneeland Youngblood: From Emergency Room to Boardroom[^5]
   Context: "ntly serves on the boards of Light & Wonder Inc,       California Institute of Technology, and the Milken Institute. In 2022, he resigned from the board       of Mallinckrodt plc during the company's ..."
-- Pharos Capital Portfolio Company Struggles[^5]
+- Pharos Capital Portfolio Company Struggles[^6]
   Context: "Youngblood, has seen mixed results       across its 50+ portfolio company investments. Industry sources suggest the firm is having       difficulty raising new funds following the Charter Healthcare b..."
 
 
@@ -139,7 +143,7 @@ Source: https://www.sec.gov/edgar/pharos-capital
 | Financial | 10.0/10 | CRITICAL | $1.7B exposure |
 | Reputational | 0.0/10 | MINIMAL | Clean record |
 | Regulatory | 0.5/10 | MINIMAL | Agency mentions detected |
-| Political | 0.0/10 | MINIMAL | No political involvement |
+| Political | 2.0/10 | LOW | Political exposure identified |
 
 ### Risk Trajectory
 **Increasing** - Active issues requiring monitoring
@@ -153,7 +157,7 @@ Source: https://www.sec.gov/edgar/pharos-capital
 y giant ConocoPhillips,       seeking $900 million in damages related to ancestral land rights. The lawsuit, filed in federal court       in November 2023, claims that ConocoPhillips has been extracting resources from land that belonged       to Youngblood's ancestors. The case represents one of the lar[^1]
 
 ### 2022
-Dallas Country Club. He currently serves on the boards of Light & Wonder Inc,       California Institute of Technology, and the Milken Institute. In 2022, he resigned from the board       of Mallinckrodt plc during the company's bankruptcy proceedings related to opioid litigation.[^4]
+Dallas Country Club. He currently serves on the boards of Light & Wonder Inc,       California Institute of Technology, and the Milken Institute. In 2022, he resigned from the board       of Mallinckrodt plc during the company's bankruptcy proceedings related to opioid litigation.[^5]
 
 ### 2019
 comes amid broader challenges in the healthcare services sector.       Pharos Capital, led by Kneeland Youngblood, had acquired Charter Healthcare in 2019 as part of its       healthcare services investment strategy. This represents one of the most significant portfolio failures       for the Dallas-bas[^2]
@@ -182,9 +186,10 @@ comes amid broader challenges in the healthcare services sector.       Pharos Ca
 [^1]: Texas Businessman Sues ConocoPhillips for $900 Million - https://www.wsj.com/articles/conocophillips-lawsuit
 [^2]: Charter Healthcare Files for Chapter 11 Bankruptcy - https://www.healthcarefinancenews.com/charter-bankruptcy
 [^3]: SEC Registration Status - Pharos Capital Group - https://www.sec.gov/edgar/pharos-capital
-[^4]: Kneeland Youngblood: From Emergency Room to Boardroom - https://www.blackenterprise.com/youngblood-profile
-[^5]: Pharos Capital Portfolio Company Struggles - https://www.dallasnews.com/business/pharos-capital
+[^4]: FEC Political Contribution Records - https://www.fec.gov/data/contributions
+[^5]: Kneeland Youngblood: From Emergency Room to Boardroom - https://www.blackenterprise.com/youngblood-profile
+[^6]: Pharos Capital Portfolio Company Struggles - https://www.dallasnews.com/business/pharos-capital
 
 **Total Sources:** 6
 **Sources with Content:** 6
-**Unique Citations:** 5
+**Unique Citations:** 6

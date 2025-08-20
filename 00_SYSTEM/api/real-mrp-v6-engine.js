@@ -1064,28 +1064,37 @@ Comprehensive intelligence analysis of ${this.targetName} completed across 6 str
 
 // API Endpoints
 app.post('/api/mrp/research', async (req, res) => {
-  const { target, type = 'organization' } = req.body;
-  
-  if (!target) {
-    return res.status(400).json({ error: 'Target is required' });
+  try {
+    const { target, type = 'organization' } = req.body;
+    
+    if (!target) {
+      return res.status(400).json({ error: 'Target is required' });
+    }
+
+    console.log(`[API] Starting research for target: ${target}, type: ${type}`);
+    const engine = new EnhancedRealMRPEngine(target, type);
+    
+    // Start research asynchronously
+    engine.run().then(result => {
+      console.log('Research completed:', result);
+    }).catch(error => {
+      console.error('Research failed:', error);
+    });
+
+    // Return job ID immediately
+    res.json({
+      success: true,
+      jobId: engine.jobId,
+      message: 'Research started',
+      statusUrl: `/api/mrp/status/${engine.jobId}`
+    });
+  } catch (error) {
+    console.error('[API] Error starting research:', error);
+    res.status(500).json({ 
+      error: 'Failed to start research', 
+      details: error.message 
+    });
   }
-
-  const engine = new EnhancedRealMRPEngine(target, type);
-  
-  // Start research asynchronously
-  engine.run().then(result => {
-    console.log('Research completed:', result);
-  }).catch(error => {
-    console.error('Research failed:', error);
-  });
-
-  // Return job ID immediately
-  res.json({
-    success: true,
-    jobId: engine.jobId,
-    message: 'Research started',
-    statusUrl: `/api/mrp/status/${engine.jobId}`
-  });
 });
 
 app.get('/api/mrp/status/:jobId', (req, res) => {
