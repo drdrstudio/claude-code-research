@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRP Intelligence System - Research Status</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .status-container {
+            padding: 40px;
+        }
+
+        .status-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .status-title {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .status-badge {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .status-badge.running {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-badge.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .progress-section {
+            margin: 30px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-phase {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .progress-percentage {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .phase-list {
+            margin-top: 30px;
+        }
+
+        .phase-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .phase-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .phase-icon.pending {
+            background: #e0e0e0;
+            color: #999;
+        }
+
+        .phase-icon.active {
+            background: #fff3cd;
+            color: #856404;
+            animation: pulse 2s infinite;
+        }
+
+        .phase-icon.complete {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .phase-details {
+            flex: 1;
+        }
+
+        .phase-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .phase-status {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .logs-section {
+            margin-top: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .logs-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .log-entry {
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: start;
+        }
+
+        .log-time {
+            color: #667eea;
+            font-weight: 600;
+            margin-right: 10px;
+            min-width: 80px;
+        }
+
+        .log-message {
+            color: #555;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Research Status Monitor</h1>
+            <p id="jobIdDisplay">Job ID: Loading...</p>
+        </div>
+
+        <div class="status-container">
+            <!-- Main Status Card -->
+            <div class="status-card">
+                <div class="status-header">
+                    <h2 class="status-title" id="targetName">Loading Target...</h2>
+                    <span class="status-badge" id="statusBadge">Initializing</span>
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span class="progress-phase" id="currentPhase">Initializing...</span>
+                        <span class="progress-percentage" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Phase List -->
+                <div class="phase-list" id="phaseList">
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="1">📊</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Phase 1: Surface Intelligence</div>
+                            <div class="phase-status">Gathering 25+ sources</div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="2">💰</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Phase 2: Financial Intelligence</div>
+                            <div class="phase-status">Analyzing economic data</div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="3">⚖️</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Phase 3: Legal Intelligence</div>
+                            <div class="phase-status">Checking compliance records</div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="4">🔗</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Phase 4: Network Intelligence</div>
+                            <div class="phase-status">Mapping relationships</div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="5">⚠️</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Phase 5: Risk Assessment</div>
+                            <div class="phase-status">Analyzing vulnerabilities</div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="6">🎯</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Phase 6: Competitive Intelligence</div>
+                            <div class="phase-status">Market position analysis</div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-icon pending" data-phase="7">📝</div>
+                        <div class="phase-details">
+                            <div class="phase-name">Synthesis</div>
+                            <div class="phase-status">Creating final report</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Logs -->
+            <div class="logs-section">
+                <div class="logs-title">📋 Activity Log</div>
+                <div id="logsContainer">
+                    <div class="log-entry">
+                        <span class="log-time">--:--:--</span>
+                        <span class="log-message">Waiting for status updates...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="refreshStatus()">🔄 Refresh Status</button>
+                <button class="btn btn-secondary" onclick="window.location.href='/index.html'">📝 New Research</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get job ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('jobId') || localStorage.getItem('currentJobId');
+
+        if (!jobId) {
+            alert('No job ID specified. Redirecting to intake form...');
+            window.location.href = '/index.html';
+        }
+
+        // Display job ID
+        document.getElementById('jobIdDisplay').textContent = `Job ID: ${jobId}`;
+
+        // Phase progress mapping
+        const phaseProgress = {
+            'Phase 1: Surface Intelligence (25+ sources)': 15,
+            'Phase 2: Financial Intelligence (DataForSEO)': 30,
+            'Phase 3: Legal Intelligence': 45,
+            'Phase 4: Network Intelligence': 60,
+            'Phase 5: Risk Assessment (Sequential-Thinking)': 75,
+            'Phase 6: Competitive Intelligence (Reddit)': 90,
+            'Synthesis': 100
+        };
+
+        // Fetch and update status
+        async function fetchStatus() {
+            try {
+                const response = await fetch(`/api/mrp/status/${jobId}`);
+                if (!response.ok) throw new Error('Failed to fetch status');
+                
+                const data = await response.json();
+                updateDisplay(data);
+                
+                // Auto-refresh if still running
+                if (data.status === 'running') {
+                    setTimeout(fetchStatus, 5000); // Refresh every 5 seconds
+                }
+            } catch (error) {
+                console.error('Error fetching status:', error);
+                setTimeout(fetchStatus, 10000); // Retry in 10 seconds
+            }
+        }
+
+        function updateDisplay(data) {
+            // Update target name
+            document.getElementById('targetName').textContent = data.target || 'Unknown Target';
+            
+            // Update status badge
+            const statusBadge = document.getElementById('statusBadge');
+            statusBadge.textContent = data.status.toUpperCase();
+            statusBadge.className = `status-badge ${data.status}`;
+            
+            // Update progress
+            const progress = data.progress || 0;
+            document.getElementById('progressPercent').textContent = `${progress}%`;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('currentPhase').textContent = data.phase || 'Initializing...';
+            
+            // Update phase icons
+            updatePhaseIcons(data.phase, data.status);
+            
+            // Update logs
+            if (data.logs && data.logs.length > 0) {
+                const logsContainer = document.getElementById('logsContainer');
+                logsContainer.innerHTML = '';
+                
+                // Show last 10 logs
+                const recentLogs = data.logs.slice(-10).reverse();
+                recentLogs.forEach(log => {
+                    const logEntry = document.createElement('div');
+                    logEntry.className = 'log-entry';
+                    
+                    const time = new Date(log.time).toLocaleTimeString();
+                    logEntry.innerHTML = `
+                        <span class="log-time">${time}</span>
+                        <span class="log-message">${log.message}</span>
+                    `;
+                    logsContainer.appendChild(logEntry);
+                });
+            }
+            
+            // Show completion message
+            if (data.status === 'completed') {
+                showCompletionMessage(data);
+            }
+        }
+
+        function updatePhaseIcons(currentPhase, status) {
+            const phaseMap = {
+                'Phase 1: Surface Intelligence (25+ sources)': 1,
+                'Phase 2: Financial Intelligence (DataForSEO)': 2,
+                'Phase 3: Legal Intelligence': 3,
+                'Phase 4: Network Intelligence': 4,
+                'Phase 5: Risk Assessment (Sequential-Thinking)': 5,
+                'Phase 6: Competitive Intelligence (Reddit)': 6,
+                'Synthesis': 7
+            };
+            
+            const currentPhaseNum = phaseMap[currentPhase] || 0;
+            
+            document.querySelectorAll('.phase-icon').forEach(icon => {
+                const phaseNum = parseInt(icon.dataset.phase);
+                icon.className = 'phase-icon';
+                
+                if (status === 'completed') {
+                    icon.classList.add('complete');
+                } else if (phaseNum < currentPhaseNum) {
+                    icon.classList.add('complete');
+                } else if (phaseNum === currentPhaseNum) {
+                    icon.classList.add('active');
+                } else {
+                    icon.classList.add('pending');
+                }
+            });
+        }
+
+        function showCompletionMessage(data) {
+            const statusCard = document.querySelector('.status-card');
+            const completionDiv = document.createElement('div');
+            completionDiv.style.cssText = 'background: #d4edda; color: #155724; padding: 20px; border-radius: 10px; margin-top: 20px;';
+            completionDiv.innerHTML = `
+                <h3>✅ Research Complete!</h3>
+                <p>Your intelligence report has been generated successfully.</p>
+                <p>Project Path: <code>${data.projectPath || 'Available in system'}</code></p>
+                <button class="btn btn-primary" style="margin-top: 15px;" onclick="downloadReport()">📥 Download Report</button>
+            `;
+            statusCard.appendChild(completionDiv);
+        }
+
+        function refreshStatus() {
+            fetchStatus();
+        }
+
+        function downloadReport() {
+            // This would link to the actual report download
+            alert('Report download will be implemented with the report generation system.');
+        }
+
+        // Start fetching status
+        fetchStatus();
+    </script>
+</body>
+</html>
