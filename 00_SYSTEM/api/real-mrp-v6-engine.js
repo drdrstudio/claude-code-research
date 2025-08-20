@@ -39,6 +39,7 @@ class EnhancedRealMRPEngine {
     this.targetName = targetName;
     this.researchType = researchType;
     this.jobId = uuidv4();
+    this.isServerless = process.env.VERCEL === '1' || !!process.env.AWS_LAMBDA_FUNCTION_NAME;
     
     // Create project structure
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -107,6 +108,17 @@ class EnhancedRealMRPEngine {
     };
   }
 
+  // Safe file write that skips in serverless environments
+  safeWriteFile(filePath, content) {
+    if (!this.isServerless) {
+      try {
+        this.safeWriteFile(filePath, content);
+      } catch (error) {
+        console.warn(`[SERVERLESS] Skipped file write: ${filePath}`);
+      }
+    }
+  }
+
   updateProgress(phase, message) {
     jobs[this.jobId].phase = phase;
     jobs[this.jobId].progress = MRP_PHASES[phase] || 0;
@@ -119,6 +131,14 @@ class EnhancedRealMRPEngine {
   }
 
   createProjectStructure() {
+    // Skip directory creation in serverless environments (Vercel)
+    // Store everything in memory instead
+    if (process.env.VERCEL === '1' || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+      console.log('[SERVERLESS] Skipping directory creation - using in-memory storage');
+      this.isServerless = true;
+      return;
+    }
+
     const dirs = [
       this.projectPath,
       path.join(this.projectPath, '01_raw_search_results'),
@@ -145,7 +165,8 @@ class EnhancedRealMRPEngine {
       phases: Object.keys(MRP_PHASES)
     };
 
-    fs.writeFileSync(
+    // Write config file using safe method
+    this.safeWriteFile(
       path.join(this.projectPath, 'PROJECT_CONFIG.json'),
       JSON.stringify(config, null, 2)
     );
@@ -185,7 +206,7 @@ class EnhancedRealMRPEngine {
         `Collected ${this.results.surface.total_sources} sources`);
       
       // Save results
-      fs.writeFileSync(
+      this.safeWriteFile(
         path.join(this.projectPath, '01_raw_search_results', 'surface_intelligence.json'),
         JSON.stringify(this.results.surface, null, 2)
       );
@@ -593,7 +614,7 @@ class EnhancedRealMRPEngine {
       finalReport += intelligentReport.citations + '\n';
       
       // Save comprehensive final report
-      fs.writeFileSync(
+      this.safeWriteFile(
         path.join(this.projectPath, '05_synthesis', 'FINAL_REPORT.md'),
         finalReport
       );
@@ -624,7 +645,7 @@ class EnhancedRealMRPEngine {
       this.results.synthesis = synthesis;
       
       // Save comprehensive final report
-      fs.writeFileSync(
+      this.safeWriteFile(
         path.join(this.projectPath, '05_synthesis', 'FINAL_REPORT.md'),
         this.formatComprehensiveReport(synthesis)
       );
