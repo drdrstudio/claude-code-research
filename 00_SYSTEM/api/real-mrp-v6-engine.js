@@ -5,6 +5,9 @@ const path = require('path');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 
+// Import the Ground Truth Engine for real data collection
+const GroundTruthEngine = require('./ground-truth-engine');
+
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
@@ -178,32 +181,38 @@ class EnhancedRealMRPEngine {
       'Starting comprehensive baseline gathering - targeting 50+ sources');
     
     try {
-      // Run all search methods in parallel with proper promise handling
-      const results = await Promise.allSettled([
-        this.callFirecrawlDeepSearch(),
-        this.callPerplexityComprehensive(),
-        this.callTavilyExtensive(),
-        this.searchAdditionalSources()
-      ]);
-
-      // Log any failures but don't stop
-      results.forEach((result, index) => {
-        if (result.status === 'rejected') {
-          const methods = ['Firecrawl', 'Perplexity', 'Tavily', 'Additional'];
-          console.error(`${methods[index]} search failed:`, result.reason);
-        }
-      });
-
-      // Verify minimum source requirement
-      const totalSources = this.results.surface.total_sources;
-      if (totalSources < 25) {
-        this.updateProgress('Phase 1: Surface Intelligence (25+ sources)', 
-          `WARNING: Only ${totalSources} sources found. Expanding search...`);
-        await this.expandSurfaceSearch();
+      // Use Ground Truth Engine for real data collection
+      if (!this.groundTruthEngine) {
+        this.groundTruthEngine = new GroundTruthEngine(this.targetName, this.researchType);
       }
-
+      
+      // Execute real API calls through Ground Truth Engine
+      const surfaceResults = await this.groundTruthEngine.runSurfaceIntelligence(
+        (phase, message) => this.updateProgress(phase, message)
+      );
+      
+      // Store all collected sources
+      if (surfaceResults) {
+        // Combine all sources from different APIs
+        const allSources = [
+          ...(surfaceResults.firecrawl || []),
+          ...(surfaceResults.perplexity || []),
+          ...(surfaceResults.tavily || [])
+        ];
+        
+        this.results.surface.sources = allSources;
+        this.results.surface.firecrawl = surfaceResults.firecrawl || [];
+        this.results.surface.perplexity = surfaceResults.perplexity || [];
+        this.results.surface.tavily = surfaceResults.tavily || [];
+        this.results.surface.total_sources = surfaceResults.total_sources || allSources.length;
+        
+        // Add to global source collection
+        this.results.sources_collected = allSources.map(s => s.url).filter(url => url);
+        this.results.total_source_count = this.results.sources_collected.length;
+      }
+      
       this.updateProgress('Phase 1: Surface Intelligence (25+ sources)', 
-        `Collected ${this.results.surface.total_sources} sources`);
+        `Collected ${this.results.surface.total_sources} sources from Firecrawl, Perplexity, and Tavily`);
       
       // Save results
       this.safeWriteFile(
@@ -484,35 +493,149 @@ class EnhancedRealMRPEngine {
     }
   }
 
-  // Stub for remaining phases (to be implemented)
+  // PHASE 2: Financial Intelligence with Real DataForSEO API
   async runFinancialIntelligence() {
     this.updateProgress('Phase 2: Financial Intelligence (DataForSEO)',
       'Analyzing economic performance and financial exposures');
-    // Implementation continues...
+    
+    try {
+      if (!this.groundTruthEngine) {
+        this.groundTruthEngine = new GroundTruthEngine(this.targetName, this.researchType);
+      }
+      
+      const financialResults = await this.groundTruthEngine.runFinancialIntelligence(
+        (phase, message) => this.updateProgress(phase, message)
+      );
+      
+      if (financialResults) {
+        this.results.financial = financialResults;
+      }
+      
+      this.safeWriteFile(
+        path.join(this.projectPath, '03_extracted_data', 'financial_intelligence.json'),
+        JSON.stringify(this.results.financial, null, 2)
+      );
+    } catch (error) {
+      console.error('Phase 2 error:', error);
+      this.updateProgress('Phase 2: Financial Intelligence (DataForSEO)', 
+        `Error during financial intelligence: ${error.message}`);
+    }
   }
 
+  // PHASE 3: Legal Intelligence with Real Legal Searches
   async runLegalIntelligence() {
     this.updateProgress('Phase 3: Legal Intelligence',
       'Checking compliance and legal records');
-    // Implementation continues...
+    
+    try {
+      if (!this.groundTruthEngine) {
+        this.groundTruthEngine = new GroundTruthEngine(this.targetName, this.researchType);
+      }
+      
+      const legalResults = await this.groundTruthEngine.runLegalIntelligence(
+        (phase, message) => this.updateProgress(phase, message)
+      );
+      
+      if (legalResults) {
+        this.results.legal = legalResults;
+      }
+      
+      this.safeWriteFile(
+        path.join(this.projectPath, '03_extracted_data', 'legal_intelligence.json'),
+        JSON.stringify(this.results.legal, null, 2)
+      );
+    } catch (error) {
+      console.error('Phase 3 error:', error);
+      this.updateProgress('Phase 3: Legal Intelligence', 
+        `Error during legal intelligence: ${error.message}`);
+    }
   }
 
+  // PHASE 4: Network Intelligence with Real Relationship Mapping
   async runNetworkIntelligence() {
     this.updateProgress('Phase 4: Network Intelligence',
       'Mapping professional relationships');
-    // Implementation continues...
+    
+    try {
+      if (!this.groundTruthEngine) {
+        this.groundTruthEngine = new GroundTruthEngine(this.targetName, this.researchType);
+      }
+      
+      const networkResults = await this.groundTruthEngine.runNetworkIntelligence(
+        (phase, message) => this.updateProgress(phase, message)
+      );
+      
+      if (networkResults) {
+        this.results.network = networkResults;
+      }
+      
+      this.safeWriteFile(
+        path.join(this.projectPath, '03_extracted_data', 'network_intelligence.json'),
+        JSON.stringify(this.results.network, null, 2)
+      );
+    } catch (error) {
+      console.error('Phase 4 error:', error);
+      this.updateProgress('Phase 4: Network Intelligence', 
+        `Error during network intelligence: ${error.message}`);
+    }
   }
 
+  // PHASE 5: Risk Assessment with Real Vulnerability Analysis
   async runRiskAssessment() {
     this.updateProgress('Phase 5: Risk Assessment (Sequential-Thinking)',
       'Analyzing vulnerabilities');
-    // Implementation continues...
+    
+    try {
+      if (!this.groundTruthEngine) {
+        this.groundTruthEngine = new GroundTruthEngine(this.targetName, this.researchType);
+      }
+      
+      const riskResults = await this.groundTruthEngine.runRiskAssessment(
+        (phase, message) => this.updateProgress(phase, message)
+      );
+      
+      if (riskResults) {
+        this.results.risk = riskResults;
+      }
+      
+      this.safeWriteFile(
+        path.join(this.projectPath, '03_extracted_data', 'risk_assessment.json'),
+        JSON.stringify(this.results.risk, null, 2)
+      );
+    } catch (error) {
+      console.error('Phase 5 error:', error);
+      this.updateProgress('Phase 5: Risk Assessment (Sequential-Thinking)', 
+        `Error during risk assessment: ${error.message}`);
+    }
   }
 
+  // PHASE 6: Competitive Intelligence with Real Sentiment Analysis
   async runCompetitiveIntelligence() {
     this.updateProgress('Phase 6: Competitive Intelligence (Reddit)',
       'Analyzing market position');
-    // Implementation continues...
+    
+    try {
+      if (!this.groundTruthEngine) {
+        this.groundTruthEngine = new GroundTruthEngine(this.targetName, this.researchType);
+      }
+      
+      const competitiveResults = await this.groundTruthEngine.runCompetitiveIntelligence(
+        (phase, message) => this.updateProgress(phase, message)
+      );
+      
+      if (competitiveResults) {
+        this.results.competitive = competitiveResults;
+      }
+      
+      this.safeWriteFile(
+        path.join(this.projectPath, '03_extracted_data', 'competitive_intelligence.json'),
+        JSON.stringify(this.results.competitive, null, 2)
+      );
+    } catch (error) {
+      console.error('Phase 6 error:', error);
+      this.updateProgress('Phase 6: Competitive Intelligence (Reddit)', 
+        `Error during competitive intelligence: ${error.message}`);
+    }
   }
 
   async generateSynthesis() {

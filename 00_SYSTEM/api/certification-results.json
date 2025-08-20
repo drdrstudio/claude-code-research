@@ -1,0 +1,64 @@
+{
+  "timestamp": "2025-08-20T04:41:46.755Z",
+  "target": "Bob Crants Pharos",
+  "jobId": "80248a0a-3a38-4437-b629-a87527a8996a",
+  "passed": true,
+  "status": {
+    "id": "80248a0a-3a38-4437-b629-a87527a8996a",
+    "status": "completed",
+    "phase": "Synthesis",
+    "progress": 100,
+    "target": "Bob Crants Pharos",
+    "type": "organization",
+    "projectPath": "/var/task/03_PROJECTS/Research_organization_Bob_Crants_Pharos_2025-08-20T04-41-46-665Z",
+    "startTime": "2025-08-20T04:41:46.668Z",
+    "logs": [
+      {
+        "time": "2025-08-20T04:41:46.669Z",
+        "phase": "Phase 1: Surface Intelligence (25+ sources)",
+        "message": "Starting comprehensive baseline gathering - targeting 50+ sources"
+      },
+      {
+        "time": "2025-08-20T04:41:46.687Z",
+        "phase": "Phase 1: Surface Intelligence (25+ sources)",
+        "message": "WARNING: Only 0 sources found. Expanding search..."
+      },
+      {
+        "time": "2025-08-20T04:41:46.688Z",
+        "phase": "Phase 1: Surface Intelligence (25+ sources)",
+        "message": "Collected 0 sources"
+      },
+      {
+        "time": "2025-08-20T04:41:46.689Z",
+        "phase": "Phase 2: Financial Intelligence (DataForSEO)",
+        "message": "Analyzing economic performance and financial exposures"
+      },
+      {
+        "time": "2025-08-20T04:41:46.689Z",
+        "phase": "Phase 3: Legal Intelligence",
+        "message": "Checking compliance and legal records"
+      },
+      {
+        "time": "2025-08-20T04:41:46.689Z",
+        "phase": "Phase 4: Network Intelligence",
+        "message": "Mapping professional relationships"
+      },
+      {
+        "time": "2025-08-20T04:41:46.690Z",
+        "phase": "Phase 5: Risk Assessment (Sequential-Thinking)",
+        "message": "Analyzing vulnerabilities"
+      },
+      {
+        "time": "2025-08-20T04:41:46.690Z",
+        "phase": "Phase 6: Competitive Intelligence (Reddit)",
+        "message": "Analyzing market position"
+      },
+      {
+        "time": "2025-08-20T04:41:46.690Z",
+        "phase": "Synthesis",
+        "message": "Creating comprehensive intelligence report using Youngblood Protocol"
+      }
+    ],
+    "endTime": "2025-08-20T04:41:46.725Z"
+  }
+}
