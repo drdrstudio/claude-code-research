@@ -1134,6 +1134,44 @@ app.get('/api/mrp/health', (req, res) => {
   });
 });
 
+// Debug endpoint to test module loading and error details
+app.get('/api/mrp/debug', (req, res) => {
+  const debug = {
+    environment: process.env.NODE_ENV,
+    cwd: process.cwd(),
+    dirname: __dirname,
+    nodeVersion: process.version,
+    memoryUsage: process.memoryUsage(),
+    synthesisEngineTest: 'not-tested',
+    engineClassTest: 'not-tested',
+    errorDetails: null
+  };
+
+  // Test if IntelligentSynthesisEngine can be loaded
+  try {
+    const TestEngine = require('./intelligent-synthesis-engine');
+    debug.synthesisEngineTest = TestEngine ? 'loaded-successfully' : 'module-empty';
+  } catch (error) {
+    debug.synthesisEngineTest = 'load-failed';
+    debug.errorDetails = {
+      synthesis: error.message,
+      stack: error.stack?.split('\n').slice(0, 3)
+    };
+  }
+
+  // Test if EnhancedRealMRPEngine class is defined
+  try {
+    const testEngine = new EnhancedRealMRPEngine('test', 'organization');
+    debug.engineClassTest = testEngine ? 'instantiated' : 'failed';
+  } catch (error) {
+    debug.engineClassTest = 'instantiation-failed';
+    if (!debug.errorDetails) debug.errorDetails = {};
+    debug.errorDetails.engine = error.message;
+  }
+
+  res.json(debug);
+});
+
 // Debug endpoint
 app.get('/api/mrp/debug-env', (req, res) => {
   const envVars = Object.keys(process.env);
